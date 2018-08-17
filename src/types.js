@@ -45,27 +45,31 @@ export type LineInputProps = {
   key?: Key,
   style?: StyleObj,
   className?: string,
-  line: Token[]
+  line: Token[],
+  [key: string]: mixed
 }
 
 export type LineOutputProps = {
   key?: Key,
   style?: StyleObj,
-  className: string
+  className: string,
+  [key: string]: mixed
 }
 
 export type TokenInputProps = {
   key?: Key,
   style?: StyleObj,
   className?: string,
-  token: Token
+  token: Token,
+  [key: string]: mixed
 }
 
 export type TokenOutputProps = {
   key?: Key,
   style?: StyleObj,
   className: string,
-  children: string
+  children: string,
+  [key: string]: mixed
 }
 
 export type RenderProps = {

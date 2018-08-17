@@ -40,11 +40,13 @@ class Highlight extends Component<Props, *> {
     className,
     style,
     line,
+    ...rest
   }: LineInputProps): LineOutputProps => {
     const output: LineOutputProps = {
+      ...rest,
       className: "token-line",
       style: undefined,
-      key: undefined
+      key: undefined,
     }
 
     if (this.themeDict !== undefined) {
@@ -67,7 +69,7 @@ class Highlight extends Component<Props, *> {
 
     if (this.themeDict === undefined) {
       return undefined
-    } else if (typesSize === 1 && types[0] === 'plain') {
+    } else if (typesSize === 1 && types[0] === "plain") {
       return undefined
     } else if (typesSize === 1) {
       return this.themeDict[types[0]]
@@ -75,16 +77,18 @@ class Highlight extends Component<Props, *> {
 
     // $FlowFixMe
     return Object.assign({}, ...types.map(type => this.themeDict[type]))
-  };
+  }
 
   getTokenProps = ({
     key,
     className,
     style,
     token,
+    ...rest
   }: TokenInputProps): TokenOutputProps => {
     const output: TokenOutputProps = {
-      className: `token ${token.types.join(' ')}`,
+      ...rest,
+      className: `token ${token.types.join(" ")}`,
       children: token.content,
       style: this.getStyleForTypes(token.types),
       key: undefined,
