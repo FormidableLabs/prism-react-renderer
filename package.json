@@ -1,0 +1,24 @@
+{
+  "name": "react-prism-renderer",
+  "version": "0.1.0",
+  "description": "Renders highlighted Prism output using React",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build:lib": "babel --out-dir lib src"
+  },
+  "babel": {
+    "presets": [
+      ["@babel/preset-env", { "loose": true }]
+    ],
+    "plugins": ["babel-plugin-macros"]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-rc.1",
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "babel-plugin-macros": "^2.4.0",
+    "codegen.macro": "^3.0.0",
+    "prismjs": "^1.15.0"
+  }
+}
