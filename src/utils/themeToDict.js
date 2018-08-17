@@ -3,6 +3,7 @@
 import type { Language, StyleObj, PrismTheme, PrismThemeEntry } from "../types"
 
 export type ThemeDict = {
+  root: StyleObj,
   plain: StyleObj,
   [type: string]: StyleObj,
 }
@@ -27,7 +28,9 @@ const themeToDict = (theme: PrismTheme, language: Language): ThemeDict => {
   }, {})
 
   // $FlowFixMe
-  themeDict.plain = (plain: StyleObj)
+  themeDict.root = (plain: StyleObj)
+  // $FlowFixMe
+  themeDict.plain = ({ ...plain, backgroundColor: null }: StyleObj)
 
   return themeDict
 }

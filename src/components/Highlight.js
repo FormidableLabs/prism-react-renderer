@@ -100,6 +100,7 @@ class Highlight extends Component<Props, *> {
     return children({
       tokens,
       className: `prism-code language-${language}`,
+      style: this.themeDict ? this.themeDict.root : {},
       getLineProps: this.getLineProps,
       getTokenProps: this.getTokenProps,
     })
