@@ -1,8 +1,8 @@
 // @flow
 
-import type { PrismToken, Token } from '../types'
+import type { PrismToken, Token } from "../types";
 
-const newlineRe = /\r\n|\r|\n/
+const newlineRe = /\r\n|\r|\n/;
 
 // Takes an array of Prism's tokens and groups them by line, turning plain
 // strings into tokens as well. Tokens can become recursive in some cases,
@@ -23,53 +23,55 @@ const normalizeTokens = (tokens: Array<PrismToken | string>): Token[][] => {
   const acc = [currentLine];
 
   while (stackIndex > -1) {
-    while ((i = tokenArrIndexStack[stackIndex]++) < tokenArrSizeStack[stackIndex]) {
-      let content
+    while (
+      (i = tokenArrIndexStack[stackIndex]++) < tokenArrSizeStack[stackIndex]
+    ) {
+      let content;
       let types = typeArrStack[stackIndex];
       const tokenArr = tokenArrStack[stackIndex];
-      const token = tokenArr[i]
+      const token = tokenArr[i];
 
       // Determine content and append type to types if necessary
-      if (typeof token === 'string') {
-        types = ['plain']
-        content = token
+      if (typeof token === "string") {
+        types = ["plain"];
+        content = token;
       } else {
-        types = types.concat(token.type)
-        content = token.content
+        types = types.concat(token.type);
+        content = token.content;
       }
 
       // If token.content is an array, increase the stack depth and repeat this while-loop
-      if (typeof content !== 'string') {
-        stackIndex++
-        typeArrStack.push(types)
-        tokenArrStack.push(content)
-        tokenArrIndexStack.push(0)
-        tokenArrSizeStack.push(content.length)
-        continue
+      if (typeof content !== "string") {
+        stackIndex++;
+        typeArrStack.push(types);
+        tokenArrStack.push(content);
+        tokenArrIndexStack.push(0);
+        tokenArrSizeStack.push(content.length);
+        continue;
       }
 
       // Split by newlines
-      const splitByNewlines = content.split(newlineRe)
-      const newlineCount = splitByNewlines.length
+      const splitByNewlines = content.split(newlineRe);
+      const newlineCount = splitByNewlines.length;
 
-      currentLine.push({ types, content: splitByNewlines[0] })
+      currentLine.push({ types, content: splitByNewlines[0] });
 
       // Create a new line for each string on a new line
       for (let i = 1; i < newlineCount; i++) {
-        acc.push((currentLine = []))
-        currentLine.push({ types, content: splitByNewlines[i] })
+        acc.push((currentLine = []));
+        currentLine.push({ types, content: splitByNewlines[i] });
       }
     }
 
     // Decreate the stack depth
-    stackIndex--
-    typeArrStack.pop()
-    tokenArrStack.pop()
-    tokenArrIndexStack.pop()
-    tokenArrSizeStack.pop()
+    stackIndex--;
+    typeArrStack.pop();
+    tokenArrStack.pop();
+    tokenArrIndexStack.pop();
+    tokenArrSizeStack.pop();
   }
 
-  return acc
-}
+  return acc;
+};
 
-export default normalizeTokens
+export default normalizeTokens;

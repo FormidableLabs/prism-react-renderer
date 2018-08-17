@@ -1,38 +1,38 @@
 // @flow
 
-import type { Language, StyleObj, PrismTheme, PrismThemeEntry } from "../types"
+import type { Language, StyleObj, PrismTheme, PrismThemeEntry } from "../types";
 
 export type ThemeDict = {
   root: StyleObj,
   plain: StyleObj,
-  [type: string]: StyleObj,
-}
+  [type: string]: StyleObj
+};
 
 const themeToDict = (theme: PrismTheme, language: Language): ThemeDict => {
-  const { plain } = theme
+  const { plain } = theme;
 
   const themeDict = theme.styles.reduce((acc, themeEntry) => {
-    const { types, languages, style } = themeEntry
+    const { types, languages, style } = themeEntry;
     if (languages && !languages.includes(language)) {
-      return acc
+      return acc;
     }
 
     themeEntry.types.forEach(type => {
       // $FlowFixMe
-      const accStyle: StyleObj = { ...acc[type], ...style }
+      const accStyle: StyleObj = { ...acc[type], ...style };
 
-      acc[type] = accStyle
-    })
+      acc[type] = accStyle;
+    });
 
-    return acc
-  }, {})
+    return acc;
+  }, {});
 
   // $FlowFixMe
-  themeDict.root = (plain: StyleObj)
+  themeDict.root = (plain: StyleObj);
   // $FlowFixMe
-  themeDict.plain = ({ ...plain, backgroundColor: null }: StyleObj)
+  themeDict.plain = ({ ...plain, backgroundColor: null }: StyleObj);
 
-  return themeDict
-}
+  return themeDict;
+};
 
-export default themeToDict
+export default themeToDict;

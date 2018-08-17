@@ -6,82 +6,97 @@
 
 /*:: import type { PrismTheme } from '../src/types' */
 
-var theme/*: PrismTheme */ = {
+var theme /*: PrismTheme */ = {
   plain: {
-    backgroundColor: '#2a2734',
-    color: '#9a86fd'
+    backgroundColor: "#2a2734",
+    color: "#9a86fd"
   },
   styles: [
     {
-      types: ['comment', 'prolog', 'doctype', 'cdata', 'punctuation'],
+      types: ["comment", "prolog", "doctype", "cdata", "punctuation"],
       style: {
-        color: '#6c6783'
+        color: "#6c6783"
       }
     },
     {
-      types: ['namespace'],
+      types: ["namespace"],
       style: {
         opacity: 0.7
       }
     },
     {
-      types: ['tag', 'operator', 'number'],
+      types: ["tag", "operator", "number"],
       style: {
-        color: '#e09142'
+        color: "#e09142"
       }
     },
     {
-      types: ['property', 'function'],
+      types: ["property", "function"],
       style: {
-        color: '#9a86fd'
+        color: "#9a86fd"
       }
     },
     {
-      types: ['tag-id', 'selector', 'atrule-id'],
+      types: ["tag-id", "selector", "atrule-id"],
       style: {
-        color: '#eeebff'
+        color: "#eeebff"
       }
     },
     {
-      types: ['attr-name'],
+      types: ["attr-name"],
       style: {
-        color: '#c4b9fe'
+        color: "#c4b9fe"
       }
     },
     {
-      types: ['boolean', 'string', 'entity', 'url', 'attr-value', 'keyword', 'control', 'directive', 'unit', 'statement', 'regex', 'at-rule', 'placeholder', 'variable'],
+      types: [
+        "boolean",
+        "string",
+        "entity",
+        "url",
+        "attr-value",
+        "keyword",
+        "control",
+        "directive",
+        "unit",
+        "statement",
+        "regex",
+        "at-rule",
+        "placeholder",
+        "variable"
+      ],
       style: {
-        color: '#ffcc99'
+        color: "#ffcc99"
       }
     },
     {
-      types: ['deleted'],
+      types: ["deleted"],
       style: {
-        textDecorationLine: 'line-through'
+        textDecorationLine: "line-through"
       }
     },
     {
-      types: ['inserted'],
+      types: ["inserted"],
       style: {
-        textDecorationLine: 'underline'
+        textDecorationLine: "underline"
       }
     },
     {
-      types: ['italic'],
+      types: ["italic"],
       style: {
-        fontStyle: 'italic'
+        fontStyle: "italic"
       }
     },
     {
-      types: ['important', 'bold'],
+      types: ["important", "bold"],
       style: {
-        fontWeight: 'bold'
+        fontWeight: "bold"
       }
     },
     {
-      types: ['important'],
+      types: ["important"],
       style: {
-        color: '#c4b9fe'
+        color: "#c4b9fe"
       }
     }
   ]

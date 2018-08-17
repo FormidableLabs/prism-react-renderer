@@ -1,8 +1,8 @@
 // @flow
 
-import React, { Component, type Node } from "react"
-import normalizeTokens from "../utils/normalizeTokens"
-import themeToDict, { type ThemeDict } from "../utils/themeToDict"
+import React, { Component, type Node } from "react";
+import normalizeTokens from "../utils/normalizeTokens";
+import themeToDict, { type ThemeDict } from "../utils/themeToDict";
 
 import type {
   Language,
@@ -13,25 +13,25 @@ import type {
   TokenOutputProps,
   RenderProps,
   PrismLib,
-  PrismTheme,
-} from "../types"
+  PrismTheme
+} from "../types";
 
 type Props = {
   Prism: PrismLib,
   theme?: PrismTheme,
   language: Language,
   code: string,
-  children: (props: RenderProps) => Node,
-}
+  children: (props: RenderProps) => Node
+};
 
 class Highlight extends Component<Props, *> {
-  themeDict: ThemeDict | void
+  themeDict: ThemeDict | void;
 
   constructor(props: Props) {
-    super(props)
+    super(props);
 
     if (props.theme) {
-      this.themeDict = themeToDict(props.theme, props.language)
+      this.themeDict = themeToDict(props.theme, props.language);
     }
   }
 
@@ -46,38 +46,38 @@ class Highlight extends Component<Props, *> {
       ...rest,
       className: "token-line",
       style: undefined,
-      key: undefined,
-    }
+      key: undefined
+    };
 
     if (this.themeDict !== undefined) {
-      output.style = this.themeDict.plain
+      output.style = this.themeDict.plain;
     }
 
     if (style !== undefined) {
       output.style =
-        output.style !== undefined ? { ...output.style, ...style } : style
+        output.style !== undefined ? { ...output.style, ...style } : style;
     }
 
-    if (key !== undefined) output.key = key
-    if (className) output.className += ` ${className}`
+    if (key !== undefined) output.key = key;
+    if (className) output.className += ` ${className}`;
 
-    return output
-  }
+    return output;
+  };
 
   getStyleForTypes = (types: string[]) => {
-    const typesSize = types.length
+    const typesSize = types.length;
 
     if (this.themeDict === undefined) {
-      return undefined
+      return undefined;
     } else if (typesSize === 1 && types[0] === "plain") {
-      return undefined
+      return undefined;
     } else if (typesSize === 1) {
-      return this.themeDict[types[0]]
+      return this.themeDict[types[0]];
     }
 
     // $FlowFixMe
-    return Object.assign({}, ...types.map(type => this.themeDict[type]))
-  }
+    return Object.assign({}, ...types.map(type => this.themeDict[type]));
+  };
 
   getTokenProps = ({
     key,
@@ -91,35 +91,35 @@ class Highlight extends Component<Props, *> {
       className: `token ${token.types.join(" ")}`,
       children: token.content,
       style: this.getStyleForTypes(token.types),
-      key: undefined,
-    }
+      key: undefined
+    };
 
     if (style !== undefined) {
       output.style =
-        output.style !== undefined ? { ...output.style, ...style } : style
+        output.style !== undefined ? { ...output.style, ...style } : style;
     }
 
-    if (key !== undefined) output.key = key
-    if (className) output.className += ` ${className}`
+    if (key !== undefined) output.key = key;
+    if (className) output.className += ` ${className}`;
 
-    return output
-  }
+    return output;
+  };
 
   render() {
-    const { Prism, language, code, children } = this.props
+    const { Prism, language, code, children } = this.props;
 
-    const grammar = Prism.languages[language]
-    const mixedTokens = Prism.tokenize(code, grammar, language)
-    const tokens = normalizeTokens(mixedTokens)
+    const grammar = Prism.languages[language];
+    const mixedTokens = Prism.tokenize(code, grammar, language);
+    const tokens = normalizeTokens(mixedTokens);
 
     return children({
       tokens,
       className: `prism-code language-${language}`,
       style: this.themeDict ? this.themeDict.root : {},
       getLineProps: this.getLineProps,
-      getTokenProps: this.getTokenProps,
-    })
+      getTokenProps: this.getTokenProps
+    });
   }
 }
 
-export default Highlight
+export default Highlight;
