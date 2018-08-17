@@ -1,0 +1,284 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Highlight /> snapshots renders correctly 1`] = `
+<div>
+  <pre
+    class="prism-code language-jsx"
+    style="background-color: rgb(42, 39, 52); color: rgb(154, 134, 253);"
+  >
+    <div
+      class="token-line"
+      style="color: rgb(154, 134, 253);"
+    >
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        (
+      </span>
+      <span
+        class="token keyword"
+        style="color: rgb(255, 204, 153);"
+      >
+        function
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token function"
+        style="color: rgb(154, 134, 253);"
+      >
+        someDemo
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        (
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        )
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        {
+      </span>
+      <span
+        class="token plain"
+      />
+    </div>
+    <div
+      class="token-line"
+      style="color: rgb(154, 134, 253);"
+    >
+      <span
+        class="token plain"
+      >
+          
+      </span>
+      <span
+        class="token keyword"
+        style="color: rgb(255, 204, 153);"
+      >
+        var
+      </span>
+      <span
+        class="token plain"
+      >
+         test 
+      </span>
+      <span
+        class="token operator"
+        style="color: rgb(224, 145, 66);"
+      >
+        =
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token string"
+        style="color: rgb(255, 204, 153);"
+      >
+        "Hello World!"
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        ;
+      </span>
+      <span
+        class="token plain"
+      />
+    </div>
+    <div
+      class="token-line"
+      style="color: rgb(154, 134, 253);"
+    >
+      <span
+        class="token plain"
+      >
+          console
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        .
+      </span>
+      <span
+        class="token function"
+        style="color: rgb(154, 134, 253);"
+      >
+        log
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        (
+      </span>
+      <span
+        class="token plain"
+      >
+        test
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        )
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        ;
+      </span>
+      <span
+        class="token plain"
+      />
+    </div>
+    <div
+      class="token-line"
+      style="color: rgb(154, 134, 253);"
+    >
+      <span
+        class="token plain"
+      />
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        }
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        )
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        (
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        )
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        ;
+      </span>
+      <span
+        class="token plain"
+      />
+    </div>
+    <div
+      class="token-line"
+      style="color: rgb(154, 134, 253);"
+    >
+      <span
+        class="token plain"
+      />
+    </div>
+    <div
+      class="token-line"
+      style="color: rgb(154, 134, 253);"
+    >
+      <span
+        class="token plain"
+      />
+      <span
+        class="token keyword"
+        style="color: rgb(255, 204, 153);"
+      >
+        return
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        (
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        )
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token operator"
+        style="color: rgb(224, 145, 66);"
+      >
+        =&gt;
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token tag tag punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        &lt;
+      </span>
+      <span
+        class="token plain"
+      >
+        App
+      </span>
+      <span
+        class="token plain"
+      >
+         
+      </span>
+      <span
+        class="token tag punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        /&gt;
+      </span>
+      <span
+        class="token punctuation"
+        style="color: rgb(108, 103, 131);"
+      >
+        ;
+      </span>
+    </div>
+  </pre>
+</div>
+`;
