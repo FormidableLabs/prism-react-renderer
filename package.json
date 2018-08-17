@@ -14,7 +14,10 @@
   "scripts": {
     "build": "run-s build:lib build:es",
     "build:lib": "cross-env BABEL_ENV=cjs babel --out-dir lib src",
-    "build:es": "cross-env BABEL_ENV=es babel --out-dir es src"
+    "build:es": "cross-env BABEL_ENV=es babel --out-dir es src",
+    "flow": "flow check",
+    "format": "prettier --write src/**/*.js themes/**/*.js",
+    "prepublishOnly": "run-p check build"
   },
   "babel": {
     "env": {
