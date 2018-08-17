@@ -11,7 +11,7 @@ codegen`
   const { languages } = require('prismjs/components')
   const prismPath = dirname(require.resolve('prismjs'))
 
-  let output = ''
+  let output = '/* This content is auto-generated to include some prismjs language components: */\\n'
 
   const toDependencies = arr => {
     if (typeof arr === 'string') {
