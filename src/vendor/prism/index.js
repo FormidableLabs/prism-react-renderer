@@ -9,9 +9,7 @@ codegen`
   const { readFileSync } = require('fs')
   const { dirname, join } = require('path')
   const { languages } = require('prismjs/components')
-
   const prismPath = dirname(require.resolve('prismjs'))
-  const languageKeys = Object.keys(languages).filter(lang => lang !== 'meta')
 
   let output = ''
 
@@ -34,12 +32,14 @@ codegen`
   const visitedLanguages = {}
 
   const visitLanguage = (language, langEntry) => {
+    // Mark language as visited or return if it was
     if (visitedLanguages[language]) {
       return
     } else {
       visitedLanguages[language] = true
     }
 
+    // Required dependencies come before the actual language
     const required = toDependencies(langEntry.require)
 
     if (Array.isArray(required)) {
@@ -52,8 +52,10 @@ codegen`
       })
     }
 
+    // Add current language to output
     addLanguageToOutput(language)
 
+    // Peer dependencies come after the actual language
     const peerDependencies = toDependencies(langEntry.peerDependencies)
 
     if (Array.isArray(peerDependencies)) {
@@ -67,7 +69,10 @@ codegen`
     }
   };
 
-  languageKeys.forEach(language => {
+  // This json defines which languages to include
+  const includedLangs = require('./includeLangs.json')
+
+  includedLangs.forEach(language => {
     visitLanguage(language, languages[language])
   })
 
