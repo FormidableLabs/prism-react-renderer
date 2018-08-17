@@ -29,7 +29,6 @@ class Highlight extends Component<Props, *> {
 
   constructor(props: Props) {
     super(props);
-
     if (props.theme) {
       this.themeDict = themeToDict(props.theme, props.language);
     }
