@@ -1,10 +1,16 @@
 {
-  "name": "react-prism-renderer",
+  "name": "prism-react-renderer",
   "version": "0.0.1",
   "description": "Renders highlighted Prism output using React",
   "main": "lib/index.js",
   "module": "es/index.js",
   "license": "MIT",
+  "files": [
+    "src",
+    "es",
+    "lib",
+    "themes"
+  ],
   "scripts": {
     "build": "run-s build:lib build:es",
     "build:lib": "cross-env BABEL_ENV=cjs babel --out-dir lib src",
