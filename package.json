@@ -17,7 +17,7 @@
     "build:es": "cross-env BABEL_ENV=es babel --out-dir es src",
     "flow": "flow check",
     "format": "prettier --write src/**/*.js themes/**/*.js",
-    "prepublishOnly": "run-p check build"
+    "prepublishOnly": "run-p flow build"
   },
   "babel": {
     "env": {
