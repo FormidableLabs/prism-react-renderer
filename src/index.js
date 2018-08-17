@@ -1,7 +1,12 @@
+// @flow
+
 import * as Prism from './vendor/prism'
-import { tokenize } from './tokenize'
+import defaultProps from './defaultProps'
+import Highlight from './components/Highlight'
 
 export {
-  tokenize,
-  Prism
+  Prism,
+  defaultProps
 }
+
+export default Highlight

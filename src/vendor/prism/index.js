@@ -70,9 +70,9 @@ codegen`
   };
 
   // This json defines which languages to include
-  const includedLangs = require('./includeLangs.json')
+  const includedLangs = require('./includeLangs')
 
-  includedLangs.forEach(language => {
+  Object.keys(includedLangs).forEach(language => {
     visitLanguage(language, languages[language])
   })
 

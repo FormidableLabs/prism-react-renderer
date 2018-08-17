@@ -1,11 +1,13 @@
-import { tokenize as prismTokenize, languages } from './vendor/prism'
+// @flow
+
+import type { Token } from '../types'
 
 const newlineRe = /(\r\n|\r|\n)/
 
 // Takes an array of Prism's tokens and groups them by line, turning plain
 // strings into tokens as well. The length key is consciously kept precise
 // so that the original string can be reliably reconstructed.
-const groupTokens = tokens => {
+const normalizeTokens = (tokens: Array<Token | string>): Token[][] => {
   const tokensSize = tokens.length
 
   let line
@@ -45,9 +47,4 @@ const groupTokens = tokens => {
   return lines
 }
 
-export const tokenize = (code, language) => {
-  // Take grammar from Prism's languages and call its "tokenize" fn
-  const grammar = languages[language]
-  const tokens = prismTokenize(code, grammar, language)
-  return groupTokens(tokens)
-}
+export default normalizeTokens
