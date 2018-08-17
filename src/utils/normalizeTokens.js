@@ -1,50 +1,75 @@
 // @flow
 
-import type { Token } from '../types'
+import type { PrismToken, Token } from '../types'
 
-const newlineRe = /(\r\n|\r|\n)/
+const newlineRe = /\r\n|\r|\n/
 
 // Takes an array of Prism's tokens and groups them by line, turning plain
-// strings into tokens as well. The length key is consciously kept precise
-// so that the original string can be reliably reconstructed.
-const normalizeTokens = (tokens: Array<Token | string>): Token[][] => {
-  const tokensSize = tokens.length
+// strings into tokens as well. Tokens can become recursive in some cases,
+// which means that their types are concatenated. Plain-string tokens however
+// are always of type "plain".
+// This is not recursive to avoid exceeding the call-stack limit, since it's unclear
+// how nested Prism's tokens can become
+const normalizeTokens = (tokens: Array<PrismToken | string>): Token[][] => {
+  const typeArrStack = [[]];
+  const tokenArrStack = [tokens];
+  const tokenArrIndexStack = [0];
+  const tokenArrSizeStack = [tokens.length];
 
-  let line
-  const lines = [(line = [])]
+  let i = 0;
+  let stackIndex = 0;
+  let currentLine = [];
 
-  for (let i = 0; i < tokensSize; i++) {
-    const token = tokens[i]
+  const acc = [currentLine];
 
-    if (typeof token !== 'string') {
-      // Tokens are directly pushed onto the current line
-      line.push(token)
-    } else {
-      // Plain strings are split by newlines
-      const parts = token.split(newlineRe)
-      const partsSize = parts.length
+  while (stackIndex > -1) {
+    while ((i = tokenArrIndexStack[stackIndex]++) < tokenArrSizeStack[stackIndex]) {
+      let content
+      let types = typeArrStack[stackIndex];
+      const tokenArr = tokenArrStack[stackIndex];
+      const token = tokenArr[i]
 
-      // For each part the current line must be ended and a new line must be started
-      for (let j = 0; j < partsSize; j += 2) {
-        const part = parts[j]
-        const nextPart = parts[j + 1]
+      // Determine content and append type to types if necessary
+      if (typeof token === 'string') {
+        types = ['plain']
+        content = token
+      } else {
+        types = types.concat(token.type)
+        content = token.content
+      }
 
-        // Plain string tokens are marked using the "plain" token
-        line.push({
-          type: 'plain',
-          content: part,
-          length: part.length + (nextPart !== undefined ? nextPart.length : 0)
-        })
+      // If token.content is an array, increase the stack depth and repeat this while-loop
+      if (typeof content !== 'string') {
+        stackIndex++
+        typeArrStack.push(types)
+        tokenArrStack.push(content)
+        tokenArrIndexStack.push(0)
+        tokenArrSizeStack.push(content.length)
+        continue
+      }
 
-        // The last part doesn't require a new line
-        if (nextPart !== undefined) {
-          lines.push((line = []))
-        }
+      // Split by newlines
+      const splitByNewlines = content.split(newlineRe)
+      const newlineCount = splitByNewlines.length
+
+      currentLine.push({ types, content: splitByNewlines[0] })
+
+      // Create a new line for each string on a new line
+      for (let i = 1; i < newlineCount; i++) {
+        acc.push((currentLine = []))
+        currentLine.push({ types, content: splitByNewlines[i] })
       }
     }
+
+    // Decreate the stack depth
+    stackIndex--
+    typeArrStack.pop()
+    tokenArrStack.pop()
+    tokenArrIndexStack.pop()
+    tokenArrSizeStack.pop()
   }
 
-  return lines
+  return acc
 }
 
 export default normalizeTokens

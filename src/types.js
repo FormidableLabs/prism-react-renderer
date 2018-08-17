@@ -13,11 +13,14 @@ type LanguagesDict = {
   [lang: Language]: PrismGrammar
 }
 
-export type Token = {
+export type PrismToken = {
   type: string,
-  content: string,
-  greedy?: boolean,
-  length: number,
+  content: Array<PrismToken | string> | string
+};
+
+export type Token = {
+  types: string[],
+  content: string
 }
 
 export type PrismLib = {
@@ -26,7 +29,7 @@ export type PrismLib = {
     code: string,
     grammar: PrismGrammar,
     language: Language
-  ) => Array<Token | string>,
+  ) => Array<PrismToken | string>,
   highlight: (
     code: string,
     grammar: PrismGrammar,

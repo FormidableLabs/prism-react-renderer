@@ -53,7 +53,7 @@ class Highlight extends Component<Props, *> {
 
     if (style !== undefined) {
       output.style =
-        output.style !== undefined ? { ...style, ...output.style } : style
+        output.style !== undefined ? { ...output.style, ...style } : style
     }
 
     if (key !== undefined) output.key = key
@@ -62,6 +62,21 @@ class Highlight extends Component<Props, *> {
     return output
   }
 
+  getStyleForTypes = (types: string[]) => {
+    const typesSize = types.length
+
+    if (this.themeDict === undefined) {
+      return undefined
+    } else if (typesSize === 1 && types[0] === 'plain') {
+      return undefined
+    } else if (typesSize === 1) {
+      return this.themeDict[types[0]]
+    }
+
+    // $FlowFixMe
+    return Object.assign({}, ...types.map(type => this.themeDict[type]))
+  };
+
   getTokenProps = ({
     key,
     className,
@@ -69,19 +84,15 @@ class Highlight extends Component<Props, *> {
     token,
   }: TokenInputProps): TokenOutputProps => {
     const output: TokenOutputProps = {
-      className: `token ${token.type}`,
+      className: `token ${token.types.join(' ')}`,
       children: token.content,
-      style: undefined,
+      style: this.getStyleForTypes(token.types),
       key: undefined,
-    }
-
-    if (this.themeDict !== undefined && token.type !== "plain") {
-      output.style = this.themeDict[token.type] || undefined
     }
 
     if (style !== undefined) {
       output.style =
-        output.style !== undefined ? { ...style, ...output.style } : style
+        output.style !== undefined ? { ...output.style, ...style } : style
     }
 
     if (key !== undefined) output.key = key
