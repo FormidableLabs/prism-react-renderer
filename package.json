@@ -6,7 +6,6 @@
   "module": "es/index.js",
   "license": "MIT",
   "files": [
-    "src",
     "es",
     "lib",
     "themes"
@@ -14,8 +13,8 @@
   "scripts": {
     "precommit": "lint-staged",
     "build": "run-s build:lib build:es",
-    "build:lib": "cross-env BABEL_ENV=cjs babel --out-dir lib src",
-    "build:es": "cross-env BABEL_ENV=es babel --out-dir es src",
+    "build:lib": "cross-env BABEL_ENV=cjs babel --ignore '**/__tests__/*' --out-dir lib src",
+    "build:es": "cross-env BABEL_ENV=es babel --ignore '**/__tests__/*' --out-dir es src",
     "test": "jest",
     "flow": "flow check",
     "format": "prettier --write src/**/*.js themes/**/*.js",
