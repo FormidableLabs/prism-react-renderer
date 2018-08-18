@@ -1,0 +1,11 @@
+node_modules
+dist
+.DS_Store
+bundle-stats.html
+.vscode
+__diff_output__
+lib/
+es/
+sandbox/node_modules
+*.log
+test-results.json

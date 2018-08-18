@@ -1,0 +1,21 @@
+{
+  "name": "prism-react-renderer-example",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "prism-react-renderer": "file:../",
+    "react": "16.3.2",
+    "react-dom": "16.3.2",
+    "react-scripts": "1.1.4",
+    "styled-components": "latest"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
