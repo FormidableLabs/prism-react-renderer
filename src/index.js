@@ -1,6 +1,6 @@
 // @flow
 
-import * as Prism from './vendor/prism'
+import Prism from './vendor/prism'
 import defaultProps from './defaultProps'
 import Highlight from './components/Highlight'
 

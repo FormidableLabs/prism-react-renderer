@@ -1,4 +1,4 @@
-import * as Prism from './prism-core'
+import Prism from './prism-core'
 import codegen from 'codegen.macro'
 
 // Babel Codegen Macro:
@@ -79,4 +79,4 @@ codegen`
   module.exports = output
 `
 
-module.exports = Prism
+export default Prism
