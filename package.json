@@ -90,6 +90,9 @@
       ]
     ]
   },
+  "peerDependencies": {
+    "react": ">=0.14.9"
+  },
   "devDependencies": {
     "@babel/cli": "^7.0.0-rc.1",
     "@babel/core": "^7.0.0-rc.1",
