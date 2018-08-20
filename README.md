@@ -115,7 +115,7 @@ It also exports a `defaultProps` object which for basic usage can simply be spre
 onto the `<Highlight />` component. It also provides some default theming.
 
 It doesn't render anything itself, it just calls the render function and renders that.
-["Use a render prop!"][https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce]!
+["Use a render prop!"](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce)!
 `<Highlight>{highlight => <pre>/* your JSX here! */</pre>}</Highlight>`
 
 ## Basic Props
