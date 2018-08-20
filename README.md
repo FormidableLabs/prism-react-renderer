@@ -26,11 +26,16 @@ the global namespace and comes with
 
 _(There's also an [escape-hatch](https://github.com/FormidableLabs/prism-react-renderer#prism) to use your own Prism setup, just in case)_
 
+It also comes with its own [VSCode-like theming format](#theming), which means by default
+you can easily drop in different themes, use the ones this library ships with, or
+create new ones programmatically on the fly.
+
+_(If you just want to use your Prism CSS-file themes, that's also no problem)_
+
 ## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -47,17 +52,21 @@ _(There's also an [escape-hatch](https://github.com/FormidableLabs/prism-react-r
     - [`getLineProps`](#getlineprops)
     - [`getTokenProps`](#gettokenprops)
 - [Theming](#theming)
+- [FAQ](#faq)
 - [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
 
-This module is distributed via [npm][npm] which is bundled with [node][node] and
+This module is distributed via npm which is bundled with node and
 should be installed as one of your project's `dependencies`:
 
-```
+```sh
+# npm
 npm install --save prism-react-renderer
+# yarn
+yarn add prism-react-renderer
 ```
 
 > This package also depends on `react`. Please make sure you
@@ -81,7 +90,7 @@ const exampleCode = `
 return () => <App />;
 `;
 
-render(
+render((
   <Highlight {...defaultProps} code={exampleCode} language="jsx">
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
       <pre className={className} style={style}>
@@ -94,7 +103,8 @@ render(
         ))}
       </pre>
     )}
-  </Highlight>
+  </Highlight>,
+  document.getElementById('root')
 );
 ```
 
@@ -286,6 +296,61 @@ property limits styles to highlighted languages.
 
 When converting a Prism CSS theme it's mostly just necessary to use classes as
 `types` and convert the declarations to object-style-syntax and put them on `style`.
+
+## FAQ
+
+<details>
+
+<summary>How do I use my old Prism css themes?</summary>
+
+`prism-react-renderer` still returns you all proper `className`s via the prop getters,
+when you use it. By default however it uses its new theming system, which output a
+couple of `style` props as well.
+
+If you don't pass `theme` to the `<Highlight />` component it will default to not
+outputting any `style` props, while still returning you the `className` props, like
+so:
+
+```js
+<Highlight
+  {...defaultProps}
+  code={exampleCode}
+  language="jsx"
+  theme={undefined}
+>
+  {highlight => null /* ... */}
+</Highlight>
+```
+
+</details>
+
+<details>
+
+<summary>How do I prevent a theme and the vendored Prism to be bundled?</summary>
+
+Since the default theme and the vendored Prism library in `prism-react-renderer`
+come from `defaultProps`, if you wish to pass your own Prism library in, and not
+use the built-in theming, you simply need to leave it out to allow your bundler
+to tree-shake those:
+
+```js
+import Highlight from "prism-react-renderer";
+import Prism from "prismjs"; // Different source
+
+<Highlight Prism={Prism} code={exampleCode} language="jsx">
+  {highlight => null /* ... */}
+</Highlight>;
+```
+
+You can also import the vendored Prism library on its own:
+
+```js
+import { Prism } from "prism-react-renderer";
+// or
+import Prism from "prism-react-renderer/prism";
+```
+
+</details>
 
 ## LICENSE
 
