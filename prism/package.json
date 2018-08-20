@@ -1,0 +1,6 @@
+{
+  "name": "prism-react-renderer/prism",
+  "private": true,
+  "main": "../lib/vendor/prism/index.js",
+  "module": "../es/vendor/prism/index.js"
+}
