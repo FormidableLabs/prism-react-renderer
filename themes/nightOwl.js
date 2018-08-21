@@ -63,7 +63,15 @@ var theme /*: PrismTheme */ = {
       }
     },
     {
-      types: ["punctuation", "selector", "doctype"],
+      // This was manually added after the auto-generation
+      // so that punctuations are not italicised
+      types: ["punctuation"],
+      style: {
+        color: "rgb(199, 146, 234)",
+      }
+    },
+    {
+      types: ["selector", "doctype"],
       style: {
         color: "rgb(199, 146, 234)",
         fontStyle: "italic"
