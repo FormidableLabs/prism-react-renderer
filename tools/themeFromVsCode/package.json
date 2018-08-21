@@ -1,0 +1,11 @@
+{
+  "name": "@prism-react-renderer/theme-from-vscode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "color": "^3.0.0",
+    "is-equal": "^1.5.5"
+  }
+}
