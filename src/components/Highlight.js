@@ -108,7 +108,8 @@ class Highlight extends Component<Props, *> {
     const { Prism, language, code, children } = this.props;
 
     const grammar = Prism.languages[language];
-    const mixedTokens = Prism.tokenize(code, grammar, language);
+    const mixedTokens =
+      grammar !== undefined ? Prism.tokenize(code, grammar, language) : [code];
     const tokens = normalizeTokens(mixedTokens);
 
     return children({

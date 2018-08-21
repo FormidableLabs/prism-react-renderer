@@ -1,8 +1,8 @@
-import React from "react"
-import { render, cleanup } from "react-testing-library"
+import React from "react";
+import { render, cleanup } from "react-testing-library";
 
-import Highlight from "../Highlight"
-import defaultProps from "../../defaultProps"
+import Highlight from "../Highlight";
+import defaultProps from "../../defaultProps";
 
 const exampleCode = `
 (function someDemo() {
@@ -11,10 +11,10 @@ const exampleCode = `
 })();
 
 return () => <App />;
-`.trim()
+`.trim();
 
 describe("<Highlight />", () => {
-  afterEach(cleanup)
+  afterEach(cleanup);
 
   describe("snapshots", () => {
     it("renders correctly", () => {
@@ -32,10 +32,34 @@ describe("<Highlight />", () => {
             </pre>
           )}
         </Highlight>
-      )
+      );
 
-      expect(container).toMatchSnapshot()
-    })
+      expect(container).toMatchSnapshot();
+    });
+
+    it("renders unsupported languages correctly", () => {
+      const { container } = render(
+        <Highlight
+          {...defaultProps}
+          code={exampleCode}
+          language="abcdefghijklmnop"
+        >
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <pre className={className} style={style}>
+              {tokens.map((line, i) => (
+                <div {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+            </pre>
+          )}
+        </Highlight>
+      );
+
+      expect(container).toMatchSnapshot();
+    });
 
     it("renders without style props when no theme is passed", () => {
       const { container } = render(
@@ -57,11 +81,11 @@ describe("<Highlight />", () => {
             </pre>
           )}
         </Highlight>
-      )
+      );
 
-      expect(container.innerHTML.includes("style")).toBeFalsy()
-    })
-  })
+      expect(container.innerHTML.includes("style")).toBeFalsy();
+    });
+  });
 
   describe("getLineProps", () => {
     it("transforms lineProps inputs correctly", () => {
@@ -70,31 +94,31 @@ describe("<Highlight />", () => {
         style: { cssProp: "test" },
         className: "line-class",
         line: [{ types: ["punctuation"], content: "!" }],
-        restPropsTest: true,
-      }
+        restPropsTest: true
+      };
 
       render(
         <Highlight {...defaultProps} code={exampleCode} language="jsx">
           {({ getLineProps }) => {
-            const output = getLineProps(input)
+            const output = getLineProps(input);
 
             expect(output).toEqual({
               key: "line-1",
               style: {
                 cssProp: "test",
                 backgroundColor: null,
-                color: expect.any(String),
+                color: expect.any(String)
               },
               className: "token-line line-class",
-              restPropsTest: true,
-            })
+              restPropsTest: true
+            });
 
-            return null
+            return null;
           }}
         </Highlight>
-      )
-    })
-  })
+      );
+    });
+  });
 
   describe("getTokenProps", () => {
     it("transforms tokenProps inputs correctly", () => {
@@ -103,26 +127,26 @@ describe("<Highlight />", () => {
         style: { cssProp: "test" },
         className: "token-class",
         token: { types: ["punctuation"], content: "!" },
-        restPropsTest: true,
-      }
+        restPropsTest: true
+      };
 
       render(
         <Highlight {...defaultProps} code={exampleCode} language="jsx">
           {({ getTokenProps }) => {
-            const output = getTokenProps(input)
+            const output = getTokenProps(input);
 
             expect(output).toEqual({
               key: "token-1",
               style: { cssProp: "test", color: expect.any(String) },
               className: "token punctuation token-class",
               restPropsTest: true,
-              children: "!",
-            })
+              children: "!"
+            });
 
-            return null
+            return null;
           }}
         </Highlight>
-      )
-    })
-  })
-})
+      );
+    });
+  });
+});
