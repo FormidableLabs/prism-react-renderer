@@ -63,19 +63,21 @@ class Highlight extends Component<Props, *> {
     return output;
   };
 
-  getStyleForTypes = (types: string[]) => {
+  getStyleForToken = ({ types, empty }: Token) => {
     const typesSize = types.length;
 
     if (this.themeDict === undefined) {
       return undefined;
     } else if (typesSize === 1 && types[0] === "plain") {
-      return undefined;
-    } else if (typesSize === 1) {
+      return empty ? { display: "inline-block" } : undefined;
+    } else if (typesSize === 1 && !empty) {
       return this.themeDict[types[0]];
     }
 
+    const baseStyle = empty ? { display: "inline-block" } : {};
     // $FlowFixMe
-    return Object.assign({}, ...types.map(type => this.themeDict[type]));
+    const typeStyles = types.map(type => this.themeDict[type]);
+    return Object.assign(baseStyle, ...typeStyles);
   };
 
   getTokenProps = ({
@@ -89,7 +91,7 @@ class Highlight extends Component<Props, *> {
       ...rest,
       className: `token ${token.types.join(" ")}`,
       children: token.content,
-      style: this.getStyleForTypes(token.types),
+      style: this.getStyleForToken(token),
       key: undefined
     };
 

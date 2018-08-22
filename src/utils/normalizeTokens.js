@@ -4,6 +4,19 @@ import type { PrismToken, Token } from "../types";
 
 const newlineRe = /\r\n|\r|\n/;
 
+// Empty lines need to contain a single empty token, denoted with { empty: true }
+const normalizeEmptyLines = (line: Token[]) => {
+  if (line.length === 0) {
+    line.push({
+      types: ["plain"],
+      content: "",
+      empty: true
+    });
+  } else if (line.length === 1 && line[0].content === "") {
+    line[0].empty = true;
+  }
+};
+
 // Takes an array of Prism's tokens and groups them by line, turning plain
 // strings into tokens as well. Tokens can become recursive in some cases,
 // which means that their types are concatenated. Plain-string tokens however
@@ -58,6 +71,7 @@ const normalizeTokens = (tokens: Array<PrismToken | string>): Token[][] => {
 
       // Create a new line for each string on a new line
       for (let i = 1; i < newlineCount; i++) {
+        normalizeEmptyLines(currentLine);
         acc.push((currentLine = []));
         currentLine.push({ types, content: splitByNewlines[i] });
       }
@@ -71,6 +85,7 @@ const normalizeTokens = (tokens: Array<PrismToken | string>): Token[][] => {
     tokenArrSizeStack.pop();
   }
 
+  normalizeEmptyLines(currentLine);
   return acc;
 };
 
