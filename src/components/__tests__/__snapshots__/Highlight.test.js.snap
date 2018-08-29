@@ -252,18 +252,20 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
          
       </span>
       <span
-        class="token tag tag punctuation"
+        class="token tag punctuation"
         style="color: rgb(108, 103, 131);"
       >
         &lt;
       </span>
       <span
-        class="token plain"
+        class="token tag"
+        style="color: rgb(224, 145, 66);"
       >
         App
       </span>
       <span
-        class="token plain"
+        class="token tag"
+        style="color: rgb(224, 145, 66);"
       >
          
       </span>

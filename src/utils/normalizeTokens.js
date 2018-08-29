@@ -46,10 +46,10 @@ const normalizeTokens = (tokens: Array<PrismToken | string>): Token[][] => {
 
       // Determine content and append type to types if necessary
       if (typeof token === "string") {
-        types = ["plain"];
+        types = stackIndex > 0 ? types : ["plain"];
         content = token;
       } else {
-        types = types.concat(token.type);
+        types = types[0] === token.type ? types : types.concat(token.type);
         content = token.content;
       }
 
