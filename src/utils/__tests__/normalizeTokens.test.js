@@ -64,7 +64,7 @@ describe("normalizeTokens", () => {
     expect(output).toEqual([
       [
         { types: ["test1", "nest"], content: "he" },
-        { types: ["plain"], content: "llo" },
+        { types: ["test1"], content: "llo" },
         { types: ["test2"], content: "world" },
         { types: ["plain"], content: "!" }
       ]
@@ -157,10 +157,10 @@ describe("normalizeTokens", () => {
       [{ types: ["test1", "nest"], content: "h" }],
       [
         { types: ["test1", "nest"], content: "e" },
-        { types: ["plain"], content: "l" }
+        { types: ["test1"], content: "l" }
       ],
       [
-        { types: ["plain"], content: "lo" },
+        { types: ["test1"], content: "lo" },
         { types: ["plain"], content: "world" }
       ],
       [{ types: ["plain"], content: "!" }]
