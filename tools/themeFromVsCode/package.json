@@ -7,5 +7,8 @@
   "dependencies": {
     "color": "^3.0.0",
     "is-equal": "^1.5.5"
+  },
+  "scripts": {
+    "start": "node ./src/index.js"
   }
 }
