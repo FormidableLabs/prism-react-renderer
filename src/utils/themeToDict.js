@@ -25,7 +25,7 @@ const themeToDict = (theme: PrismTheme, language: Language): ThemeDict => {
     });
 
     return acc;
-  }, {});
+  }, Object.create(null));
 
   // $FlowFixMe
   themeDict.root = (plain: StyleObj);

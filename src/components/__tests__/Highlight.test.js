@@ -148,5 +148,22 @@ describe("<Highlight />", () => {
         </Highlight>
       );
     });
+
+    it("transforms constructor token style correctly", () => {
+      // From https://github.com/FormidableLabs/prism-react-renderer/issues/11
+      render(
+        <Highlight {...defaultProps} code={"open Common;"} language="reason">
+          {({ tokens, getTokenProps }) => {
+            const line = tokens[0];
+            const token = line[2];
+            const output = getTokenProps({ token, key: 2 });
+
+            expect(typeof output.style).not.toBe("function");
+
+            return null;
+          }}
+        </Highlight>
+      );
+    });
   });
 });
