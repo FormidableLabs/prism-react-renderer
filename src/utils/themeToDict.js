@@ -11,6 +11,9 @@ export type ThemeDict = {
 const themeToDict = (theme: PrismTheme, language: Language): ThemeDict => {
   const { plain } = theme;
 
+  // $FlowFixMe
+  const base: ThemeDict = Object.create(null);
+
   const themeDict = theme.styles.reduce((acc, themeEntry) => {
     const { types, languages, style } = themeEntry;
     if (languages && !languages.includes(language)) {
@@ -25,7 +28,7 @@ const themeToDict = (theme: PrismTheme, language: Language): ThemeDict => {
     });
 
     return acc;
-  }, Object.create(null));
+  }, base);
 
   // $FlowFixMe
   themeDict.root = (plain: StyleObj);
