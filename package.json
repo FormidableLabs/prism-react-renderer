@@ -32,66 +32,6 @@
       ]
     }
   },
-  "babel": {
-    "env": {
-      "test": {
-        "presets": [
-          "@babel/preset-flow",
-          "@babel/preset-react",
-          [
-            "@babel/preset-env",
-            {
-              "loose": true,
-              "modules": "commonjs"
-            }
-          ]
-        ],
-        "plugins": [
-          "babel-plugin-macros"
-        ]
-      },
-      "cjs": {
-        "presets": [
-          "@babel/preset-flow",
-          "@babel/preset-react",
-          [
-            "@babel/preset-env",
-            {
-              "loose": true,
-              "modules": "commonjs"
-            }
-          ]
-        ],
-        "plugins": [
-          "babel-plugin-macros"
-        ]
-      },
-      "es": {
-        "presets": [
-          "@babel/preset-flow",
-          "@babel/preset-react",
-          [
-            "@babel/preset-env",
-            {
-              "loose": true,
-              "modules": false
-            }
-          ]
-        ],
-        "plugins": [
-          "babel-plugin-macros"
-        ]
-      }
-    },
-    "plugins": [
-      [
-        "@babel/plugin-proposal-class-properties",
-        {
-          "loose": true
-        }
-      ]
-    ]
-  },
   "peerDependencies": {
     "react": ">=0.14.9"
   },
