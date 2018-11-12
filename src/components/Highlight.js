@@ -25,14 +25,27 @@ type Props = {
 };
 
 class Highlight extends Component<Props, *> {
+  prevTheme: PrismTheme | void;
+  prevLanguage: Language | void;
   themeDict: ThemeDict | void;
 
-  constructor(props: Props) {
-    super(props);
-    if (props.theme) {
-      this.themeDict = themeToDict(props.theme, props.language);
+  getThemeDict = (props: Props) => {
+    if (
+      this.themeDict !== undefined &&
+      props.theme === this.prevTheme &&
+      props.language === this.prevLanguage
+    ) {
+      return this.themeDict;
     }
-  }
+
+    this.prevTheme = props.theme;
+    this.prevLanguage = props.language;
+
+    const themeDict = props.theme
+      ? themeToDict(props.theme, props.language)
+      : undefined;
+    return (this.themeDict = themeDict);
+  };
 
   getLineProps = ({
     key,
@@ -48,8 +61,9 @@ class Highlight extends Component<Props, *> {
       key: undefined
     };
 
-    if (this.themeDict !== undefined) {
-      output.style = this.themeDict.plain;
+    const themeDict = this.getThemeDict(this.props);
+    if (themeDict !== undefined) {
+      output.style = themeDict.plain;
     }
 
     if (style !== undefined) {
@@ -65,18 +79,19 @@ class Highlight extends Component<Props, *> {
 
   getStyleForToken = ({ types, empty }: Token) => {
     const typesSize = types.length;
+    const themeDict = this.getThemeDict(this.props);
 
-    if (this.themeDict === undefined) {
+    if (themeDict === undefined) {
       return undefined;
     } else if (typesSize === 1 && types[0] === "plain") {
       return empty ? { display: "inline-block" } : undefined;
     } else if (typesSize === 1 && !empty) {
-      return this.themeDict[types[0]];
+      return themeDict[types[0]];
     }
 
     const baseStyle = empty ? { display: "inline-block" } : {};
     // $FlowFixMe
-    const typeStyles = types.map(type => this.themeDict[type]);
+    const typeStyles = types.map(type => themeDict[type]);
     return Object.assign(baseStyle, ...typeStyles);
   };
 
@@ -109,6 +124,8 @@ class Highlight extends Component<Props, *> {
   render() {
     const { Prism, language, code, children } = this.props;
 
+    const themeDict = this.getThemeDict(this.props);
+
     const grammar = Prism.languages[language];
     const mixedTokens =
       grammar !== undefined ? Prism.tokenize(code, grammar, language) : [code];
@@ -117,7 +134,7 @@ class Highlight extends Component<Props, *> {
     return children({
       tokens,
       className: `prism-code language-${language}`,
-      style: this.themeDict ? this.themeDict.root : {},
+      style: themeDict !== undefined ? themeDict.root : {},
       getLineProps: this.getLineProps,
       getTokenProps: this.getTokenProps
     });
