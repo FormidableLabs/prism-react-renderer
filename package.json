@@ -4,6 +4,7 @@
   "description": "Renders highlighted Prism output using React",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "types": "./index.d.ts",
   "license": "MIT",
   "repository": "git@github.com:FormidableLabs/prism-react-renderer.git",
   "files": [
