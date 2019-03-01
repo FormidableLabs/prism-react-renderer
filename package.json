@@ -8,6 +8,7 @@
   "license": "MIT",
   "repository": "git@github.com:FormidableLabs/prism-react-renderer.git",
   "files": [
+    "index.d.ts",
     "es",
     "lib",
     "prism",
