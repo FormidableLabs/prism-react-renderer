@@ -22,7 +22,7 @@ var theme /*: PrismTheme */ = {
       }
     },
     {
-      types: ["builtin", "tag", "changed", "keyword"],
+      types: ["builtin", "tag", "changed", "punctuation", "keyword"],
       style: {
         color: "rgb(86, 156, 214)"
       }
@@ -58,15 +58,27 @@ var theme /*: PrismTheme */ = {
       }
     },
     {
-      types: ["punctuation"],
-      style: {
-        color: "rgb(128, 128, 128)"
-      }
-    },
-    {
       types: ["operator"],
       style: {
         color: "rgb(212, 212, 212)"
+      }
+    },
+    {
+      types: ["function"],
+      style: {
+        color: "rgb(220, 220, 170)"
+      }
+    },
+    {
+      types: ["class-name"],
+      style: {
+        color: "rgb(78, 201, 176)"
+      }
+    },
+    {
+      types: ["char"],
+      style: {
+        color: "rgb(209, 105, 105)"
       }
     }
   ]
