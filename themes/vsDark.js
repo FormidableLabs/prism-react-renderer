@@ -67,7 +67,7 @@ var theme /*: PrismTheme */ = {
     {
       // Fix tag color for HTML
       types: ["tag"],
-      lang: "markup",
+      languages: ["markup"],
       style: {
         color: "rgb(86, 156, 214)"
       }
@@ -81,7 +81,7 @@ var theme /*: PrismTheme */ = {
     {
       // Fix punctuation color for HTML
       types: ["punctuation"],
-      lang: "markup",
+      languages: ["markup"],
       style: {
         color: "#808080"
       }
