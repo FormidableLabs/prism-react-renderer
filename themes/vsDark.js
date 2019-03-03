@@ -46,7 +46,7 @@ var theme /*: PrismTheme */ = {
       }
     },
     {
-      types: ["deleted", "string"],
+      types: ["deleted", "string", "attr-value"],
       style: {
         color: "rgb(206, 145, 120)"
       }
@@ -62,6 +62,14 @@ var theme /*: PrismTheme */ = {
       types: ["tag"],
       style: {
         color: "rgb(78, 201, 176)"
+      }
+    },
+    {
+      // Fix tag color for HTML
+      types: ["tag"],
+      lang: "markup",
+      style: {
+        color: "rgb(86, 156, 214)"
       }
     },
     {
