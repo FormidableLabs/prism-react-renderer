@@ -79,6 +79,14 @@ var theme /*: PrismTheme */ = {
       }
     },
     {
+      // Fix punctuation color for HTML
+      types: ["punctuation"],
+      lang: "markup",
+      style: {
+        color: "#808080"
+      }
+    },
+    {
       types: ["function"],
       style: {
         color: "rgb(220, 220, 170)"
