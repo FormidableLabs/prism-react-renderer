@@ -5,7 +5,7 @@
 
 var theme /*: PrismTheme */ = {
   plain: {
-    color: "#D4D4D4",
+    color: "#9CDCFE",
     backgroundColor: "#1E1E1E"
   },
   styles: [
@@ -22,7 +22,7 @@ var theme /*: PrismTheme */ = {
       }
     },
     {
-      types: ["builtin", "tag", "changed", "punctuation", "keyword"],
+      types: ["builtin", "changed", "keyword"],
       style: {
         color: "rgb(86, 156, 214)"
       }
@@ -58,7 +58,14 @@ var theme /*: PrismTheme */ = {
       }
     },
     {
-      types: ["operator"],
+      // Fix tag color
+      types: ["tag"],
+      style: {
+        color: "rgb(78, 201, 176)"
+      }
+    },
+    {
+      types: ["punctuation", "operator"],
       style: {
         color: "rgb(212, 212, 212)"
       }
