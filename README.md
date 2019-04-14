@@ -7,6 +7,10 @@
   Comes with everything to render Prismjs highlighted code directly to React (Native) elements, global-pollution-free!
 </p>
 
+### Maintenance Status: Active
+
+Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome. 
+
 ## Why?
 
 Maybe you need to render some extra UI with your Prismjs-highlighted code,
