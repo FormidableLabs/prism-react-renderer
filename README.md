@@ -1,3 +1,6 @@
+[![Maintenance Status][maintenance-image]](#maintenance-status)
+
+
 <h1 align="center">
   prism-react-renderer 🖌️
   <br>
@@ -355,3 +358,10 @@ import Prism from "prism-react-renderer/prism";
 ## LICENSE
 
 MIT
+
+## Maintenance Status
+
+**Active:** Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome. 
+
+[maintenance-image]: https://img.shields.io/badge/maintenance-active-green.svg
+
