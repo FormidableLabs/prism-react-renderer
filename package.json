@@ -30,6 +30,10 @@
   },
   "lint-staged": {
     "linters": {
+      "*.ts": [
+        "prettier --write",
+        "git add"
+      ],
       "{src,themes}/**/*.js": [
         "jest --bail --findRelatedTests",
         "flow focus-check",
