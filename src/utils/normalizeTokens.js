@@ -17,6 +17,18 @@ const normalizeEmptyLines = (line: Token[]) => {
   }
 };
 
+const appendTypes = (
+  types: string[],
+  add: string[] | string
+): string[] => {
+  const typesSize = types.length
+  if (typesSize > 0 && types[typesSize - 1] === add) {
+    return types;
+  }
+
+  return types.concat(add);
+};
+
 // Takes an array of Prism's tokens and groups them by line, turning plain
 // strings into tokens as well. Tokens can become recursive in some cases,
 // which means that their types are concatenated. Plain-string tokens however
@@ -24,7 +36,7 @@ const normalizeEmptyLines = (line: Token[]) => {
 // This is not recursive to avoid exceeding the call-stack limit, since it's unclear
 // how nested Prism's tokens can become
 const normalizeTokens = (tokens: Array<PrismToken | string>): Token[][] => {
-  const typeArrStack = [[]];
+  const typeArrStack: string[][] = [[]];
   const tokenArrStack = [tokens];
   const tokenArrIndexStack = [0];
   const tokenArrSizeStack = [tokens.length];
@@ -41,6 +53,7 @@ const normalizeTokens = (tokens: Array<PrismToken | string>): Token[][] => {
     ) {
       let content;
       let types = typeArrStack[stackIndex];
+
       const tokenArr = tokenArrStack[stackIndex];
       const token = tokenArr[i];
 
@@ -49,7 +62,11 @@ const normalizeTokens = (tokens: Array<PrismToken | string>): Token[][] => {
         types = stackIndex > 0 ? types : ["plain"];
         content = token;
       } else {
-        types = types[0] === token.type ? types : types.concat(token.type);
+        types = appendTypes(types, token.type);
+        if (token.alias) {
+          types = appendTypes(types, token.alias);
+        }
+
         content = token.content;
       }
 
