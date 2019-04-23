@@ -5,7 +5,7 @@
 
 var theme /*: PrismTheme */ = {
   plain: {
-    color: "#D4D4D4",
+    color: "#9CDCFE",
     backgroundColor: "#1E1E1E"
   },
   styles: [
@@ -22,7 +22,7 @@ var theme /*: PrismTheme */ = {
       }
     },
     {
-      types: ["builtin", "tag", "changed", "keyword"],
+      types: ["builtin", "changed", "keyword"],
       style: {
         color: "rgb(86, 156, 214)"
       }
@@ -46,7 +46,7 @@ var theme /*: PrismTheme */ = {
       }
     },
     {
-      types: ["deleted", "string"],
+      types: ["deleted", "string", "attr-value"],
       style: {
         color: "rgb(206, 145, 120)"
       }
@@ -58,15 +58,50 @@ var theme /*: PrismTheme */ = {
       }
     },
     {
-      types: ["punctuation"],
+      // Fix tag color
+      types: ["tag"],
       style: {
-        color: "rgb(128, 128, 128)"
+        color: "rgb(78, 201, 176)"
       }
     },
     {
-      types: ["operator"],
+      // Fix tag color for HTML
+      types: ["tag"],
+      languages: ["markup"],
+      style: {
+        color: "rgb(86, 156, 214)"
+      }
+    },
+    {
+      types: ["punctuation", "operator"],
       style: {
         color: "rgb(212, 212, 212)"
+      }
+    },
+    {
+      // Fix punctuation color for HTML
+      types: ["punctuation"],
+      languages: ["markup"],
+      style: {
+        color: "#808080"
+      }
+    },
+    {
+      types: ["function"],
+      style: {
+        color: "rgb(220, 220, 170)"
+      }
+    },
+    {
+      types: ["class-name"],
+      style: {
+        color: "rgb(78, 201, 176)"
+      }
+    },
+    {
+      types: ["char"],
+      style: {
+        color: "rgb(209, 105, 105)"
       }
     }
   ]
