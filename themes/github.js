@@ -6,9 +6,7 @@
 var theme /*: PrismTheme */ = {
   plain: {
     color: "#393A34",
-    backgroundColor: "#f6f8fa",
-    fontFamily:
-      "SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace"
+    backgroundColor: "#f6f8fa"
   },
   styles: [
     {
