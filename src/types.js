@@ -14,7 +14,8 @@ type LanguagesDict = {
 };
 
 export type PrismToken = {
-  type: string,
+  type: string | string[],
+  alias: string | string[],
   content: Array<PrismToken | string> | string
 };
 
