@@ -1,4 +1,4 @@
-import themeToDict from "../themeToDict"
+import themeToDict from "../themeToDict";
 
 describe("themeToDict", () => {
   it("converts entry.types to dictionary", () => {
@@ -8,66 +8,68 @@ describe("themeToDict", () => {
         {
           types: ["1", "2"],
           style: {
-            color: "green",
-          },
+            color: "green"
+          }
         },
         {
           types: ["3"],
           style: {
-            color: "blue",
-          },
+            color: "blue"
+          }
         },
         {
           types: ["2"],
           style: {
-            color: "orange",
-          },
-        },
-      ],
-    }
+            color: "orange"
+          }
+        }
+      ]
+    };
 
     const expected = {
       root: {
-        color: "red",
+        color: "red"
       },
       plain: {
         color: "red",
-        backgroundColor: null,
+        backgroundColor: null
       },
       1: {
-        color: "green",
+        color: "green"
       },
       2: {
-        color: "orange",
+        color: "orange"
       },
       3: {
-        color: "blue",
-      },
-    }
+        color: "blue"
+      }
+    };
 
-    expect(themeToDict(input)).toEqual(expected)
+    expect(themeToDict(input)).toEqual(expected);
     // Check order in which keys were added to implicitly test merge strategy
-    expect(Object.keys(themeToDict(input, 'js'))).toEqual(Object.keys(expected))
-  })
+    expect(Object.keys(themeToDict(input, "js"))).toEqual(
+      Object.keys(expected)
+    );
+  });
 
   it("limits entries by entry.languages", () => {
     const input = {
       plain: {},
       styles: [
         {
-          types: ['test'],
-          languages: ['js'],
+          types: ["test"],
+          languages: ["js"],
           style: {
-            color: "green",
-          },
+            color: "green"
+          }
         }
-      ],
-    }
+      ]
+    };
 
-    expect(themeToDict(input, 'js').test).toEqual({
-      color: 'green'
-    })
+    expect(themeToDict(input, "js").test).toEqual({
+      color: "green"
+    });
 
-    expect(themeToDict(input, 'ocaml').test).toEqual(undefined)
-  })
-})
+    expect(themeToDict(input, "ocaml").test).toEqual(undefined);
+  });
+});
