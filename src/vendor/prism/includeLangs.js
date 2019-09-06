@@ -3,7 +3,7 @@
 // These are the languages that'll be included in the generated
 // prism/index.js file
 
-module.exports = {
+export default {
   markup: true,
   bash: true,
   clike: true,

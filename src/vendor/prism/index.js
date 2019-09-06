@@ -1,5 +1,5 @@
-import Prism from './prism-core'
-import codegen from 'codegen.macro'
+import Prism from "./prism-core";
+import codegen from "codegen.macro";
 
 // Babel Codegen Macro:
 // Get a list of all prismjs languages and inline them here.
@@ -69,14 +69,16 @@ codegen`
     }
   };
 
-  // This json defines which languages to include
-  const includedLangs = require('./includeLangs')
+  // This json defines which languages to include.
+  esmRequire = require("esm")(module);
+  const includedLangs = esmRequire('./includeLangs').default
 
   Object.keys(includedLangs).forEach(language => {
     visitLanguage(language, languages[language])
   })
 
+  // This is still CJS because this is for Node.js codegen.
   module.exports = output
-`
+`;
 
-export default Prism
+export default Prism;
