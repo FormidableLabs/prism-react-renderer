@@ -1,4 +1,4 @@
-import Prism from "./prism-core";
+import Prism from "./prism-core.js";
 import codegen from "codegen.macro";
 
 // Babel Codegen Macro:

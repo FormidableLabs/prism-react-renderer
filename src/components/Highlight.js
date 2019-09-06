@@ -1,8 +1,8 @@
 // @flow
 
 import React, { Component, type Node } from "react";
-import normalizeTokens from "../utils/normalizeTokens";
-import themeToDict, { type ThemeDict } from "../utils/themeToDict";
+import normalizeTokens from "../utils/normalizeTokens.js";
+import themeToDict, { type ThemeDict } from "../utils/themeToDict.js";
 
 import type {
   Language,
@@ -14,7 +14,7 @@ import type {
   RenderProps,
   PrismLib,
   PrismTheme
-} from "../types";
+} from "../types.js";
 
 type Props = {
   Prism: PrismLib,

@@ -1,12 +1,9 @@
 // @flow
 
-import Prism from './vendor/prism'
-import defaultProps from './defaultProps'
-import Highlight from './components/Highlight'
+import Prism from "./vendor/prism/index.js";
+import defaultProps from "./defaultProps.js";
+import Highlight from "./components/Highlight.js";
 
-export {
-  Prism,
-  defaultProps
-}
+export { Prism, defaultProps };
 
-export default Highlight
+export default Highlight;

@@ -1,9 +1,9 @@
 // @flow
 
-import Prism from "./vendor/prism";
-import theme from "./themes/duotoneDark";
+import Prism from "./vendor/prism/index.js";
+import theme from "./themes/duotoneDark.js";
 
-import type { PrismLib } from "./types";
+import type { PrismLib } from "./types.js";
 
 const defaultProps = {
   // $FlowFixMe

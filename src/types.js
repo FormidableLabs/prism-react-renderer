@@ -1,7 +1,7 @@
 // @flow
 
 import type { Key } from "react";
-import includedLangs from "./vendor/prism/includeLangs";
+import includedLangs from "./vendor/prism/includeLangs.js";
 
 export type Language = $Keys<typeof includedLangs>;
 
