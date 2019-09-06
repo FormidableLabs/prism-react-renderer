@@ -266,7 +266,7 @@ your old Prism CSS-file themes.
 ## Theming
 
 The `defaultProps` you'd typically apply in a basic use-case, contain a default theme.
-This theme is [duotoneDark](./themes/duotoneDark.js).
+This theme is [duotoneDark](./src/themes/duotoneDark.js).
 
 While all `className`s are provided with `<Highlight />`, so that you could use your good
 old Prism CSS-file themes, you can also choose to use `react-prism-renderer`'s themes.
@@ -361,7 +361,7 @@ MIT
 
 ## Maintenance Status
 
-**Active:** Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome. 
+**Active:** Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome.
 
 [maintenance-image]: https://img.shields.io/badge/maintenance-active-green.svg
 

@@ -4,7 +4,7 @@
 // Original: https://github.com/ahmadawais/shades-of-purple-vscode/
 // Converted automatically using ./tools/themeFromVsCode and then customized manually.
 
-/*:: import type { PrismTheme } from '../src/types' */
+/*:: import type { PrismTheme } from '../types' */
 
 var theme /*: PrismTheme */ = {
   plain: {
@@ -96,4 +96,4 @@ var theme /*: PrismTheme */ = {
   ]
 };
 
-module.exports = theme;
+export default theme;

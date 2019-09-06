@@ -17,11 +17,8 @@ const normalizeEmptyLines = (line: Token[]) => {
   }
 };
 
-const appendTypes = (
-  types: string[],
-  add: string[] | string
-): string[] => {
-  const typesSize = types.length
+const appendTypes = (types: string[], add: string[] | string): string[] => {
+  const typesSize = types.length;
   if (typesSize > 0 && types[typesSize - 1] === add) {
     return types;
   }

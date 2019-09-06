@@ -1,7 +1,7 @@
 // @flow
 // Original: https://raw.githubusercontent.com/PrismJS/prism-themes/master/themes/prism-ghcolors.css
 
-/*:: import type { PrismTheme } from '../src/types' */
+/*:: import type { PrismTheme } from '../types' */
 
 var theme /*: PrismTheme */ = {
   plain: {
@@ -78,4 +78,4 @@ var theme /*: PrismTheme */ = {
   ]
 };
 
-module.exports = theme;
+export default theme;

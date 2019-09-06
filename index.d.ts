@@ -175,7 +175,7 @@ declare module "prism-react-renderer" {
   export { Language, DefaultProps, PrismTheme };
 }
 
-declare module "prism-react-renderer/themes/*" {
+declare module "prism-react-renderer/src/themes/*" {
   import { PrismTheme } from "prism-react-renderer";
   const theme: PrismTheme;
   export default theme;

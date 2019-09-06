@@ -20,7 +20,7 @@
     "build:es": "cross-env BABEL_ENV=es babel --ignore '**/__tests__/*' --out-dir es src",
     "test": "jest",
     "flow": "flow check",
-    "format": "prettier --write src/**/*.js themes/**/*.js",
+    "format": "prettier --write src/**/*.js",
     "prepublishOnly": "run-p flow build"
   },
   "husky": {
