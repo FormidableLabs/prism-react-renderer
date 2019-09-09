@@ -1,11 +1,6 @@
 // @flow
 
-import type {
-  Language,
-  StyleObj,
-  PrismTheme,
-  PrismThemeEntry
-} from "../types.js";
+import type { Language, StyleObj, PrismTheme, PrismThemeEntry } from "../types";
 
 export type ThemeDict = {
   root: StyleObj,

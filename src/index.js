@@ -1,8 +1,8 @@
 // @flow
 
-import Prism from "./vendor/prism/index.js";
-import defaultProps from "./defaultProps.js";
-import Highlight from "./components/Highlight.js";
+import Prism from "./vendor/prism/index";
+import defaultProps from "./defaultProps";
+import Highlight from "./components/Highlight";
 
 export { Prism, defaultProps };
 

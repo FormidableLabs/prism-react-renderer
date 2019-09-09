@@ -1,6 +1,6 @@
 // @flow
 
-import type { PrismToken, Token } from "../types.js";
+import type { PrismToken, Token } from "../types";
 
 const newlineRe = /\r\n|\r|\n/;
 
