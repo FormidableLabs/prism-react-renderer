@@ -32,6 +32,7 @@ module.exports = {
   scss: true,
   sql: true,
   stylus: true,
+  tsx: true,
   typescript: true,
   wasm: true,
   yaml: true
