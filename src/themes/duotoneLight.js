@@ -106,4 +106,4 @@ var theme /*: PrismTheme */ = {
   ]
 };
 
-module.exports = theme;
+export default theme;
