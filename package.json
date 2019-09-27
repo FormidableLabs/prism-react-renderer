@@ -2,9 +2,9 @@
   "name": "prism-react-renderer",
   "version": "0.1.7",
   "description": "Renders highlighted Prism output using React",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "./index.d.ts",
+  "main": "dist/prism-react-renderer.js",
+  "module": "dist/prism-react-renderer.es.js",
+  "types": "index.d.ts",
   "license": "MIT",
   "repository": "git@github.com:FormidableLabs/prism-react-renderer.git",
   "files": [
