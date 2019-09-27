@@ -4,7 +4,7 @@
 // https://github.com/voronianski/oceanic-next-color-scheme
 // Adapted from: https://github.com/reactjs/reactjs.org/blob/428d52b/src/prism-styles.js
 
-/*:: import type { PrismTheme } from '../src/types' */
+import type { PrismTheme } from "../types";
 
 var colors = {
   char: "#D8DEE9",
@@ -22,7 +22,7 @@ var colors = {
   operator: "#fc929e"
 };
 
-var theme /*: PrismTheme */ = {
+var theme: PrismTheme = {
   plain: {
     backgroundColor: "#282c34",
     color: "#ffffff"

@@ -2,9 +2,9 @@
 // Original: https://github.com/sdras/night-owl-vscode-theme
 // Converted automatically using ./tools/themeFromVsCode
 
-/*:: import type { PrismTheme } from '../src/types' */
+import type { PrismTheme } from "../types";
 
-var theme /*: PrismTheme */ = {
+var theme: PrismTheme = {
   plain: {
     color: "#403f53",
     backgroundColor: "#FBFBFB"
