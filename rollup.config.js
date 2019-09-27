@@ -66,9 +66,11 @@ const config = {
   ]
 };
 
+if (!fs.existsSync('themes/')) fs.mkdirSync('themes');
+
 const themes = globby.sync('src/themes/*.js').map(input => {
-  const dir = path.dirname(input);
   const name = path.basename(input, '.js');
+  const dir = 'themes/' + name;
 
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
@@ -76,8 +78,8 @@ const themes = globby.sync('src/themes/*.js').map(input => {
     name: '@prism-react-renderer/' + name,
     private: true,
     sideEffects: false,
-    main: 'index.js',
-    module: 'index.es.js',
+    main: 'index.cjs.js',
+    module: 'index.js',
     license: 'MIT'
   };
 
@@ -91,11 +93,11 @@ const themes = globby.sync('src/themes/*.js').map(input => {
     input,
     output: [
       {
-        file: path.join('./themes', name, 'index.js'),
+        file: path.join('./themes', name, 'index.cjs.js'),
         format: 'cjs'
       },
       {
-        file: path.join('./themes', name, 'index.es.js'),
+        file: path.join('./themes', name, 'index.js'),
         format: 'esm'
       }
     ]
