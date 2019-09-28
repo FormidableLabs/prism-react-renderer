@@ -2,12 +2,12 @@
 // Original: https://github.com/sdras/night-owl-vscode-theme
 // Converted automatically using ./tools/themeFromVsCode
 
-/*:: import type { PrismTheme } from '../src/types' */
+import type { PrismTheme } from "../types";
 
-var theme /*: PrismTheme */ = {
+var theme: PrismTheme = {
   plain: {
-    color: "#d6deeb",
-    backgroundColor: "#011627"
+    color: "#403f53",
+    backgroundColor: "#FBFBFB"
   },
   styles: [
     {
@@ -27,39 +27,33 @@ var theme /*: PrismTheme */ = {
     {
       types: ["inserted", "attr-name"],
       style: {
-        color: "rgb(173, 219, 103)",
+        color: "rgb(72, 118, 214)",
         fontStyle: "italic"
       }
     },
     {
       types: ["comment"],
       style: {
-        color: "rgb(99, 119, 119)",
+        color: "rgb(152, 159, 177)",
         fontStyle: "italic"
       }
     },
     {
-      types: ["string", "url"],
+      types: ["string", "builtin", "char", "constant", "url"],
       style: {
-        color: "rgb(173, 219, 103)"
+        color: "rgb(72, 118, 214)"
       }
     },
     {
       types: ["variable"],
       style: {
-        color: "rgb(214, 222, 235)"
+        color: "rgb(201, 103, 101)"
       }
     },
     {
       types: ["number"],
       style: {
-        color: "rgb(247, 140, 108)"
-      }
-    },
-    {
-      types: ["builtin", "char", "constant", "function"],
-      style: {
-        color: "rgb(130, 170, 255)"
+        color: "rgb(170, 9, 130)"
       }
     },
     {
@@ -67,47 +61,41 @@ var theme /*: PrismTheme */ = {
       // so that punctuations are not italicised
       types: ["punctuation"],
       style: {
-        color: "rgb(199, 146, 234)",
+        color: "rgb(153, 76, 195)"
       }
     },
     {
-      types: ["selector", "doctype"],
+      types: ["function", "selector", "doctype"],
       style: {
-        color: "rgb(199, 146, 234)",
+        color: "rgb(153, 76, 195)",
         fontStyle: "italic"
       }
     },
     {
       types: ["class-name"],
       style: {
-        color: "rgb(255, 203, 139)"
+        color: "rgb(17, 17, 17)"
       }
     },
     {
-      types: ["tag", "operator", "keyword"],
+      types: ["tag"],
       style: {
-        color: "rgb(127, 219, 202)"
+        color: "rgb(153, 76, 195)"
+      }
+    },
+    {
+      types: ["operator", "property", "keyword", "namespace"],
+      style: {
+        color: "rgb(12, 150, 155)"
       }
     },
     {
       types: ["boolean"],
       style: {
-        color: "rgb(255, 88, 116)"
-      }
-    },
-    {
-      types: ["property"],
-      style: {
-        color: "rgb(128, 203, 196)"
-      }
-    },
-    {
-      types: ["namespace"],
-      style: {
-        color: "rgb(178, 204, 214)"
+        color: "rgb(188, 84, 84)"
       }
     }
   ]
 };
 
-module.exports = theme;
+export default theme;

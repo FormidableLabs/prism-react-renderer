@@ -4,7 +4,7 @@
 // https://github.com/voronianski/oceanic-next-color-scheme
 // Adapted from: https://github.com/reactjs/reactjs.org/blob/428d52b/src/prism-styles.js
 
-/*:: import type { PrismTheme } from '../src/types' */
+import type { PrismTheme } from "../types";
 
 var colors = {
   char: "#D8DEE9",
@@ -19,32 +19,32 @@ var colors = {
   function: "#79b6f2",
   className: "#FAC863",
   method: "#6699CC",
-  operator: "#fc929e",
-}
+  operator: "#fc929e"
+};
 
-var theme /*: PrismTheme */ = {
+var theme: PrismTheme = {
   plain: {
     backgroundColor: "#282c34",
-    color: "#ffffff",
+    color: "#ffffff"
   },
   styles: [
     {
       types: ["attr-name"],
       style: {
-        color: colors.keyword,
-      },
+        color: colors.keyword
+      }
     },
     {
       types: ["attr-value"],
       style: {
-        color: colors.string,
-      },
+        color: colors.string
+      }
     },
     {
       types: ["comment", "block-comment", "prolog", "doctype", "cdata"],
       style: {
-        color: colors.comment,
-      },
+        color: colors.comment
+      }
     },
     {
       types: [
@@ -53,91 +53,91 @@ var theme /*: PrismTheme */ = {
         "function-name",
         "constant",
         "symbol",
-        "deleted",
+        "deleted"
       ],
       style: {
-        color: colors.primitive,
-      },
+        color: colors.primitive
+      }
     },
     {
       types: ["boolean"],
       style: {
-        color: colors.boolean,
-      },
+        color: colors.boolean
+      }
     },
     {
       types: ["tag"],
       style: {
-        color: colors.tag,
-      },
+        color: colors.tag
+      }
     },
     {
       types: ["string"],
       style: {
-        color: colors.string,
-      },
+        color: colors.string
+      }
     },
     {
       types: ["punctuation"],
       style: {
-        color: colors.string,
-      },
+        color: colors.string
+      }
     },
     {
       types: ["selector", "char", "builtin", "inserted"],
       style: {
-        color: colors.char,
-      },
+        color: colors.char
+      }
     },
     {
       types: ["function"],
       style: {
-        color: colors.function,
-      },
+        color: colors.function
+      }
     },
     {
       types: ["operator", "entity", "url", "variable"],
       style: {
-        color: colors.variable,
-      },
+        color: colors.variable
+      }
     },
     {
       types: ["keyword"],
       style: {
-        color: colors.keyword,
-      },
+        color: colors.keyword
+      }
     },
     {
       types: ["at-rule", "class-name"],
       style: {
-        color: colors.className,
-      },
+        color: colors.className
+      }
     },
     {
       types: ["important"],
       style: {
-        fontWeight: "400",
-      },
+        fontWeight: "400"
+      }
     },
     {
       types: ["bold"],
       style: {
-        fontWeight: "bold",
-      },
+        fontWeight: "bold"
+      }
     },
     {
       types: ["italic"],
       style: {
-        fontStyle: "italic",
-      },
+        fontStyle: "italic"
+      }
     },
     {
       types: ["namespace"],
       style: {
-        opacity: 0.7,
-      },
-    },
-  ],
-}
+        opacity: 0.7
+      }
+    }
+  ]
+};
 
-module.exports = theme
+export default theme;

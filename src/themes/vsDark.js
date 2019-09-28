@@ -1,9 +1,9 @@
 // @flow
 // Converted automatically using ./tools/themeFromVsCode
 
-/*:: import type { PrismTheme } from '../src/types' */
+import type { PrismTheme } from "../types";
 
-var theme /*: PrismTheme */ = {
+var theme: PrismTheme = {
   plain: {
     color: "#9CDCFE",
     backgroundColor: "#1E1E1E"
@@ -107,4 +107,4 @@ var theme /*: PrismTheme */ = {
   ]
 };
 
-module.exports = theme;
+export default theme;

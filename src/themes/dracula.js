@@ -2,9 +2,9 @@
 // Original: https://github.com/dracula/visual-studio-code
 // Converted automatically using ./tools/themeFromVsCode
 
-/*:: import type { PrismTheme } from '../src/types' */
+import type { PrismTheme } from "../types";
 
-var theme /*: PrismTheme */ = {
+var theme: PrismTheme = {
   plain: {
     color: "#F8F8F2",
     backgroundColor: "#282A36"
@@ -68,4 +68,4 @@ var theme /*: PrismTheme */ = {
   ]
 };
 
-module.exports = theme;
+export default theme;

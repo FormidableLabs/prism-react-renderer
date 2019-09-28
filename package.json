@@ -1,26 +1,23 @@
 {
   "name": "prism-react-renderer",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "Renders highlighted Prism output using React",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "./index.d.ts",
+  "main": "dist/prism-react-renderer.js",
+  "module": "dist/prism-react-renderer.es.js",
+  "types": "index.d.ts",
   "license": "MIT",
   "repository": "git@github.com:FormidableLabs/prism-react-renderer.git",
   "files": [
     "index.d.ts",
-    "es",
-    "lib",
+    "dist",
     "prism",
     "themes"
   ],
   "scripts": {
-    "build": "run-s build:lib build:es",
-    "build:lib": "cross-env BABEL_ENV=cjs babel --ignore '**/__tests__/*' --out-dir lib src",
-    "build:es": "cross-env BABEL_ENV=es babel --ignore '**/__tests__/*' --out-dir es src",
+    "build": "rollup -c rollup.config.js",
     "test": "jest",
     "flow": "flow check",
-    "format": "prettier --write src/**/*.js themes/**/*.js",
+    "format": "prettier --write src/**/*.js",
     "prepublishOnly": "run-p flow build"
   },
   "husky": {
@@ -29,43 +26,40 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "*.ts": [
-        "prettier --write",
-        "git add"
-      ],
-      "{src,themes}/**/*.js": [
-        "jest --bail --findRelatedTests",
-        "flow focus-check",
-        "prettier --write",
-        "git add"
-      ]
-    }
+    "src/**/*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "peerDependencies": {
     "react": ">=0.14.9"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-proposal-class-properties": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "@babel/preset-flow": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-flow-strip-types": "^7.4.4",
+    "@babel/plugin-transform-object-assign": "^7.2.0",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^24.1.0",
-    "babel-plugin-macros": "^2.5.0",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-macros": "^2.6.1",
     "codegen.macro": "^3.0.0",
-    "cross-env": "^5.2.0",
-    "flow-bin": "^0.93.0",
-    "husky": "^1.3.1",
-    "jest": "^24.1.0",
-    "lint-staged": "^8.1.4",
+    "flow-bin": "^0.108.0",
+    "globby": "^10.0.1",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^1.16.4",
-    "prismjs": "^1.16.0",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-testing-library": "^6.0.0"
+    "prettier": "^1.18.2",
+    "prismjs": "^1.17.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-testing-library": "^8.0.1",
+    "rollup": "^1.21.4",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0"
   }
 }

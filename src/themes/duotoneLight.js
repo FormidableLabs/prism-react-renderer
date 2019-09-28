@@ -1,21 +1,21 @@
 // @flow
-// Duotone Dark
+// Duotone Light
 // Author: Simurai, adapted from DuoTone themes for Atom (http://simurai.com/projects/2016/01/01/duotone-themes)
 // Conversion: Bram de Haan (http://atelierbram.github.io/Base2Tone-prism/output/prism/prism-base2tone-evening-dark.css)
 // Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
 
-/*:: import type { PrismTheme } from '../src/types' */
+import type { PrismTheme } from "../types";
 
-var theme /*: PrismTheme */ = {
+var theme: PrismTheme = {
   plain: {
-    backgroundColor: "#2a2734",
-    color: "#9a86fd"
+    backgroundColor: "#faf8f5",
+    color: "#728fcb"
   },
   styles: [
     {
       types: ["comment", "prolog", "doctype", "cdata", "punctuation"],
       style: {
-        color: "#6c6783"
+        color: "#b6ad9a"
       }
     },
     {
@@ -27,25 +27,25 @@ var theme /*: PrismTheme */ = {
     {
       types: ["tag", "operator", "number"],
       style: {
-        color: "#e09142"
+        color: "#063289"
       }
     },
     {
       types: ["property", "function"],
       style: {
-        color: "#9a86fd"
+        color: "#b29762"
       }
     },
     {
       types: ["tag-id", "selector", "atrule-id"],
       style: {
-        color: "#eeebff"
+        color: "#2d2006"
       }
     },
     {
       types: ["attr-name"],
       style: {
-        color: "#c4b9fe"
+        color: "#896724"
       }
     },
     {
@@ -61,12 +61,16 @@ var theme /*: PrismTheme */ = {
         "unit",
         "statement",
         "regex",
-        "at-rule",
-        "placeholder",
-        "variable"
+        "at-rule"
       ],
       style: {
-        color: "#ffcc99"
+        color: "#728fcb"
+      }
+    },
+    {
+      types: ["placeholder", "variable"],
+      style: {
+        color: "#93abdc"
       }
     },
     {
@@ -96,10 +100,10 @@ var theme /*: PrismTheme */ = {
     {
       types: ["important"],
       style: {
-        color: "#c4b9fe"
+        color: "#896724"
       }
     }
   ]
 };
 
-module.exports = theme;
+export default theme;

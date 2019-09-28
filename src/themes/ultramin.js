@@ -2,9 +2,9 @@
 // Original: https://github.com/damienstanton/ultramin
 // Converted automatically using ./tools/themeFromVsCode
 
-/*:: import type { PrismTheme } from '../src/types' */
+import type { PrismTheme } from "../types";
 
-var theme /*: PrismTheme */ = {
+var theme: PrismTheme = {
   plain: {
     color: "#282a2e",
     backgroundColor: "#ffffff"
@@ -31,4 +31,4 @@ var theme /*: PrismTheme */ = {
   ]
 };
 
-module.exports = theme;
+export default theme;
