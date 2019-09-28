@@ -2,6 +2,6 @@
   "name": "@prism-react-renderer/prism",
   "private": true,
   "license": "MIT",
-  "main": "../dist/prism.js",
-  "module": "../dist/prism.es.js"
+  "main": "index.cjs.js",
+  "module": "index.js"
 }

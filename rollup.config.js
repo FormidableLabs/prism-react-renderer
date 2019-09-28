@@ -108,20 +108,20 @@ export default [
   {
     ...config,
     input: {
-      'prism-react-renderer': './src/index.js',
+      dist: './src/index.js',
       prism: './src/vendor/prism/index.js',
     },
     output: [
       {
-        dir: 'dist',
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name]-[hash].js',
+        dir: './',
+        entryFileNames: '[name]/index.cjs.js',
+        chunkFileNames: 'dist/[name]-[hash].cjs.js',
         format: 'cjs'
       },
       {
-        dir: 'dist',
-        entryFileNames: '[name].es.js',
-        chunkFileNames: '[name]-[hash].es.js',
+        dir: './',
+        entryFileNames: '[name]/index.js',
+        chunkFileNames: 'dist/[name]-[hash].js',
         format: 'esm'
       }
     ]

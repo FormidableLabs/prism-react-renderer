@@ -1,6 +1,7 @@
 node_modules
 /dist
 /themes
+/prism/*.js
 
 .DS_Store
 .vscode
