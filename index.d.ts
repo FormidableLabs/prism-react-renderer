@@ -30,6 +30,7 @@ declare module "prism-react-renderer" {
     | "scss"
     | "sql"
     | "stylus"
+    | "tsx"
     | "typescript"
     | "wasm"
     | "yaml";
