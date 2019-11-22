@@ -33,7 +33,8 @@ declare module "prism-react-renderer" {
     | "tsx"
     | "typescript"
     | "wasm"
-    | "yaml";
+    | "yaml"
+    | "latex";
 
   type PrismGrammar = {
     [key: string]: any;
