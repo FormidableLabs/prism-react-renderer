@@ -51,14 +51,12 @@ class Highlight extends Component<Props, *> {
     key,
     className,
     style,
-    line,
+    line, 
     ...rest
   }: LineInputProps): LineOutputProps => {
     const output: LineOutputProps = {
       ...rest,
       className: "token-line",
-      style: undefined,
-      key: undefined
     };
 
     const themeDict = this.getThemeDict(this.props);
