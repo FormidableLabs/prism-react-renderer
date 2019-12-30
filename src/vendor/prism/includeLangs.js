@@ -33,6 +33,7 @@ module.exports = {
   sql: true,
   stylus: true,
   typescript: true,
+  twig: true,
   wasm: true,
   yaml: true
 };
