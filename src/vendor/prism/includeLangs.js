@@ -20,6 +20,7 @@ module.exports = {
   go: true,
   graphql: true,
   handlebars: true,
+  java: true,
   json: true,
   less: true,
   makefile: true,
