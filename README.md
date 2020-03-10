@@ -77,7 +77,7 @@ yarn add prism-react-renderer
 
 ## Usage
 
-> [Try it out in the browser](https://codesandbox.io/s/00o4wx0jqv)
+> [Try it out in the browser](https://codesandbox.io/s/prism-react-renderer-example-rnyf2)
 
 ```jsx
 import React from "react";
