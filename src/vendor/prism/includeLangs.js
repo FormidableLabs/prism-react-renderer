@@ -26,6 +26,7 @@ module.exports = {
   markdown: true,
   objectivec: true,
   ocaml: true,
+  protobuf: true,
   python: true,
   reason: true,
   sass: true,

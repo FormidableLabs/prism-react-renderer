@@ -24,6 +24,7 @@ declare module "prism-react-renderer" {
     | "markdown"
     | "objectivec"
     | "ocaml"
+    | "protobuf"
     | "python"
     | "reason"
     | "sass"
