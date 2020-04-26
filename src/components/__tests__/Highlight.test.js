@@ -1,5 +1,5 @@
 import React from "react";
-import { render, cleanup } from "react-testing-library";
+import { render, cleanup } from "@testing-library/react";
 
 import Highlight from "../Highlight";
 import defaultProps from "../../defaultProps";
@@ -94,7 +94,7 @@ describe("<Highlight />", () => {
         style: { cssProp: "test" },
         className: "line-class",
         line: [{ types: ["punctuation"], content: "!" }],
-        restPropsTest: true
+        restPropsTest: true,
       };
 
       render(
@@ -107,10 +107,10 @@ describe("<Highlight />", () => {
               style: {
                 cssProp: "test",
                 backgroundColor: null,
-                color: expect.any(String)
+                color: expect.any(String),
               },
               className: "token-line line-class",
-              restPropsTest: true
+              restPropsTest: true,
             });
 
             return null;
@@ -127,7 +127,7 @@ describe("<Highlight />", () => {
         style: { cssProp: "test" },
         className: "token-class",
         token: { types: ["punctuation"], content: "!" },
-        restPropsTest: true
+        restPropsTest: true,
       };
 
       render(
@@ -140,7 +140,7 @@ describe("<Highlight />", () => {
               style: { cssProp: "test", color: expect.any(String) },
               className: "token punctuation token-class",
               restPropsTest: true,
-              children: "!"
+              children: "!",
             });
 
             return null;
