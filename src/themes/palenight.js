@@ -17,7 +17,7 @@ var theme: PrismTheme = {
       }
     },
     {
-      types: ["string"],
+      types: ["string", "inserted"],
       style: {
         color: "rgb(195, 232, 141)"
       }
@@ -53,7 +53,7 @@ var theme: PrismTheme = {
       }
     },
     {
-      types: ["tag"],
+      types: ["tag", "deleted"],
       style: {
         color: "rgb(255, 85, 114)"
       }
