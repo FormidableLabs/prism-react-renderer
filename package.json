@@ -7,7 +7,7 @@
   "module": "dist/index.js",
   "types": "index.d.ts",
   "license": "MIT",
-  "repository": "git@github.com:FormidableLabs/prism-react-renderer.git",
+  "repository": "https://github.com/FormidableLabs/prism-react-renderer",
   "files": [
     "index.d.ts",
     "dist",
