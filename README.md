@@ -140,7 +140,7 @@ the section "[Children Function](#children-function)".
 > `string` | _required_
 
 This is the language that your code will be highlighted as. You can see a list
-of all languages that are supported out of the box [here](./src/vendor/prism/includeLangs.js).
+of all languages that are supported out of the box [here](./src/vendor/prism/includeLangs.js). Not all languages are included and the list of languages that are currently is a little arbitrary. You can use the [escape-hatch](https://github.com/FormidableLabs/prism-react-renderer#prism) to use your own Prism setup, just in case, or [add more languages to the bundled Prism.](https://github.com/FormidableLabs/prism-react-renderer#faq)
 
 ### code
 
@@ -304,6 +304,23 @@ When converting a Prism CSS theme it's mostly just necessary to use classes as
 
 <details>
 
+<summary>How do I add more language highlighting support?</summary>
+
+</details>
+
+By default `prism-react-renderer` only includes an arbitrary subset of the languages that Prism supports. You can add support for more by including their defimitions from the main `prismjs` package:
+
+```js
+import Prism from "prism-react-renderer/prism";
+
+(typeof global !== "undefined" ? global : window).Prism = Prism;
+
+require("prismjs/components/prism-kotlin");
+require("prismjs/components/prism-csharp");
+```
+
+<details>
+
 <summary>How do I use my old Prism css themes?</summary>
 
 `prism-react-renderer` still returns you all proper `className`s via the prop getters,
@@ -361,7 +378,7 @@ MIT
 
 ## Maintenance Status
 
-**Active:** Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome. 
+**Active:** Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome.
 
 [maintenance-image]: https://img.shields.io/badge/maintenance-active-green.svg
 
