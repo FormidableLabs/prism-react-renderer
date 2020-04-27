@@ -79,7 +79,7 @@ yarn add prism-react-renderer
 
 > [Try it out in the browser](https://codesandbox.io/s/prism-react-renderer-example-u6vhk)
 
-<img src="./.readme/basic.png" alt="Screenshot showing highlighted code block" />
+<img src="./.readme/basic.png" width="237" alt="Screenshot showing highlighted code block" />
 
 ```jsx
 import React from "react";
@@ -127,7 +127,7 @@ It doesn't render anything itself, it just calls the render function and renders
 
 Add line numbers to your highlighted code blocks using the `index` parameter in your `line.map` function:
 
-<img src="./.readme/line-numbers.png" alt="Screenshot showing line numbers in highlighted code block" />
+<img src="./.readme/line-numbers.png" width="453" alt="Screenshot showing line numbers in highlighted code block" />
 
 For example, if you were using `styled-components`, it could look like the following demo.
 
