@@ -41,7 +41,7 @@ var theme: PrismTheme = {
       }
     },
     {
-      types: ["comment", "block-comment", "prolog", "doctype", "cdata"],
+      types: ["comment", "block-comment", "prolog", "doctype", "cdata", "shebang"],
       style: {
         color: colors.comment
       }
