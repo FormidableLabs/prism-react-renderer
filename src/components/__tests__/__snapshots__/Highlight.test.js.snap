@@ -203,7 +203,10 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       <span
         class="token plain"
         style="display: inline-block;"
-      />
+      >
+        
+
+      </span>
     </div>
     <div
       class="token-line"
@@ -339,7 +342,10 @@ exports[`<Highlight /> snapshots renders unsupported languages correctly 1`] = `
       <span
         class="token plain"
         style="display: inline-block;"
-      />
+      >
+        
+
+      </span>
     </div>
     <div
       class="token-line"
