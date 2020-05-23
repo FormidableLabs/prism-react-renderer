@@ -8,23 +8,23 @@ describe("normalizeTokens", () => {
     expect(output).toEqual([
       [
         { types: ["plain"], content: "hello" },
-        { types: ["plain"], content: "world" },
-      ],
+        { types: ["plain"], content: "world" }
+      ]
     ]);
   });
 
   it("handles flat tokens", () => {
     const input = [
       { type: "test1", content: "hello" },
-      { type: "test2", content: "world" },
+      { type: "test2", content: "world" }
     ];
     const output = normalizeTokens(input);
 
     expect(output).toEqual([
       [
         { types: ["test1"], content: "hello" },
-        { types: ["test2"], content: "world" },
-      ],
+        { types: ["test2"], content: "world" }
+      ]
     ]);
   });
 
@@ -34,10 +34,10 @@ describe("normalizeTokens", () => {
         type: "test1",
         content: [
           { type: "nest1", content: "he" },
-          { type: "nest2", content: "llo" },
-        ],
+          { type: "nest2", content: "llo" }
+        ]
       },
-      { type: "test2", content: "world" },
+      { type: "test2", content: "world" }
     ];
     const output = normalizeTokens(input);
 
@@ -45,8 +45,8 @@ describe("normalizeTokens", () => {
       [
         { types: ["test1", "nest1"], content: "he" },
         { types: ["test1", "nest2"], content: "llo" },
-        { types: ["test2"], content: "world" },
-      ],
+        { types: ["test2"], content: "world" }
+      ]
     ]);
   });
 
@@ -54,10 +54,10 @@ describe("normalizeTokens", () => {
     const input = [
       {
         type: "test1",
-        content: [{ type: "nest", content: "he" }, "llo"],
+        content: [{ type: "nest", content: "he" }, "llo"]
       },
       { type: "test2", content: "world" },
-      "!",
+      "!"
     ];
     const output = normalizeTokens(input);
 
@@ -66,8 +66,8 @@ describe("normalizeTokens", () => {
         { types: ["test1", "nest"], content: "he" },
         { types: ["test1"], content: "llo" },
         { types: ["test2"], content: "world" },
-        { types: ["plain"], content: "!" },
-      ],
+        { types: ["plain"], content: "!" }
+      ]
     ]);
   });
 
@@ -78,10 +78,10 @@ describe("normalizeTokens", () => {
         content: [
           {
             type: "2",
-            content: [{ type: "3", content: "hello" }],
-          },
-        ],
-      },
+            content: [{ type: "3", content: "hello" }]
+          }
+        ]
+      }
     ];
     const output = normalizeTokens(input);
 
@@ -95,25 +95,25 @@ describe("normalizeTokens", () => {
     expect(output).toEqual([
       [
         { types: ["plain"], content: "hello" },
-        { types: ["plain"], content: " " },
+        { types: ["plain"], content: " " }
       ],
-      [{ types: ["plain"], content: "world" }],
+      [{ types: ["plain"], content: "world" }]
     ]);
   });
 
   it("handles flat tokens with newlines", () => {
     const input = [
       { type: "test1", content: "hello" },
-      { type: "test2", content: "wor\nld" },
+      { type: "test2", content: "wor\nld" }
     ];
     const output = normalizeTokens(input);
 
     expect(output).toEqual([
       [
         { types: ["test1"], content: "hello" },
-        { types: ["test2"], content: "wor" },
+        { types: ["test2"], content: "wor" }
       ],
-      [{ types: ["test2"], content: "ld" }],
+      [{ types: ["test2"], content: "ld" }]
     ]);
   });
 
@@ -123,23 +123,23 @@ describe("normalizeTokens", () => {
         type: "test1",
         content: [
           { type: "nest1", content: "he" },
-          { type: "nest2", content: "l\nlo" },
-        ],
+          { type: "nest2", content: "l\nlo" }
+        ]
       },
-      { type: "test2", content: "wor\nld" },
+      { type: "test2", content: "wor\nld" }
     ];
     const output = normalizeTokens(input);
 
     expect(output).toEqual([
       [
         { types: ["test1", "nest1"], content: "he" },
-        { types: ["test1", "nest2"], content: "l" },
+        { types: ["test1", "nest2"], content: "l" }
       ],
       [
         { types: ["test1", "nest2"], content: "lo" },
-        { types: ["test2"], content: "wor" },
+        { types: ["test2"], content: "wor" }
       ],
-      [{ types: ["test2"], content: "ld" }],
+      [{ types: ["test2"], content: "ld" }]
     ]);
   });
 
@@ -147,9 +147,9 @@ describe("normalizeTokens", () => {
     const input = [
       {
         type: "test1",
-        content: [{ type: "nest", content: "h\ne" }, "l\nlo"],
+        content: [{ type: "nest", content: "h\ne" }, "l\nlo"]
       },
-      "world\n!",
+      "world\n!"
     ];
     const output = normalizeTokens(input);
 
@@ -157,13 +157,13 @@ describe("normalizeTokens", () => {
       [{ types: ["test1", "nest"], content: "h" }],
       [
         { types: ["test1", "nest"], content: "e" },
-        { types: ["test1"], content: "l" },
+        { types: ["test1"], content: "l" }
       ],
       [
         { types: ["test1"], content: "lo" },
-        { types: ["plain"], content: "world" },
+        { types: ["plain"], content: "world" }
       ],
-      [{ types: ["plain"], content: "!" }],
+      [{ types: ["plain"], content: "!" }]
     ]);
   });
 
@@ -174,16 +174,16 @@ describe("normalizeTokens", () => {
         content: [
           {
             type: "2",
-            content: [{ type: "3", content: "hel\nlo" }],
-          },
-        ],
-      },
+            content: [{ type: "3", content: "hel\nlo" }]
+          }
+        ]
+      }
     ];
     const output = normalizeTokens(input);
 
     expect(output).toEqual([
       [{ types: ["1", "2", "3"], content: "hel" }],
-      [{ types: ["1", "2", "3"], content: "lo" }],
+      [{ types: ["1", "2", "3"], content: "lo" }]
     ]);
   });
 
@@ -194,7 +194,7 @@ describe("normalizeTokens", () => {
     expect(output).toEqual([
       [{ types: ["plain"], content: "\n", empty: true }],
       [{ types: ["plain"], content: "\n", empty: true }],
-      [{ types: ["plain"], content: "\n", empty: true }],
+      [{ types: ["plain"], content: "\n", empty: true }]
     ]);
   });
 });

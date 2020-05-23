@@ -10,7 +10,7 @@ const normalizeEmptyLines = (line: Token[]) => {
     line.push({
       types: ["plain"],
       content: "\n",
-      empty: true,
+      empty: true
     });
   } else if (line.length === 1 && line[0].content === "") {
     line[0].content = "\n";
