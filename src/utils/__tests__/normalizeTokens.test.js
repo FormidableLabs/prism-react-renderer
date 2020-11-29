@@ -192,9 +192,9 @@ describe("normalizeTokens", () => {
     const output = normalizeTokens(input);
 
     expect(output).toEqual([
-      [{ types: ["plain"], content: "", empty: true }],
-      [{ types: ["plain"], content: "", empty: true }],
-      [{ types: ["plain"], content: "", empty: true }]
+      [{ types: ["plain"], content: "\n", empty: true }],
+      [{ types: ["plain"], content: "\n", empty: true }],
+      [{ types: ["plain"], content: "\n", empty: true }]
     ]);
   });
 });
