@@ -3,79 +3,169 @@
 
 import type { PrismTheme } from "../types";
 
-var theme: PrismTheme = {
+var theme = {
   plain: {
-    color: "#393A34",
-    backgroundColor: "#f6f8fa"
+    color: 'rgb(36, 41, 46)',
+    backgroundColor: '#f6f8fa',
   },
   styles: [
     {
-      types: ["comment", "prolog", "doctype", "cdata"],
+      types: ['prolog'],
       style: {
-        color: "#999988",
-        fontStyle: "italic"
-      }
+        color: 'rgb(0, 0, 128)',
+      },
     },
     {
-      types: ["namespace"],
+      types: ['comment'],
       style: {
-        opacity: 0.7
-      }
+        color: 'rgb(106, 153, 85)',
+      },
     },
     {
-      types: ["string", "attr-value"],
+      types: ['builtin', 'changed', 'keyword'],
       style: {
-        color: "#e3116c"
-      }
+        color: 'rgb(215, 58, 73)',
+      },
     },
     {
-      types: ["punctuation", "operator"],
+      types: ['inserted-sign', 'inserted'],
       style: {
-        color: "#393A34"
-      }
+        backgroundColor: 'rgb(240, 255, 244)',
+        color: 'rgb(34, 134, 58)',
+      },
     },
     {
-      types: [
-        "entity",
-        "url",
-        "symbol",
-        "number",
-        "boolean",
-        "variable",
-        "constant",
-        "property",
-        "regex",
-        "inserted"
-      ],
+      types: ['constant'],
       style: {
-        color: "#36acaa"
-      }
+        color: 'rgb(100, 102, 149)',
+      },
     },
     {
-      types: ["atrule", "keyword", "attr-name", "selector"],
+      types: ['attr-name', 'variable'],
       style: {
-        color: "#00a4db"
-      }
+        color: 'rgb(156, 220, 254)',
+      },
     },
     {
-      types: ["function", "deleted", "tag"],
+      types: ['deleted-sign', 'deleted'],
       style: {
-        color: "#d73a49"
-      }
+        backgroundColor: 'rgb(255, 238, 240)',
+        color: 'rgb(179, 29, 40)',
+      },
     },
     {
-      types: ["function-variable"],
+      types: ['selector'],
       style: {
-        color: "#6f42c1"
-      }
+        color: 'rgb(215, 186, 125)',
+      },
     },
     {
-      types: ["tag", "selector", "keyword"],
+      // Fix tag color
+      types: ['tag'],
       style: {
-        color: "#00009f"
-      }
-    }
-  ]
+        color: 'rgb(78, 201, 176)',
+      },
+    },
+    {
+      // Fix tag color for HTML
+      types: ['tag'],
+      languages: ['markup'],
+      style: {
+        color: 'rgb(86, 156, 214)',
+      },
+    },
+    {
+      types: ['punctuation', 'operator'],
+      style: {
+        color: 'rgb(36, 41, 46)',
+      },
+    },
+    {
+      types: ['operator'],
+      style: {
+        color: 'rgb(0, 92, 197)',
+      },
+    },
+    {
+      types: ['boolean'],
+      style: {
+        color: 'rgb(0, 92, 197)',
+      },
+    },
+    {
+      // Fix punctuation color for HTML
+      types: ['punctuation'],
+      languages: ['markup'],
+      style: {
+        color: '#808080',
+      },
+    },
+    {
+      types: ['function'],
+      style: {
+        color: 'rgb(111, 66, 193)',
+      },
+    },
+    {
+      types: ['class-name'],
+      style: {
+        color: 'rgb(78, 201, 176)',
+      },
+    },
+    {
+      types: ['known-class-name', 'class-name'],
+      style: {
+        color: 'rgb(227, 98, 9)',
+      },
+    },
+    {
+      types: ['char'],
+      style: {
+        color: 'rgb(209, 105, 105)',
+      },
+    },
+    {
+      types: ['property-access'],
+      style: {
+        color: 'rgb(0, 92, 197)',
+      },
+    },
+    {
+      types: ['method', 'function', 'property-access'],
+      style: {
+        color: 'rgb(111, 66, 193)',
+      },
+    },
+    {
+      languages: ['json'],
+      types: ['property'],
+      style: {
+        color: 'rgb(3, 47, 98)',
+      },
+    },
+    {
+      languages: ['json'],
+      types: ['string'],
+      style: {
+        color: 'rgb(3, 47, 98)',
+      },
+    },
+    {
+      languages: ['json'],
+      types: ['number'],
+      style: {
+        color: 'rgb(0, 92, 197)',
+      },
+    },
+    {
+      languages: ['json'],
+      types: ['comment'],
+      style: {
+        backgroundColor: 'rgb(179, 29, 40)',
+        color: 'rgb(250, 251, 252)',
+      },
+    },
+  ],
 };
 
 export default theme;
