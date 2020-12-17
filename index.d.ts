@@ -8,6 +8,7 @@ declare module "prism-react-renderer" {
     | "c"
     | "cpp"
     | "css"
+    | "java"
     | "javascript"
     | "jsx"
     | "coffeescript"
