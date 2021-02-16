@@ -18,7 +18,7 @@
     "build": "rollup -c rollup.config.js",
     "test": "jest",
     "flow": "flow check",
-    "format": "prettier --write src/**/*.js",
+    "format": "prettier --write 'src/**/*.js'",
     "prepublishOnly": "run-p flow build"
   },
   "husky": {

@@ -8,7 +8,7 @@ import type { PrismLib } from "./types";
 const defaultProps = {
   // $FlowFixMe
   Prism: (Prism: PrismLib),
-  theme
+  theme,
 };
 
 export default defaultProps;

@@ -15,14 +15,14 @@
  * It has also been run through prettier
  */
 
-var Prism = (function() {
+var Prism = (function () {
   // Private helper vars
   var lang = /\blang(?:uage)?-([\w-]+)\b/i;
   var uniqueId = 0;
 
   var _ = {
     util: {
-      encode: function(tokens) {
+      encode: function (tokens) {
         if (tokens instanceof Token) {
           return new Token(
             tokens.type,
@@ -39,11 +39,11 @@ var Prism = (function() {
         }
       },
 
-      type: function(o) {
+      type: function (o) {
         return Object.prototype.toString.call(o).match(/\[object (\w+)\]/)[1];
       },
 
-      objId: function(obj) {
+      objId: function (obj) {
         if (!obj["__id"]) {
           Object.defineProperty(obj, "__id", { value: ++uniqueId });
         }
@@ -51,7 +51,7 @@ var Prism = (function() {
       },
 
       // Deep clone a language definition (e.g. to extend it)
-      clone: function(o, visited) {
+      clone: function (o, visited) {
         var type = _.util.type(o);
         visited = visited || {};
 
@@ -78,7 +78,7 @@ var Prism = (function() {
             var clone = [];
             visited[_.util.objId(o)] = clone;
 
-            o.forEach(function(v, i) {
+            o.forEach(function (v, i) {
               clone[i] = _.util.clone(v, visited);
             });
 
@@ -86,11 +86,11 @@ var Prism = (function() {
         }
 
         return o;
-      }
+      },
     },
 
     languages: {
-      extend: function(id, redef) {
+      extend: function (id, redef) {
         var lang = _.util.clone(_.languages[id]);
 
         for (var key in redef) {
@@ -109,7 +109,7 @@ var Prism = (function() {
        * @param insert Object with the key/value pairs to insert
        * @param root The object that contains `inside`. If equal to Prism.languages, it can be omitted.
        */
-      insertBefore: function(inside, before, insert, root) {
+      insertBefore: function (inside, before, insert, root) {
         root = root || _.languages;
         var grammar = root[inside];
 
@@ -142,7 +142,7 @@ var Prism = (function() {
         }
 
         // Update references in other language definitions
-        _.languages.DFS(_.languages, function(key, value) {
+        _.languages.DFS(_.languages, function (key, value) {
           if (value === root[inside] && key != inside) {
             this[key] = ret;
           }
@@ -152,7 +152,7 @@ var Prism = (function() {
       },
 
       // Traverse a language definition with Depth First Search
-      DFS: function(o, callback, type, visited) {
+      DFS: function (o, callback, type, visited) {
         visited = visited || {};
         for (var i in o) {
           if (o.hasOwnProperty(i)) {
@@ -173,22 +173,22 @@ var Prism = (function() {
             }
           }
         }
-      }
+      },
     },
 
     plugins: {},
 
-    highlight: function(text, grammar, language) {
+    highlight: function (text, grammar, language) {
       var env = {
         code: text,
         grammar: grammar,
-        language: language
+        language: language,
       };
       env.tokens = _.tokenize(env.code, env.grammar);
       return Token.stringify(_.util.encode(env.tokens), env.language);
     },
 
-    matchGrammar: function(
+    matchGrammar: function (
       text,
       strarr,
       grammar,
@@ -338,10 +338,10 @@ var Prism = (function() {
     },
 
     hooks: {
-      add: function() {}
+      add: function () {},
     },
 
-    tokenize: function(text, grammar, language) {
+    tokenize: function (text, grammar, language) {
       var strarr = [text];
 
       var rest = grammar.rest;
@@ -357,10 +357,10 @@ var Prism = (function() {
       _.matchGrammar(text, strarr, grammar, 0, 0, false);
 
       return strarr;
-    }
+    },
   };
 
-  var Token = (_.Token = function(type, content, alias, matchedStr, greedy) {
+  var Token = (_.Token = function (type, content, alias, matchedStr, greedy) {
     this.type = type;
     this.content = content;
     this.alias = alias;
@@ -369,14 +369,14 @@ var Prism = (function() {
     this.greedy = !!greedy;
   });
 
-  Token.stringify = function(o, language, parent) {
+  Token.stringify = function (o, language, parent) {
     if (typeof o == "string") {
       return o;
     }
 
     if (_.util.type(o) === "Array") {
       return o
-        .map(function(element) {
+        .map(function (element) {
           return Token.stringify(element, language, o);
         })
         .join("");
@@ -389,7 +389,7 @@ var Prism = (function() {
       classes: ["token", o.type],
       attributes: {},
       language: language,
-      parent: parent
+      parent: parent,
     };
 
     if (o.alias) {
@@ -398,7 +398,7 @@ var Prism = (function() {
     }
 
     var attributes = Object.keys(env.attributes)
-      .map(function(name) {
+      .map(function (name) {
         return (
           name +
           '="' +

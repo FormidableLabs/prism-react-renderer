@@ -6,23 +6,23 @@ import includedLangs from "./vendor/prism/includeLangs";
 export type Language = $Keys<typeof includedLangs>;
 
 type PrismGrammar = {
-  [key: string]: mixed
+  [key: string]: mixed,
 };
 
 type LanguagesDict = {
-  [lang: Language]: PrismGrammar
+  [lang: Language]: PrismGrammar,
 };
 
 export type PrismToken = {
   type: string | string[],
   alias: string | string[],
-  content: Array<PrismToken | string> | string
+  content: Array<PrismToken | string> | string,
 };
 
 export type Token = {
   types: string[],
   content: string,
-  empty?: boolean
+  empty?: boolean,
 };
 
 export type PrismLib = {
@@ -32,11 +32,15 @@ export type PrismLib = {
     grammar: PrismGrammar,
     language: Language
   ) => Array<PrismToken | string>,
-  highlight: (code: string, grammar: PrismGrammar, language: Language) => string
+  highlight: (
+    code: string,
+    grammar: PrismGrammar,
+    language: Language
+  ) => string,
 };
 
 export type StyleObj = {
-  [key: string]: string | number | null
+  [key: string]: string | number | null,
 };
 
 export type LineInputProps = {
@@ -44,14 +48,14 @@ export type LineInputProps = {
   style?: StyleObj,
   className?: string,
   line: Token[],
-  [key: string]: mixed
+  [key: string]: mixed,
 };
 
 export type LineOutputProps = {
   key?: Key,
   style?: StyleObj,
   className: string,
-  [key: string]: mixed
+  [key: string]: mixed,
 };
 
 export type TokenInputProps = {
@@ -59,7 +63,7 @@ export type TokenInputProps = {
   style?: StyleObj,
   className?: string,
   token: Token,
-  [key: string]: mixed
+  [key: string]: mixed,
 };
 
 export type TokenOutputProps = {
@@ -67,14 +71,14 @@ export type TokenOutputProps = {
   style?: StyleObj,
   className: string,
   children: string,
-  [key: string]: mixed
+  [key: string]: mixed,
 };
 
 export type RenderProps = {
   tokens: Token[][],
   className: string,
   getLineProps: (input: LineInputProps) => LineOutputProps,
-  getTokenProps: (input: TokenInputProps) => TokenOutputProps
+  getTokenProps: (input: TokenInputProps) => TokenOutputProps,
 };
 
 export type PrismThemeEntry = {
@@ -99,7 +103,7 @@ export type PrismThemeEntry = {
     | "line-through"
     | "underline line-through",
   opacity?: number,
-  [styleKey: string]: string | number | void
+  [styleKey: string]: string | number | void,
 };
 
 export type PrismTheme = {
@@ -107,6 +111,6 @@ export type PrismTheme = {
   styles: Array<{
     types: string[],
     style: PrismThemeEntry,
-    languages?: Language[]
-  }>
+    languages?: Language[],
+  }>,
 };
