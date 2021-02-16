@@ -9,69 +9,69 @@ import type { PrismTheme } from "../types";
 var theme: PrismTheme = {
   plain: {
     color: "#9EFEFF",
-    backgroundColor: "#2D2A55"
+    backgroundColor: "#2D2A55",
   },
   styles: [
     {
       types: ["changed"],
       style: {
-        color: "rgb(255, 238, 128)"
-      }
+        color: "rgb(255, 238, 128)",
+      },
     },
     {
       types: ["deleted"],
       style: {
-        color: "rgba(239, 83, 80, 0.56)"
-      }
+        color: "rgba(239, 83, 80, 0.56)",
+      },
     },
     {
       types: ["inserted"],
       style: {
-        color: "rgb(173, 219, 103)"
-      }
+        color: "rgb(173, 219, 103)",
+      },
     },
     {
       types: ["comment"],
       style: {
         color: "rgb(179, 98, 255)",
-        fontStyle: "italic"
-      }
+        fontStyle: "italic",
+      },
     },
     {
       types: ["punctuation"],
       style: {
-        color: "rgb(255, 255, 255)"
-      }
+        color: "rgb(255, 255, 255)",
+      },
     },
     {
       types: ["constant"],
       style: {
-        color: "rgb(255, 98, 140)"
-      }
+        color: "rgb(255, 98, 140)",
+      },
     },
     {
       types: ["string", "url"],
       style: {
-        color: "rgb(165, 255, 144)"
-      }
+        color: "rgb(165, 255, 144)",
+      },
     },
     {
       types: ["variable"],
       style: {
-        color: "rgb(255, 238, 128)"
-      }
+        color: "rgb(255, 238, 128)",
+      },
     },
     {
       types: ["number", "boolean"],
       style: {
-        color: "rgb(255, 98, 140)"
-      }
+        color: "rgb(255, 98, 140)",
+      },
     },
     {
       types: ["attr-name"],
       style: {
-        color: "rgb(255, 180, 84)"
-      }
+        color: "rgb(255, 180, 84)",
+      },
     },
     {
       types: [
@@ -81,19 +81,19 @@ var theme: PrismTheme = {
         "namespace",
         "tag",
         "selector",
-        "doctype"
+        "doctype",
       ],
       style: {
-        color: "rgb(255, 157, 0)"
-      }
+        color: "rgb(255, 157, 0)",
+      },
     },
     {
       types: ["builtin", "char", "constant", "function", "class-name"],
       style: {
-        color: "rgb(250, 208, 0)"
-      }
-    }
-  ]
+        color: "rgb(250, 208, 0)",
+      },
+    },
+  ],
 };
 
 export default theme;
