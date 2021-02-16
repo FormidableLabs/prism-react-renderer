@@ -9,44 +9,44 @@ import type { PrismTheme } from "../types";
 var theme: PrismTheme = {
   plain: {
     backgroundColor: "#2a2734",
-    color: "#9a86fd"
+    color: "#9a86fd",
   },
   styles: [
     {
       types: ["comment", "prolog", "doctype", "cdata", "punctuation"],
       style: {
-        color: "#6c6783"
-      }
+        color: "#6c6783",
+      },
     },
     {
       types: ["namespace"],
       style: {
-        opacity: 0.7
-      }
+        opacity: 0.7,
+      },
     },
     {
       types: ["tag", "operator", "number"],
       style: {
-        color: "#e09142"
-      }
+        color: "#e09142",
+      },
     },
     {
       types: ["property", "function"],
       style: {
-        color: "#9a86fd"
-      }
+        color: "#9a86fd",
+      },
     },
     {
       types: ["tag-id", "selector", "atrule-id"],
       style: {
-        color: "#eeebff"
-      }
+        color: "#eeebff",
+      },
     },
     {
       types: ["attr-name"],
       style: {
-        color: "#c4b9fe"
-      }
+        color: "#c4b9fe",
+      },
     },
     {
       types: [
@@ -63,43 +63,43 @@ var theme: PrismTheme = {
         "regex",
         "at-rule",
         "placeholder",
-        "variable"
+        "variable",
       ],
       style: {
-        color: "#ffcc99"
-      }
+        color: "#ffcc99",
+      },
     },
     {
       types: ["deleted"],
       style: {
-        textDecorationLine: "line-through"
-      }
+        textDecorationLine: "line-through",
+      },
     },
     {
       types: ["inserted"],
       style: {
-        textDecorationLine: "underline"
-      }
+        textDecorationLine: "underline",
+      },
     },
     {
       types: ["italic"],
       style: {
-        fontStyle: "italic"
-      }
+        fontStyle: "italic",
+      },
     },
     {
       types: ["important", "bold"],
       style: {
-        fontWeight: "bold"
-      }
+        fontWeight: "bold",
+      },
     },
     {
       types: ["important"],
       style: {
-        color: "#c4b9fe"
-      }
-    }
-  ]
+        color: "#c4b9fe",
+      },
+    },
+  ],
 };
 
 export default theme;
