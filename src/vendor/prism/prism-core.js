@@ -339,6 +339,7 @@ var Prism = (function () {
 
     hooks: {
       add: function () {},
+      run: function (name, env) {},
     },
 
     tokenize: function (text, grammar, language) {
