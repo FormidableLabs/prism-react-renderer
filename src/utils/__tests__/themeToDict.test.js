@@ -1,4 +1,4 @@
-import themeToDict from "../themeToDict"
+import themeToDict from "../themeToDict";
 
 describe("themeToDict", () => {
   it("converts entry.types to dictionary", () => {
@@ -24,7 +24,7 @@ describe("themeToDict", () => {
           },
         },
       ],
-    }
+    };
 
     const expected = {
       root: {
@@ -43,31 +43,33 @@ describe("themeToDict", () => {
       3: {
         color: "blue",
       },
-    }
+    };
 
-    expect(themeToDict(input)).toEqual(expected)
+    expect(themeToDict(input)).toEqual(expected);
     // Check order in which keys were added to implicitly test merge strategy
-    expect(Object.keys(themeToDict(input, 'js'))).toEqual(Object.keys(expected))
-  })
+    expect(Object.keys(themeToDict(input, "js"))).toEqual(
+      Object.keys(expected)
+    );
+  });
 
   it("limits entries by entry.languages", () => {
     const input = {
       plain: {},
       styles: [
         {
-          types: ['test'],
-          languages: ['js'],
+          types: ["test"],
+          languages: ["js"],
           style: {
             color: "green",
           },
-        }
+        },
       ],
-    }
+    };
 
-    expect(themeToDict(input, 'js').test).toEqual({
-      color: 'green'
-    })
+    expect(themeToDict(input, "js").test).toEqual({
+      color: "green",
+    });
 
-    expect(themeToDict(input, 'ocaml').test).toEqual(undefined)
-  })
-})
+    expect(themeToDict(input, "ocaml").test).toEqual(undefined);
+  });
+});
