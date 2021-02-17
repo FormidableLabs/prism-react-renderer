@@ -12,8 +12,10 @@ import type {
   TokenInputProps,
   TokenOutputProps,
   RenderProps,
+  PrismGrammar,
   PrismLib,
   PrismTheme,
+  PrismToken,
 } from "../types";
 
 type Props = {
@@ -121,6 +123,25 @@ class Highlight extends Component<Props, *> {
     return output;
   };
 
+  tokenize = (
+    Prism: PrismLib,
+    code: string,
+    grammar: PrismGrammar,
+    language: Language
+  ): Array<PrismToken> => {
+    const env = {
+      code,
+      grammar,
+      language,
+    };
+
+    Prism.hooks.run("before-tokenize", env);
+    env.tokens = Prism.tokenize(env.code, env.grammar, env.language);
+    Prism.hooks.run("after-tokenize", env);
+
+    return env.tokens;
+  };
+
   render() {
     const { Prism, language, code, children } = this.props;
 
@@ -128,7 +149,9 @@ class Highlight extends Component<Props, *> {
 
     const grammar = Prism.languages[language];
     const mixedTokens =
-      grammar !== undefined ? Prism.tokenize(code, grammar, language) : [code];
+      grammar !== undefined
+        ? this.tokenize(Prism, code, grammar, language)
+        : [code];
     const tokens = normalizeTokens(mixedTokens);
 
     return children({

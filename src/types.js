@@ -5,7 +5,7 @@ import includedLangs from "./vendor/prism/includeLangs";
 
 export type Language = $Keys<typeof includedLangs>;
 
-type PrismGrammar = {
+export type PrismGrammar = {
   [key: string]: mixed,
 };
 
@@ -37,6 +37,12 @@ export type PrismLib = {
     grammar: PrismGrammar,
     language: Language
   ) => string,
+  hooks: {
+    run: (
+      name: string,
+      env: { code: string, grammar: PrismGrammar, language: Language }
+    ) => void,
+  },
 };
 
 export type StyleObj = {
