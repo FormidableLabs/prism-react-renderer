@@ -12,8 +12,10 @@ import type {
   TokenInputProps,
   TokenOutputProps,
   RenderProps,
+  PrismGrammar,
   PrismLib,
-  PrismTheme
+  PrismTheme,
+  PrismToken,
 } from "../types";
 
 type Props = {
@@ -21,7 +23,7 @@ type Props = {
   theme?: PrismTheme,
   language: Language,
   code: string,
-  children: (props: RenderProps) => Node
+  children: (props: RenderProps) => Node,
 };
 
 class Highlight extends Component<Props, *> {
@@ -58,7 +60,7 @@ class Highlight extends Component<Props, *> {
       ...rest,
       className: "token-line",
       style: undefined,
-      key: undefined
+      key: undefined,
     };
 
     const themeDict = this.getThemeDict(this.props);
@@ -91,7 +93,7 @@ class Highlight extends Component<Props, *> {
 
     const baseStyle = empty ? { display: "inline-block" } : {};
     // $FlowFixMe
-    const typeStyles = types.map(type => themeDict[type]);
+    const typeStyles = types.map((type) => themeDict[type]);
     return Object.assign(baseStyle, ...typeStyles);
   };
 
@@ -107,7 +109,7 @@ class Highlight extends Component<Props, *> {
       className: `token ${token.types.join(" ")}`,
       children: token.content,
       style: this.getStyleForToken(token),
-      key: undefined
+      key: undefined,
     };
 
     if (style !== undefined) {
@@ -121,6 +123,25 @@ class Highlight extends Component<Props, *> {
     return output;
   };
 
+  tokenize = (
+    Prism: PrismLib,
+    code: string,
+    grammar: PrismGrammar,
+    language: Language
+  ): Array<PrismToken> => {
+    const env = {
+      code,
+      grammar,
+      language,
+    };
+
+    Prism.hooks.run("before-tokenize", env);
+    env.tokens = Prism.tokenize(env.code, env.grammar, env.language);
+    Prism.hooks.run("after-tokenize", env);
+
+    return env.tokens;
+  };
+
   render() {
     const { Prism, language, code, children } = this.props;
 
@@ -128,7 +149,9 @@ class Highlight extends Component<Props, *> {
 
     const grammar = Prism.languages[language];
     const mixedTokens =
-      grammar !== undefined ? Prism.tokenize(code, grammar, language) : [code];
+      grammar !== undefined
+        ? this.tokenize(Prism, code, grammar, language)
+        : [code];
     const tokens = normalizeTokens(mixedTokens);
 
     return children({
@@ -136,7 +159,7 @@ class Highlight extends Component<Props, *> {
       className: `prism-code language-${language}`,
       style: themeDict !== undefined ? themeDict.root : {},
       getLineProps: this.getLineProps,
-      getTokenProps: this.getTokenProps
+      getTokenProps: this.getTokenProps,
     });
   }
 }

@@ -5,7 +5,7 @@ import type { Language, StyleObj, PrismTheme, PrismThemeEntry } from "../types";
 export type ThemeDict = {
   root: StyleObj,
   plain: StyleObj,
-  [type: string]: StyleObj
+  [type: string]: StyleObj,
 };
 
 const themeToDict = (theme: PrismTheme, language: Language): ThemeDict => {
@@ -20,7 +20,7 @@ const themeToDict = (theme: PrismTheme, language: Language): ThemeDict => {
       return acc;
     }
 
-    themeEntry.types.forEach(type => {
+    themeEntry.types.forEach((type) => {
       // $FlowFixMe
       const accStyle: StyleObj = { ...acc[type], ...style };
 

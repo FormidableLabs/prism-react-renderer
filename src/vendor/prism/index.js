@@ -1,5 +1,5 @@
-import Prism from './prism-core'
-import codegen from 'codegen.macro'
+import Prism from "./prism-core";
+import codegen from "codegen.macro";
 
 // Babel Codegen Macro:
 // Get a list of all prismjs languages and inline them here.
@@ -77,6 +77,6 @@ codegen`
   })
 
   module.exports = output
-`
+`;
 
-export default Prism
+export default Prism;

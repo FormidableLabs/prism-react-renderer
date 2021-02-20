@@ -1,13 +1,15 @@
-// @flow
-// Original: https://github.com/sdras/night-owl-vscode-theme
-// Converted automatically using ./tools/themeFromVsCode
+/*
+    Adapted from the Prism Okaidia theme
+    https://github.com/PrismJS/prism/blob/1761513e3db48ca9222037644a9c68746e24f039/themes/prism-okaidia.css
+    https://github.com/ocodia/okaidia-prismjs-theme
+*/
 
 import type { PrismTheme } from "../types";
 
 var theme: PrismTheme = {
   plain: {
-    color: "#d6deeb",
-    backgroundColor: "#011627",
+    color: "#f8f8f2",
+    backgroundColor: "#272822",
   },
   styles: [
     {
@@ -20,12 +22,12 @@ var theme: PrismTheme = {
     {
       types: ["deleted"],
       style: {
-        color: "rgba(239, 83, 80, 0.56)",
+        color: "#f92672",
         fontStyle: "italic",
       },
     },
     {
-      types: ["inserted", "attr-name"],
+      types: ["inserted"],
       style: {
         color: "rgb(173, 219, 103)",
         fontStyle: "italic",
@@ -34,77 +36,88 @@ var theme: PrismTheme = {
     {
       types: ["comment"],
       style: {
-        color: "rgb(99, 119, 119)",
+        color: "#8292a2",
         fontStyle: "italic",
       },
     },
     {
       types: ["string", "url"],
       style: {
-        color: "rgb(173, 219, 103)",
+        color: "#a6e22e",
       },
     },
     {
       types: ["variable"],
       style: {
-        color: "rgb(214, 222, 235)",
+        color: "#f8f8f2",
       },
     },
     {
       types: ["number"],
       style: {
-        color: "rgb(247, 140, 108)",
+        color: "#ae81ff",
       },
     },
     {
-      types: ["builtin", "char", "constant", "function"],
+      types: ["builtin", "char", "constant", "function", "class-name"],
       style: {
-        color: "rgb(130, 170, 255)",
+        color: "#e6db74",
       },
     },
     {
-      // This was manually added after the auto-generation
-      // so that punctuations are not italicised
       types: ["punctuation"],
       style: {
-        color: "rgb(199, 146, 234)",
+        color: "#f8f8f2",
       },
     },
     {
       types: ["selector", "doctype"],
       style: {
-        color: "rgb(199, 146, 234)",
+        color: "#a6e22e",
         fontStyle: "italic",
-      },
-    },
-    {
-      types: ["class-name"],
-      style: {
-        color: "rgb(255, 203, 139)",
       },
     },
     {
       types: ["tag", "operator", "keyword"],
       style: {
-        color: "rgb(127, 219, 202)",
+        color: "#66d9ef",
       },
     },
     {
       types: ["boolean"],
       style: {
-        color: "rgb(255, 88, 116)",
-      },
-    },
-    {
-      types: ["property"],
-      style: {
-        color: "rgb(128, 203, 196)",
+        color: "#ae81ff",
       },
     },
     {
       types: ["namespace"],
       style: {
         color: "rgb(178, 204, 214)",
+        opacity: 0.7,
+      },
+    },
+    {
+      types: ["tag", "property"],
+      style: {
+        color: "#f92672",
+      },
+    },
+    {
+      types: ["attr-name"],
+      style: {
+        color: "#a6e22e !important",
+      },
+    },
+    {
+      types: ["doctype"],
+      style: {
+        color: "#8292a2",
+      },
+    },
+    {
+      types: ["rule"],
+      style: {
+        color: "#e6db74",
       },
     },
   ],
