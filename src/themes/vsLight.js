@@ -1,7 +1,7 @@
 // @flow
 // Converted automatically using ./tools/themeFromVsCode
 
-import type { PrismTheme } from "../types"
+import type { PrismTheme } from "../types";
 
 var theme: PrismTheme = {
   plain: {
@@ -76,6 +76,6 @@ var theme: PrismTheme = {
       },
     },
   ],
-}
+};
 
-export default theme
+export default theme;

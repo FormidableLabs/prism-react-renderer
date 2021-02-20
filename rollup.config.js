@@ -2,20 +2,23 @@ import * as globby from 'globby';
 import * as path from 'path';
 import * as fs from 'fs';
 
-import commonjs from 'rollup-plugin-commonjs';
-import nodeResolve from 'rollup-plugin-node-resolve';
-import buble from 'rollup-plugin-buble';
-import babel from 'rollup-plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import buble from '@rollup/plugin-buble';
+import babel from '@rollup/plugin-babel';
 
-const pkgInfo = require('./package.json');
+const pkg = require('./package.json');
 
-let external = ['dns', 'fs', 'path', 'url'];
-if (pkgInfo.peerDependencies)
-  external.push(...Object.keys(pkgInfo.peerDependencies));
-if (pkgInfo.dependencies)
-  external.push(...Object.keys(pkgInfo.dependencies));
+const externalModules = [
+  'dns',
+  'fs',
+  'path',
+  'url',
+  ...Object.keys(pkg.peerDependencies || {}),
+  ...Object.keys(pkg.dependencies || {}),
+];
 
-const externalPredicate = new RegExp(`^(${external.join('|')})($|/)`);
+const externalPredicate = new RegExp(`^(${externalModules.join('|')})($|/)`);
 const bundlePredicate = /\/themes\//;
 const externalTest = id => externalPredicate.test(id) || bundlePredicate.test(id);
 
@@ -24,8 +27,10 @@ const config = {
   treeshake: { propertyReadSideEffects: false },
   external: externalTest,
   plugins: [
-    nodeResolve({
+    resolve({
+      dedupe: externalModules,
       mainFields: ['module', 'jsnext', 'main'],
+      preferBuiltins: false,
       browser: true,
     }),
     commonjs({
@@ -37,6 +42,9 @@ const config = {
     }),
     babel({
       babelrc: false,
+      babelHelpers: 'bundled',
+      exclude: 'node_modules/**',
+      presets: [],
       plugins: [
         'babel-plugin-macros',
         '@babel/plugin-transform-flow-strip-types',
@@ -54,6 +62,9 @@ const config = {
     }),
     babel({
       babelrc: false,
+      babelHelpers: 'bundled',
+      exclude: 'node_modules/**',
+      presets: [],
       plugins: [
         '@babel/plugin-transform-object-assign',
         ['@babel/plugin-transform-react-jsx', {
