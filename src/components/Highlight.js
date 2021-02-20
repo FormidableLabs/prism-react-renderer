@@ -31,7 +31,7 @@ class Highlight extends Component<Props, *> {
   prevLanguage: Language | void;
   themeDict: ThemeDict | void;
 
-  getThemeDict = (props: Props) => {
+  getThemeDict = (props: Props): ThemeDict | void => {
     if (
       this.themeDict !== undefined &&
       props.theme === this.prevTheme &&
@@ -128,21 +128,26 @@ class Highlight extends Component<Props, *> {
     code: string,
     grammar: PrismGrammar,
     language: Language
-  ): Array<PrismToken> => {
+  ): Array<PrismToken | string> => {
     const env = {
       code,
       grammar,
       language,
+      tokens: [],
     };
 
     Prism.hooks.run("before-tokenize", env);
-    env.tokens = Prism.tokenize(env.code, env.grammar, env.language);
+    const tokens = (env.tokens = Prism.tokenize(
+      env.code,
+      env.grammar,
+      env.language
+    ));
     Prism.hooks.run("after-tokenize", env);
 
-    return env.tokens;
+    return tokens;
   };
 
-  render() {
+  render(): Node {
     const { Prism, language, code, children } = this.props;
 
     const themeDict = this.getThemeDict(this.props);

@@ -2465,10 +2465,10 @@ find-versions@^4.0.0:
   dependencies:
     semver-regex "^3.1.2"
 
-flow-bin@^0.145.0:
-  version "0.145.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.145.0.tgz#922f7c3568caaa5eb64621ec536deb56b24d1795"
-  integrity sha512-+9fi9BMxRBtSWC1x0hWggWTb8Vih+AC7wyvLAX5wR1m6u2lF2HLtixXqy2GX8bWgaynSEJR5lmPxYYC4wMI8cA==
+flow-bin@0.123.0:
+  version "0.123.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.123.0.tgz#7ba61a0b8775928cf4943ccf78eed2b1b05f7b3a"
+  integrity sha512-Ylcf8YDIM/KrqtxkPuq+f8O+6sdYA2Nuz5f+sWHlp539DatZz3YMcsO1EiXaf1C11HJgpT/3YGYe7xZ9/UZmvQ==
 
 for-in@^1.0.2:
   version "1.0.2"
