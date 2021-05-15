@@ -22,7 +22,7 @@ var theme: PrismTheme = {
       },
     },
     {
-      types: ["builtin", "changed", "keyword"],
+      types: ["builtin", "changed", "keyword", "interpolation-punctuation"],
       style: {
         color: "rgb(86, 156, 214)",
       },
@@ -46,7 +46,7 @@ var theme: PrismTheme = {
       },
     },
     {
-      types: ["deleted", "string", "attr-value"],
+      types: ["deleted", "string", "attr-value", "template-punctuation"],
       style: {
         color: "rgb(206, 145, 120)",
       },
