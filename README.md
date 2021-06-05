@@ -81,12 +81,14 @@ yarn add prism-react-renderer
 
 <img src="./.readme/basic.png" width="237" alt="Screenshot showing highlighted code block" />
 
+### Code block
+
 ```jsx
 import React from "react";
 import { render } from "react-dom";
 import Highlight, { defaultProps } from "prism-react-renderer";
 
-const exampleCode = `
+const exampleCodeBlock = `
 (function someDemo() {
   var test = "Hello World!";
   console.log(test);
@@ -96,7 +98,7 @@ return () => <App />;
 `;
 
 render((
-  <Highlight {...defaultProps} code={exampleCode} language="jsx">
+  <Highlight {...defaultProps} code={exampleCodeBlock} language="jsx">
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
       <pre className={className} style={style}>
         {tokens.map((line, i) => (
@@ -122,6 +124,36 @@ onto the `<Highlight />` component. It also provides some default theming.
 It doesn't render anything itself, it just calls the render function and renders that.
 ["Use a render prop!"](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce)!
 `<Highlight>{highlight => <pre>/* your JSX here! */</pre>}</Highlight>`
+
+### Inline Code
+> Note: backticks will break the inline code highlighting
+
+```jsx
+import React from "react";
+import { render } from "react-dom";
+import Highlight, { defaultProps } from "prism-react-renderer";
+
+const exampleInlineCode = `const ohDeerVar = "Stringly"`;
+
+render((
+  <Highlight {...defaultProps} theme={theme} code={exampleInlineCode} language="jsx">
+      {({ className, style, tokens, getLineProps, getTokenProps }) =>
+        tokens.map((line, i) => (
+          <code
+            {...getLineProps({ key: i, line })}
+            style={style}
+            className={className}
+          >
+            {line.map((token, key) => (
+              <span {...getTokenProps({ key, token })} />
+            ))}
+          </code>
+        ))
+      }
+    </Highlight>,
+  document.getElementById('root')
+);
+```
 
 ### Line Numbers
 
