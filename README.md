@@ -239,7 +239,7 @@ via the prop-getters which are described in "[Children Function](#children-funct
 
 A default theme is provided by the `defaultProps` object.
 
-Read more about how to theme `react-prism-renderer` in
+Read more about how to theme `prism-react-renderer` in
 the section "[Theming](#theming)".
 
 ### Prism
@@ -349,7 +349,7 @@ The `defaultProps` you'd typically apply in a basic use-case, contain a default 
 This theme is [duotoneDark](./src/themes/duotoneDark.js).
 
 While all `className`s are provided with `<Highlight />`, so that you could use your good
-old Prism CSS-file themes, you can also choose to use `react-prism-renderer`'s themes like so:
+old Prism CSS-file themes, you can also choose to use `prism-react-renderer`'s themes like so:
 
 ```jsx
 import dracula from 'prism-react-renderer/themes/dracula';
