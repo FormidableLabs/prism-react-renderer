@@ -31,7 +31,7 @@ module.exports = {
   reason: true,
   sass: true,
   scss: true,
-  "sh-session": true,
+  "shell-session": true,
   sql: true,
   stylus: true,
   tsx: true,
