@@ -11,7 +11,7 @@ module.exports = {
   cpp: true,
   css: true,
   "css-extras": true,
-  dockerfile: true,
+  docker: true,
   javascript: true,
   jsx: true,
   "js-extras": true,
