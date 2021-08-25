@@ -1,39 +1,42 @@
 declare module "prism-react-renderer" {
   import * as React from "react";
 
-  type Language =
-    | "markup"
-    | "bash"
-    | "clike"
-    | "c"
-    | "cpp"
-    | "css"
-    | "javascript"
-    | "jsx"
-    | "coffeescript"
-    | "actionscript"
-    | "css-extr"
-    | "diff"
-    | "git"
-    | "go"
-    | "graphql"
-    | "handlebars"
-    | "json"
-    | "less"
-    | "makefile"
-    | "markdown"
-    | "objectivec"
-    | "ocaml"
-    | "python"
-    | "reason"
-    | "sass"
-    | "scss"
-    | "sql"
-    | "stylus"
-    | "tsx"
-    | "typescript"
-    | "wasm"
-    | "yaml";
+  const languages = [
+    "markup",
+    "bash",
+    "clike",
+    "c",
+    "cpp",
+    "css",
+    "javascript",
+    "jsx",
+    "coffeescript",
+    "actionscript",
+    "css-extr",
+    "diff",
+    "git",
+    "go",
+    "graphql",
+    "handlebars",
+    "json",
+    "less",
+    "makefile",
+    "markdown",
+    "objectivec",
+    "ocaml",
+    "python",
+    "reason",
+    "sass",
+    "scss",
+    "sql",
+    "stylus",
+    "tsx",
+    "typescript",
+    "wasm",
+    "yaml"
+  ] as const;
+
+  type Language = typeof languages[number];
 
   type PrismGrammar = {
     [key: string]: any;
@@ -60,22 +63,22 @@ declare module "prism-react-renderer" {
     backgroundColor?: string;
     fontStyle?: "normal" | "italic";
     fontWeight?:
-      | "normal"
-      | "bold"
-      | "100"
-      | "200"
-      | "300"
-      | "400"
-      | "500"
-      | "600"
-      | "700"
-      | "800"
-      | "900";
+    | "normal"
+    | "bold"
+    | "100"
+    | "200"
+    | "300"
+    | "400"
+    | "500"
+    | "600"
+    | "700"
+    | "800"
+    | "900";
     textDecorationLine?:
-      | "none"
-      | "underline"
-      | "line-through"
-      | "underline line-through";
+    | "none"
+    | "underline"
+    | "line-through"
+    | "underline line-through";
     opacity?: number;
     [styleKey: string]: string | number | void;
   };
@@ -173,7 +176,7 @@ declare module "prism-react-renderer" {
 
   export const Prism: PrismLib;
 
-  export { Language, DefaultProps, PrismTheme };
+  export { languages, Language, DefaultProps, PrismTheme };
 }
 
 declare module "prism-react-renderer/themes/*" {
