@@ -1,11 +1,23 @@
-node_modules
-dist
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
 .DS_Store
-bundle-stats.html
-.vscode
-__diff_output__
-lib/
-es/
-sandbox/node_modules
-*.log
-test-results.json
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
