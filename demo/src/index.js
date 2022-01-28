@@ -1,36 +1,17 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Wrapper, Pre, LineNo } from './styles'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/oceanicNext'
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-const exampleCode = `
-(function someDemo() {
-  var test = "Hello World!";
-  console.log(test);
-})();
-
-return () => <App />;
-`.trim()
-
-const App = () => (
-  <Wrapper>
-    <h1>Welcome to prism-react-renderer!</h1>
-
-    <Highlight {...defaultProps} code={exampleCode} language="jsx" theme={theme}>
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Pre className={className} style={style}>
-          {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
-              <LineNo>{i + 1}</LineNo>
-              {line.map((token, key) => <span {...getTokenProps({ token, key })} />)}
-            </div>
-          ))}
-        </Pre>
-      )}
-    </Highlight>
-  </Wrapper>
-)
-
-render(<App />, document.getElementById('root'))
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
