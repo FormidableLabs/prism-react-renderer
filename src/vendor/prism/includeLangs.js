@@ -14,6 +14,7 @@ module.exports = {
   javascript: true,
   jsx: true,
   "js-extras": true,
+  "js-templates": true,
   coffeescript: true,
   diff: true,
   git: true,
