@@ -15,11 +15,11 @@
     "themes"
   ],
   "scripts": {
+    "prebuild": "patch-package",
     "build": "rollup -c rollup.config.js",
     "test": "jest",
     "flow": "flow check",
     "format": "prettier --write 'src/**/*.js'",
-    "postinstall": "patch-package",
     "prepublishOnly": "run-p flow build"
   },
   "babel": {
