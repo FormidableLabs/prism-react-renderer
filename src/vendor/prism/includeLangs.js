@@ -24,6 +24,9 @@ module.exports = {
   json: true,
   less: true,
   makefile: true,
+  // Load YAML before Markdown, because the latter has a dependency on the
+  // former. See https://github.com/PrismJS/prism/issues/3283
+  yaml: true,
   markdown: true,
   objectivec: true,
   ocaml: true,
@@ -36,5 +39,4 @@ module.exports = {
   tsx: true,
   typescript: true,
   wasm: true,
-  yaml: true,
 };
