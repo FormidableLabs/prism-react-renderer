@@ -11,15 +11,10 @@ codegen`
   const { languages } = require('prismjs/components')
   const prismPath = dirname(require.resolve('prismjs'))
 
+  // This json defines which languages to include
+  const includedLangs = require('./includeLangs')
+
   let output = '/* This content is auto-generated to include some prismjs language components: */\\n'
-
-  const toDependencies = arr => {
-    if (typeof arr === 'string') {
-      return [arr]
-    }
-
-    return arr;
-  };
 
   const addLanguageToOutput = language => {
     const pathToLanguage = 'components/prism-' + language
@@ -39,15 +34,17 @@ codegen`
       visitedLanguages[language] = true
     }
 
-    // Required dependencies come before the actual language
-    const required = toDependencies(langEntry.require)
+    // Required + optional dependencies come before the actual language
+    const dependencies = [].concat(langEntry.require).concat(langEntry.optional).filter(f => f)
 
-    if (Array.isArray(required)) {
-      required.forEach(x => {
-        if (languages[x]) {
-          visitLanguage(x, languages[x])
-        } else {
-          console.warn('[prismjs/components]: Language', x, 'does not exist!')
+    if (dependencies.length > 0) {
+      dependencies.forEach(x => {
+        if (includedLangs[x]) {
+          if (languages[x]) {
+            visitLanguage(x, languages[x])
+          } else {
+            console.warn('[prismjs/components]: Language', x, 'does not exist!')
+          }
         }
       })
     }
@@ -56,7 +53,7 @@ codegen`
     addLanguageToOutput(language)
 
     // Peer dependencies come after the actual language
-    const peerDependencies = toDependencies(langEntry.peerDependencies)
+    const peerDependencies = [].concat(langEntry.peerDependencies).filter(f => f)
 
     if (Array.isArray(peerDependencies)) {
       peerDependencies.forEach(x => {
@@ -68,9 +65,6 @@ codegen`
       })
     }
   };
-
-  // This json defines which languages to include
-  const includedLangs = require('./includeLangs')
 
   Object.keys(includedLangs).forEach(language => {
     visitLanguage(language, languages[language])
