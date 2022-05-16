@@ -20,6 +20,7 @@ module.exports = {
   git: true,
   go: true,
   graphql: true,
+  "markup-templating": true,
   handlebars: true,
   json: true,
   less: true,
