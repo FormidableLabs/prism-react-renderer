@@ -95,7 +95,7 @@ const exampleCode = `
 return () => <App />;
 `;
 
-render((
+render(
   <Highlight {...defaultProps} code={exampleCode} language="jsx">
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
       <pre className={className} style={style}>
