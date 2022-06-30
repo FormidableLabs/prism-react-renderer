@@ -3,5 +3,5 @@ node_modules
 .vscode
 .babelrc
 *.log
-!prism
-!package.json
+!./prism
+!./package.json
