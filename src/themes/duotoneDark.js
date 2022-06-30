@@ -61,7 +61,7 @@ var theme: PrismTheme = {
         "unit",
         "statement",
         "regex",
-        "at-rule",
+        "atrule",
         "placeholder",
         "variable",
       ],

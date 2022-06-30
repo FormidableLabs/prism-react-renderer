@@ -115,7 +115,7 @@ var theme: PrismTheme = {
       },
     },
     {
-      types: ["at-rule", "class-name"],
+      types: ["atrule", "class-name"],
       style: {
         color: colors.className,
       },
