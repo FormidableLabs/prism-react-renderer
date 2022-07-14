@@ -96,7 +96,7 @@ const exampleCode = `
 return () => <App />;
 `;
 
-render(
+const Content = (
   <Highlight {...defaultProps} code={exampleCode} language="jsx">
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
       <pre className={className} style={style}>
@@ -109,27 +109,13 @@ render(
         ))}
       </pre>
     )}
-  </Highlight>,
-  document.getElementById('root')
+  </Highlight>
 );
+render(Content, document.getElementById('root'));
 
 // If you are using React 18
 // const root = createRoot(document.getElementById('root'));
-// root.render(
-//  <Highlight {...defaultProps} code={exampleCode} language="jsx">
-//   {({ className, style, tokens, getLineProps, getTokenProps }) => (
-//     <pre className={className} style={style}>
-//       {tokens.map((line, i) => (
-//         <div {...getLineProps({ line, key: i })}>
-//           {line.map((token, key) => (
-//             <span {...getTokenProps({ token, key })} />
-//           ))}
-//         </div>
-//       ))}
-//     </pre>
-//   )}
-//  </Highlight>
-// )
+// root.render(Content);
 ```
 
 `<Highlight />` is the only component exposed by this package, as inspired by
