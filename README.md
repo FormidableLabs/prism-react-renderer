@@ -84,6 +84,7 @@ yarn add prism-react-renderer
 ```jsx
 import React from "react";
 import { render } from "react-dom";
+// import { createRoot } from "react-dom/client";
 import Highlight, { defaultProps } from "prism-react-renderer";
 
 const exampleCode = `
@@ -95,7 +96,7 @@ const exampleCode = `
 return () => <App />;
 `;
 
-render(
+const Content = (
   <Highlight {...defaultProps} code={exampleCode} language="jsx">
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
       <pre className={className} style={style}>
@@ -108,9 +109,13 @@ render(
         ))}
       </pre>
     )}
-  </Highlight>,
-  document.getElementById('root')
+  </Highlight>
 );
+render(Content, document.getElementById('root'));
+
+// If you are using React 18
+// const root = createRoot(document.getElementById('root'));
+// root.render(Content);
 ```
 
 `<Highlight />` is the only component exposed by this package, as inspired by
