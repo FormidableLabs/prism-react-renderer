@@ -16,6 +16,7 @@ import type {
   PrismLib,
   PrismTheme,
   PrismToken,
+  StyleObj,
 } from "../types";
 
 type Props = {
@@ -79,7 +80,7 @@ class Highlight extends Component<Props, *> {
     return output;
   };
 
-  getStyleForToken = ({ types, empty }: Token) => {
+  getStyleForToken = ({ types, empty }: Token): StyleObj | void => {
     const typesSize = types.length;
     const themeDict = this.getThemeDict(this.props);
 
@@ -92,7 +93,6 @@ class Highlight extends Component<Props, *> {
     }
 
     const baseStyle = empty ? { display: "inline-block" } : {};
-    // $FlowFixMe
     const typeStyles = types.map((type) => themeDict[type]);
     return Object.assign(baseStyle, ...typeStyles);
   };
