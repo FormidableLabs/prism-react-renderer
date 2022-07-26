@@ -3,6 +3,7 @@
 import React, { Component, type Node } from "react";
 import normalizeTokens from "../utils/normalizeTokens";
 import themeToDict, { type ThemeDict } from "../utils/themeToDict";
+import themeWithCssVariables from "../utils/themeWithCssVariables";
 
 import type {
   Language,
@@ -43,10 +44,13 @@ class Highlight extends Component<Props, *> {
 
     this.prevTheme = props.theme;
     this.prevLanguage = props.language;
-
-    const themeDict = props.theme
-      ? themeToDict(props.theme, props.language)
-      : undefined;
+    let themeDict;
+    if (props.theme) {
+      // Replace CSS Values with CSS Variable placeholders
+      // This is necessary for SSR support
+      const { theme, variables } = themeWithCssVariables(props.theme);
+      themeDict = themeToDict(theme, props.language, variables);
+    }
     return (this.themeDict = themeDict);
   };
 
