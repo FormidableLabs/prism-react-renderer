@@ -391,6 +391,33 @@ property limits styles to highlighted languages.
 When converting a Prism CSS theme it's mostly just necessary to use classes as
 `types` and convert the declarations to object-style-syntax and put them on `style`.
 
+### SSR Support / Avoiding FOUC
+
+If your React app supports "light mode / dark mode" you need to do additional work to avoid a flash of unstyled content (FOUC). Generate the following script tag and inject it into your HTML so it runs _before_ your content loads.
+
+```js
+import { generateScriptForSSR } from 'prism-react-renderer'
+import duotoneDark from 'prism-react-renderer/themes/duotoneDark';
+import duotoneLight from 'prism-react-renderer/themes/duotoneLight';
+
+// Gatsby
+export const onRenderBody = ({ setPreBodyComponents }) => {
+  // A stringified function returning the `id` of the
+  // theme you wish to render on the initial page load
+  const getThemeIdFuncStr = `
+    () => window.localStorage.get('color-mode') || 'duotoneLight'
+  `.trim()
+
+  const codeToRunOnClient = generateScriptForSSR(
+    [duotoneDark, duotonLight], // Include whatever themes `getThemeIdFuncStr` might return
+    getThemeIdFuncStr
+  )
+  setPreBodyComponents(<script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />);
+};
+
+// @TODO Add Next.js example
+```
+
 ## FAQ
 
 <details>

@@ -32,6 +32,13 @@ class Highlight extends Component<Props, *> {
   prevTheme: PrismTheme | void;
   prevLanguage: Language | void;
   themeDict: ThemeDict | void;
+  state = {
+    isFirstRender: true,
+  };
+
+  componentDidMount() {
+    this.setState({ isFirstRender: false });
+  }
 
   getThemeDict = (props: Props): ThemeDict | void => {
     if (
@@ -166,7 +173,14 @@ class Highlight extends Component<Props, *> {
     return children({
       tokens,
       className: `prism-code language-${language}`,
-      style: themeDict !== undefined ? themeDict.root : {},
+      // Omit loading CSS variable declarations during the first render.
+      // That way, the consumer can override the CSS variable declarations
+      // via `generateScriptTagForSSR` for the very first render. After that
+      // client side CSS variables will be used.
+      style:
+        themeDict !== undefined && !this.state.isFirstRender
+          ? themeDict.root
+          : {},
       getLineProps: this.getLineProps,
       getTokenProps: this.getTokenProps,
     });
