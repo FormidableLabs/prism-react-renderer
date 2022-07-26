@@ -13,6 +13,38 @@ const exampleCode = `
 return () => <App />;
 `.trim();
 
+// The `data-style` properties are added because `react-test-renderer`
+// will parse your style object into a string. However, CSS Variable
+// references (e.g. color: var(--custom-color)) will be erased and
+// hexadecimal colors (e.g. #000000) will be converted to rgb
+// (e.g. rgb(0, 0, 0)). We don't want that.
+const TestComponent = ({
+  className,
+  style,
+  tokens,
+  getLineProps,
+  getTokenProps,
+}) => (
+  <pre className={className} style={style} data-style={JSON.stringify(style)}>
+    {tokens.map((line, i) => {
+      const lineProps = getLineProps({ line, key: i });
+      return (
+        <div {...lineProps} data-style={JSON.stringify(lineProps.style)}>
+          {line.map((token, key) => {
+            const tokenProps = getTokenProps({ token, key });
+            return (
+              <span
+                {...tokenProps}
+                data-style={JSON.stringify(tokenProps.style)}
+              />
+            );
+          })}
+        </div>
+      );
+    })}
+  </pre>
+);
+
 describe("<Highlight />", () => {
   afterEach(cleanup);
 
@@ -21,15 +53,13 @@ describe("<Highlight />", () => {
       const { container } = render(
         <Highlight {...defaultProps} code={exampleCode} language="jsx">
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={className} style={style}>
-              {tokens.map((line, i) => (
-                <div {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
-            </pre>
+            <TestComponent
+              className={className}
+              style={style}
+              tokens={tokens}
+              getLineProps={getLineProps}
+              getTokenProps={getTokenProps}
+            />
           )}
         </Highlight>
       );
@@ -45,15 +75,13 @@ describe("<Highlight />", () => {
           language="abcdefghijklmnop"
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={className} style={style}>
-              {tokens.map((line, i) => (
-                <div {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
-            </pre>
+            <TestComponent
+              className={className}
+              style={style}
+              tokens={tokens}
+              getLineProps={getLineProps}
+              getTokenProps={getTokenProps}
+            />
           )}
         </Highlight>
       );
@@ -70,20 +98,20 @@ describe("<Highlight />", () => {
           language="jsx"
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={className} style={style}>
-              {tokens.map((line, i) => (
-                <div {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
-            </pre>
+            <TestComponent
+              className={className}
+              style={style}
+              tokens={tokens}
+              getLineProps={getLineProps}
+              getTokenProps={getTokenProps}
+            />
           )}
         </Highlight>
       );
 
-      expect(container.innerHTML.includes("style")).toBeFalsy();
+      expect(container.querySelector("pre[style]")).toBeFalsy(); // Root
+      expect(container.querySelector("div[style]")).toBeFalsy(); // Lines
+      expect(container.querySelector("span[style]")).toBeFalsy(); // Tokens
     });
   });
 

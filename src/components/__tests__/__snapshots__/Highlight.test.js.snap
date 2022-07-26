@@ -4,20 +4,24 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
 <div>
   <pre
     class="prism-code language-jsx"
+    data-style="{\\"backgroundColor\\":\\"#2a2734\\",\\"color\\":\\"#9a86fd\\"}"
     style="background-color: rgb(42, 39, 52); color: rgb(154, 134, 253);"
   >
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         (
       </span>
       <span
         class="token keyword"
+        data-style="{\\"color\\":\\"#ffcc99\\"}"
         style="color: rgb(255, 204, 153);"
       >
         function
@@ -29,18 +33,21 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       </span>
       <span
         class="token function"
+        data-style="{\\"color\\":\\"#9a86fd\\"}"
         style="color: rgb(154, 134, 253);"
       >
         someDemo
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         (
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         )
@@ -52,6 +59,7 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         {
@@ -62,6 +70,7 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
     </div>
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
@@ -71,6 +80,7 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       </span>
       <span
         class="token keyword"
+        data-style="{\\"color\\":\\"#ffcc99\\"}"
         style="color: rgb(255, 204, 153);"
       >
         var
@@ -82,6 +92,7 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       </span>
       <span
         class="token operator"
+        data-style="{\\"color\\":\\"#e09142\\"}"
         style="color: rgb(224, 145, 66);"
       >
         =
@@ -93,12 +104,14 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       </span>
       <span
         class="token string"
+        data-style="{\\"color\\":\\"#ffcc99\\"}"
         style="color: rgb(255, 204, 153);"
       >
         "Hello World!"
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         ;
@@ -109,6 +122,7 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
     </div>
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
@@ -118,23 +132,27 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       </span>
       <span
         class="token console class-name"
+        data-style="{}"
       >
         console
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         .
       </span>
       <span
         class="token method function property-access"
+        data-style="{\\"color\\":\\"#9a86fd\\"}"
         style="color: rgb(154, 134, 253);"
       >
         log
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         (
@@ -146,12 +164,14 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         )
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         ;
@@ -162,6 +182,7 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
     </div>
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
@@ -169,30 +190,35 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       />
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         }
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         )
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         (
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         )
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         ;
@@ -203,10 +229,12 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
     </div>
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
         class="token plain"
+        data-style="{\\"display\\":\\"inline-block\\"}"
         style="display: inline-block;"
       >
         
@@ -215,6 +243,7 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
     </div>
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
@@ -222,6 +251,7 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       />
       <span
         class="token keyword control-flow"
+        data-style="{\\"color\\":\\"#ffcc99\\"}"
         style="color: rgb(255, 204, 153);"
       >
         return
@@ -233,12 +263,14 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         (
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         )
@@ -250,6 +282,7 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       </span>
       <span
         class="token arrow operator"
+        data-style="{\\"color\\":\\"#e09142\\"}"
         style="color: rgb(224, 145, 66);"
       >
         =&gt;
@@ -261,30 +294,35 @@ exports[`<Highlight /> snapshots renders correctly 1`] = `
       </span>
       <span
         class="token tag punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         &lt;
       </span>
       <span
         class="token tag class-name"
+        data-style="{\\"color\\":\\"#e09142\\"}"
         style="color: rgb(224, 145, 66);"
       >
         App
       </span>
       <span
         class="token tag"
+        data-style="{\\"color\\":\\"#e09142\\"}"
         style="color: rgb(224, 145, 66);"
       >
          
       </span>
       <span
         class="token tag punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         /&gt;
       </span>
       <span
         class="token punctuation"
+        data-style="{\\"color\\":\\"#6c6783\\"}"
         style="color: rgb(108, 103, 131);"
       >
         ;
@@ -298,10 +336,12 @@ exports[`<Highlight /> snapshots renders unsupported languages correctly 1`] = `
 <div>
   <pre
     class="prism-code language-abcdefghijklmnop"
+    data-style="{\\"backgroundColor\\":\\"#2a2734\\",\\"color\\":\\"#9a86fd\\"}"
     style="background-color: rgb(42, 39, 52); color: rgb(154, 134, 253);"
   >
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
@@ -312,6 +352,7 @@ exports[`<Highlight /> snapshots renders unsupported languages correctly 1`] = `
     </div>
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
@@ -322,6 +363,7 @@ exports[`<Highlight /> snapshots renders unsupported languages correctly 1`] = `
     </div>
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
@@ -332,6 +374,7 @@ exports[`<Highlight /> snapshots renders unsupported languages correctly 1`] = `
     </div>
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
@@ -342,10 +385,12 @@ exports[`<Highlight /> snapshots renders unsupported languages correctly 1`] = `
     </div>
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
         class="token plain"
+        data-style="{\\"display\\":\\"inline-block\\"}"
         style="display: inline-block;"
       >
         
@@ -354,6 +399,7 @@ exports[`<Highlight /> snapshots renders unsupported languages correctly 1`] = `
     </div>
     <div
       class="token-line"
+      data-style="{\\"backgroundColor\\":null,\\"color\\":\\"#9a86fd\\"}"
       style="color: rgb(154, 134, 253);"
     >
       <span
