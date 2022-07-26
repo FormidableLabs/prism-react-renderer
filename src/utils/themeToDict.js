@@ -34,8 +34,10 @@ const themeToDict = (
 
   // $FlowFixMe
   themeDict.root = ((rootStyles
-    ? { ...rootStyles, ...plain }
-    : plain): StyleObj);
+    ? // $FlowFixMe
+      { ...rootStyles, ...plain }
+    : // $FlowFixMe
+      plain): StyleObj);
   // $FlowFixMe
   themeDict.plain = ({ ...plain, backgroundColor: null }: StyleObj);
 
