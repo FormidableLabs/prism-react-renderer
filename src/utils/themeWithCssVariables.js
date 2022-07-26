@@ -5,9 +5,10 @@ import { PrismTheme, StyleObj } from "../types";
  * to `theme` but `t.styles[i].types` always has length 1
  */
 const flattenThemeTypes = (theme: PrismTheme): PrismTheme => {
-  const { plain, styles } = theme;
+  const { plain, styles, id } = theme;
 
   return {
+    id,
     plain: { ...plain },
     styles: styles.reduce((acc, x) => {
       const { types, style, ...rest } = x;

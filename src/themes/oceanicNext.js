@@ -23,6 +23,7 @@ var colors = {
 };
 
 var theme: PrismTheme = {
+  id: "oceanicNext",
   plain: {
     backgroundColor: "#282c34",
     color: "#ffffff",

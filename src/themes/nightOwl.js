@@ -5,6 +5,7 @@
 import type { PrismTheme } from "../types";
 
 var theme: PrismTheme = {
+  id: "nightOwl",
   plain: {
     color: "#d6deeb",
     backgroundColor: "#011627",
