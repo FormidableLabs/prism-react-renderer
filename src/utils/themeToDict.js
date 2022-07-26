@@ -8,7 +8,11 @@ export type ThemeDict = {
   [type: string]: StyleObj,
 };
 
-const themeToDict = (theme: PrismTheme, language: Language): ThemeDict => {
+const themeToDict = (
+  theme: PrismTheme,
+  language: Language,
+  rootStyles?: StyleObj
+): ThemeDict => {
   const { plain } = theme;
 
   // $FlowFixMe
@@ -22,16 +26,16 @@ const themeToDict = (theme: PrismTheme, language: Language): ThemeDict => {
 
     themeEntry.types.forEach((type) => {
       // $FlowFixMe
-      const accStyle: StyleObj = { ...acc[type], ...style };
-
-      acc[type] = accStyle;
+      acc[type] = { ...acc[type], ...style };
     });
 
     return acc;
   }, base);
 
   // $FlowFixMe
-  themeDict.root = (plain: StyleObj);
+  themeDict.root = ((rootStyles
+    ? { ...rootStyles, ...plain }
+    : plain): StyleObj);
   // $FlowFixMe
   themeDict.plain = ({ ...plain, backgroundColor: null }: StyleObj);
 

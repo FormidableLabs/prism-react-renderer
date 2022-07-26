@@ -72,4 +72,19 @@ describe("themeToDict", () => {
 
     expect(themeToDict(input, "ocaml").test).toEqual(undefined);
   });
+
+  it("passes along third argument to root styles", () => {
+    const input = {
+      plain: {
+        backgroundColor: "green",
+      },
+      styles: [],
+    };
+    const styleObj = { color: "red" };
+
+    expect(themeToDict(input, "js", styleObj).root).toEqual({
+      backgroundColor: "green",
+      ...styleObj,
+    });
+  });
 });
