@@ -12,10 +12,6 @@ describe("generateScriptForSSR", () => {
     expect(scriptStr).toMatchInlineSnapshot(`
       "const themeId = (() => window.PRISM_REACT_RENDERER_INITIAL_THEME_ID)();
 
-      if (!themeId) {
-        return;
-      }
-
       const root = document.documentElement;
 
       if (themeId === 'duotoneDark') {

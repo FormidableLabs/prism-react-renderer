@@ -10,10 +10,6 @@ const generateScriptForSSR = (
   `
 const themeId = (${getThemeIdFuncStr})();
 
-if (!themeId) {
-  return;
-}
-
 const root = document.documentElement;
 
 ${themes
