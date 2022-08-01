@@ -5,10 +5,10 @@ import type { PrismTheme } from "../types";
 
 const generateScriptForSSR = (
   themes: PrismTheme[],
-  getThemeId: string
+  getThemeIdFuncStr: string
 ): string =>
   `
-const themeId = (${getThemeId})();
+const themeId = (${getThemeIdFuncStr})();
 
 if (!themeId) {
   return;

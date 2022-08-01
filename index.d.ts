@@ -81,7 +81,7 @@ declare module "prism-react-renderer" {
   };
 
   type PrismTheme = {
-    id?: string;
+    id: string;
     plain: PrismThemeEntry;
     styles: Array<{
       types: string[];

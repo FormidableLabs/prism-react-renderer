@@ -409,7 +409,7 @@ export const onRenderBody = ({ setPreBodyComponents }) => {
   `.trim()
 
   const codeToRunOnClient = generateScriptForSSR(
-    [duotoneDark, duotonLight], // Include whatever themes `getThemeIdFuncStr` might return
+    [duotoneDark, duotoneLight], // Include whatever themes `getThemeIdFuncStr` might return
     getThemeIdFuncStr
   )
   setPreBodyComponents(<script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />);
