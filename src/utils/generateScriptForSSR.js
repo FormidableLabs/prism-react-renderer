@@ -14,6 +14,8 @@ if (!themeId) {
   return;
 }
 
+const root = document.documentElement;
+
 ${themes
   .map(
     (theme) =>

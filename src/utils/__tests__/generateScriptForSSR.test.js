@@ -16,6 +16,8 @@ describe("generateScriptForSSR", () => {
         return;
       }
 
+      const root = document.documentElement;
+
       if (themeId === 'duotoneDark') {
         root.style.setProperty('--plain-backgroundColor', '#2a2734');
         root.style.setProperty('--plain-color', '#9a86fd');
