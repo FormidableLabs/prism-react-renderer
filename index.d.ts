@@ -81,6 +81,7 @@ declare module "prism-react-renderer" {
   };
 
   type PrismTheme = {
+    id?: string;
     plain: PrismThemeEntry;
     styles: Array<{
       types: string[];
@@ -172,6 +173,8 @@ declare module "prism-react-renderer" {
   export const defaultProps: DefaultProps;
 
   export const Prism: PrismLib;
+
+  export const generateScriptForSSR: (themes: PrismTheme[], getThemeIdFuncStr: string) => string;
 
   export { Language, DefaultProps, PrismTheme };
 }
