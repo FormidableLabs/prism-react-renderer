@@ -22,7 +22,7 @@ ${themes
     .map(
       ([key, value]) =>
         // $FlowFixMe
-        `root.style.setProperty(${key}, ${value || ""});`
+        `root.style.setProperty('${key}', '${value || ""}');`
     )
     .join("\n" + " ".repeat(2))}
 }`
