@@ -405,8 +405,8 @@ import duotoneLight from 'prism-react-renderer/themes/duotoneLight';
 const getThemeIdFuncStr = `
   () => (
     window.localStorage.get('color-mode') === 'dark'
-    ? 'duotoneDark'  // The 'id' field of the duotoneDark theme
-    : 'duotoneLight' // The 'id' field of the duotoneLight theme
+    ? '${duotoneDark.id}'
+    : '${duotoneLight.id}'
   );
 `.trim()
 
