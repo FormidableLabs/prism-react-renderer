@@ -400,22 +400,44 @@ import { generateScriptForSSR } from 'prism-react-renderer'
 import duotoneDark from 'prism-react-renderer/themes/duotoneDark';
 import duotoneLight from 'prism-react-renderer/themes/duotoneLight';
 
+// A stringified function returning the `id` of the
+// theme you wish to render on the initial page load
+const getThemeIdFuncStr = `
+  () => (
+    window.localStorage.get('color-mode') === 'dark'
+    ? 'duotoneDark'  // The 'id' field of the duotoneDark theme
+    : 'duotoneLight' // The 'id' field of the duotoneLight theme
+  );
+`.trim()
+
+const codeToRunOnClient = generateScriptForSSR(
+  // Include whatever themes `getThemeIdFuncStr` might return
+  [duotoneDark, duotoneLight],
+  getThemeIdFuncStr
+);
+
 // Gatsby
 export const onRenderBody = ({ setPreBodyComponents }) => {
-  // A stringified function returning the `id` of the
-  // theme you wish to render on the initial page load
-  const getThemeIdFuncStr = `
-    () => window.localStorage.get('color-mode') || 'duotoneLight'
-  `.trim()
-
-  const codeToRunOnClient = generateScriptForSSR(
-    [duotoneDark, duotoneLight], // Include whatever themes `getThemeIdFuncStr` might return
-    getThemeIdFuncStr
-  )
-  setPreBodyComponents(<script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />);
+  setPreBodyComponents(
+    <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />
+  );
 };
 
-// @TODO Add Next.js example
+// Next.js (pages/_document.js)
+import { Html, Head, Main, NextScript } from 'next/document'
+
+export default function Document() {
+  return (
+    <Html>
+      <Head />
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
+}
 ```
 
 ## FAQ
