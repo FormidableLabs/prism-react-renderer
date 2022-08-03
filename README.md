@@ -393,18 +393,62 @@ When converting a Prism CSS theme it's mostly just necessary to use classes as
 
 ### SSR Support / Avoiding FOUC
 
-If your React app supports "light mode / dark mode" you need to do additional work to avoid a flash of unstyled content (FOUC). Generate the following script tag and inject it into your HTML so it runs _before_ your content loads.
+If your React app supports "light mode / dark mode" you need to do additional work to avoid a flash of unstyled content (FOUC).
+Suppose you have the following application code:
 
-```js
-import { generateScriptForSSR } from 'prism-react-renderer'
+```jsx
+import { useState, useEffect } from 'react';
+import Highlight from 'prism-react-renderer'
 import duotoneDark from 'prism-react-renderer/themes/duotoneDark';
 import duotoneLight from 'prism-react-renderer/themes/duotoneLight';
 
-// A stringified function returning the `id` of the
-// theme you wish to render on the initial page load
+const useTheme = () => {
+ const [theme, _setTheme] = useState(duotoneLight);
+
+ useEffect(() => {
+   const colorMode = window.localStorage.getItem('color-mode');
+   _setTheme(colorMode === 'dark' ? duotoneDark : duotoneLight);
+ }, []);
+
+ const setTheme = (themeId) => {
+   if (themeId === duotoneLight.id) {
+     window.localStorage.setItem('color-mode', 'light');
+     _setTheme(duotoneLight);
+   }
+   if (themeId === duotoneDark.id) {
+     window.localStorage.setItem('color-mode', 'dark');
+     _setTheme(duotoneDark);
+   }
+ }
+
+ return { theme, setTheme }
+}
+
+const MyComponent = () => {
+ const { setTheme, theme } = useTheme();
+
+ return (
+  <>
+    <Highlight theme={theme}>
+      // omitted for brevity
+    </Highlight>
+    <button onClick={() => setTheme(duotoneLight.id)}>Light Mode!</button>
+    <button onClick={() => setTheme(duotoneDark.id)}>Dark Mode!</button>
+  </>
+ )
+}
+```
+
+You should generate the following script tag and inject it into your HTML so it runs _before_ your content loads. Note: **Do NOT copy/paste the following code.** Use it as a starting point and modify it to match your application's method of persisting theme state.
+
+```js
+import Highlight, { generateScriptForSSR } from 'prism-react-renderer'
+import duotoneDark from 'prism-react-renderer/themes/duotoneDark';
+import duotoneLight from 'prism-react-renderer/themes/duotoneLight';
+
 const getThemeIdFuncStr = `
   () => (
-    window.localStorage.get('color-mode') === 'dark'
+    window.localStorage.getItem('color-mode') === 'dark'
     ? '${duotoneDark.id}'
     : '${duotoneLight.id}'
   );
