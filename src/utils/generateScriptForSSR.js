@@ -8,24 +8,29 @@ const generateScriptForSSR = (
   getThemeIdFuncStr: string
 ): string =>
   `
-const themeId = (${getThemeIdFuncStr})();
-
-const root = document.documentElement;
-
-${themes
-  .map(
-    (theme) =>
-      `if (themeId === '${theme.id || ""}') {
-  ${Object.entries(themeWithCssVariables(theme).variables)
+try {
+  const themeId = (${getThemeIdFuncStr})();
+  
+  const root = document.documentElement;
+  
+  ${themes
     .map(
-      ([key, value]) =>
-        // $FlowFixMe
-        `root.style.setProperty('${key}', '${value || ""}');`
+      (theme) =>
+        `if (themeId === '${theme.id || ""}') {
+    ${Object.entries(themeWithCssVariables(theme).variables)
+      .map(
+        ([key, value]) =>
+          // $FlowFixMe
+          `root.style.setProperty('${key}', '${value || ""}');`
+      )
+      .join("\n" + " ".repeat(4))}
+  }`
     )
-    .join("\n" + " ".repeat(2))}
-}`
-  )
-  .join("\n\n")}
+    .join("\n\n" + " ".repeat(2))}
+} catch (e) {
+  console.error('Failed to set prism-react-renderer CSS variables');
+  console.error(e);
+}
 `.trim();
 
 export default generateScriptForSSR;
