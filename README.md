@@ -484,6 +484,8 @@ export default function Document() {
 }
 ```
 
+Note: You may need to tweak your application's [Content-Security-Policy (CSP) header](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) for inline scripts to work properly.
+
 ## FAQ
 
 <details>
