@@ -45,8 +45,7 @@ declare module "prism-react-renderer" {
     languages: LanguageDict;
     tokenize: (
       code: string,
-      grammar: PrismGrammar,
-      language: Language
+      grammar: PrismGrammar
     ) => PrismToken[] | string[];
     highlight: (
       code: string,
