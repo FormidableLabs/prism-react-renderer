@@ -1,5 +1,6 @@
 declare module "prism-react-renderer" {
   import * as React from "react";
+  import type PrismJS from 'prismjs';
 
   type Language =
     | "markup"
@@ -154,7 +155,7 @@ declare module "prism-react-renderer" {
   };
 
   interface HighlightProps {
-    Prism: PrismLib;
+    Prism: PrismLib | PrismJS;
     theme?: PrismTheme;
     language: Language;
     code: string;
