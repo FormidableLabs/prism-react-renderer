@@ -137,11 +137,7 @@ class Highlight extends Component<Props, *> {
     };
 
     Prism.hooks.run("before-tokenize", env);
-    const tokens = (env.tokens = Prism.tokenize(
-      env.code,
-      env.grammar,
-      env.language
-    ));
+    const tokens = (env.tokens = Prism.tokenize(env.code, env.grammar));
     Prism.hooks.run("after-tokenize", env);
 
     return tokens;

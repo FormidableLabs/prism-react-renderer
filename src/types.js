@@ -27,11 +27,7 @@ export type Token = {
 
 export type PrismLib = {
   languages: LanguagesDict,
-  tokenize: (
-    code: string,
-    grammar: PrismGrammar,
-    language: Language
-  ) => Array<PrismToken | string>,
+  tokenize: (code: string, grammar: PrismGrammar) => Array<PrismToken | string>,
   highlight: (
     code: string,
     grammar: PrismGrammar,
