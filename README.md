@@ -1,15 +1,13 @@
-[![Maintenance Status][maintenance-image]](#maintenance-status)
+<a href="https://formidable.com/open-source/" target="_blank">
+  <img alt="Prism React Renderer — Formidable, We build the modern web" src="./prism-react-renderer-Hero.png" />
+</a>
 
-
-<h1 align="center">
-  prism-react-renderer 🖌️
-  <br>
-</h1>
 <p align="center" style="font-size: 1.2rem;">
   A lean <a href="https://github.com/PrismJS/prism">Prism</a> highlighter component for React<br>
   Comes with everything to render Prismjs highlighted code directly to React (Native) elements, global-pollution-free!
 </p>
 
+[![Maintenance Status][maintenance-image]](#maintenance-status)
 ## Why?
 
 Maybe you need to render some extra UI with your Prismjs-highlighted code,
