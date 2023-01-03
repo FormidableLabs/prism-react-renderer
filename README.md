@@ -1,5 +1,5 @@
 <a href="https://formidable.com/open-source/" target="_blank">
-  <img alt="Prism React Renderer — Formidable, We build the modern web" src="./prism-react-renderer-Hero.png" />
+  <img alt="Prism React Renderer — Formidable, We build the modern web" src="https://raw.githubusercontent.com/FormidableLabs/prism-react-renderer/master/prism-react-renderer-Hero.png" />
 </a>
 
 <p align="center" style="font-size: 1.2rem;">
