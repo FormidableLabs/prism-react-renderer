@@ -7,6 +7,7 @@
 import type { PrismTheme } from "../types";
 
 var theme: PrismTheme = {
+  id: "okaidia",
   plain: {
     color: "#f8f8f2",
     backgroundColor: "#272822",

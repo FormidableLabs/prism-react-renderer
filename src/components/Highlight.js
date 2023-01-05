@@ -3,6 +3,7 @@
 import React, { Component, type Node } from "react";
 import normalizeTokens from "../utils/normalizeTokens";
 import themeToDict, { type ThemeDict } from "../utils/themeToDict";
+import themeWithCssVariables from "../utils/themeWithCssVariables";
 
 import type {
   Language,
@@ -16,6 +17,7 @@ import type {
   PrismLib,
   PrismTheme,
   PrismToken,
+  StyleObj,
 } from "../types";
 
 type Props = {
@@ -30,6 +32,13 @@ class Highlight extends Component<Props, *> {
   prevTheme: PrismTheme | void;
   prevLanguage: Language | void;
   themeDict: ThemeDict | void;
+  state = {
+    isFirstRender: true,
+  };
+
+  componentDidMount() {
+    this.setState({ isFirstRender: false });
+  }
 
   getThemeDict = (props: Props): ThemeDict | void => {
     if (
@@ -42,10 +51,13 @@ class Highlight extends Component<Props, *> {
 
     this.prevTheme = props.theme;
     this.prevLanguage = props.language;
-
-    const themeDict = props.theme
-      ? themeToDict(props.theme, props.language)
-      : undefined;
+    let themeDict;
+    if (props.theme) {
+      // Replace CSS Values with CSS Variable placeholders
+      // This is necessary for SSR support
+      const { theme, variables } = themeWithCssVariables(props.theme);
+      themeDict = themeToDict(theme, props.language, variables);
+    }
     return (this.themeDict = themeDict);
   };
 
@@ -79,7 +91,7 @@ class Highlight extends Component<Props, *> {
     return output;
   };
 
-  getStyleForToken = ({ types, empty }: Token) => {
+  getStyleForToken = ({ types, empty }: Token): StyleObj | void => {
     const typesSize = types.length;
     const themeDict = this.getThemeDict(this.props);
 
@@ -92,7 +104,6 @@ class Highlight extends Component<Props, *> {
     }
 
     const baseStyle = empty ? { display: "inline-block" } : {};
-    // $FlowFixMe
     const typeStyles = types.map((type) => themeDict[type]);
     return Object.assign(baseStyle, ...typeStyles);
   };
@@ -158,7 +169,14 @@ class Highlight extends Component<Props, *> {
     return children({
       tokens,
       className: `prism-code language-${language}`,
-      style: themeDict !== undefined ? themeDict.root : {},
+      // Omit loading CSS variable declarations during the first render.
+      // That way, the consumer can override the CSS variable declarations
+      // via `generateScriptTagForSSR` for the very first render. After that
+      // client side CSS variables will be used.
+      style:
+        themeDict !== undefined && !this.state.isFirstRender
+          ? themeDict.root
+          : {},
       getLineProps: this.getLineProps,
       getTokenProps: this.getTokenProps,
     });

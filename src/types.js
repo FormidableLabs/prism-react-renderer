@@ -109,6 +109,7 @@ export type PrismThemeEntry = {
 };
 
 export type PrismTheme = {
+  id: string,
   plain: PrismThemeEntry,
   styles: Array<{
     types: string[],

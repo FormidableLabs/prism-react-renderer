@@ -4,6 +4,7 @@
 import type { PrismTheme } from "../types";
 
 var theme: PrismTheme = {
+  id: "github",
   plain: {
     color: "#393A34",
     backgroundColor: "#f6f8fa",

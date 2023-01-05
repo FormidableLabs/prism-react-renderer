@@ -4,6 +4,7 @@
 import type { PrismTheme } from "../types";
 
 var theme: PrismTheme = {
+  id: "vsLight",
   plain: {
     color: "#000000",
     backgroundColor: "#ffffff",

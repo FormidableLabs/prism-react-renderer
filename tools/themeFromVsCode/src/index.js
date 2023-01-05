@@ -10,6 +10,7 @@ const theme = JSON5.parse(themeString);
 const prismTheme = collectAllSettings(theme.tokenColors);
 
 const json = {
+  id: '@TODO',
   plain: {
     color: theme.colors['editor.foreground'],
     backgroundColor: theme.colors['editor.background'],

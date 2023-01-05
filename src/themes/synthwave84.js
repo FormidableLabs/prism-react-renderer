@@ -8,6 +8,7 @@
 import type { PrismTheme } from "../types";
 
 var theme: PrismTheme = {
+  id: "synthwave84",
   plain: {
     background: "#2a2139",
     backgroundColor: "linear-gradient(to bottom, #2a2139 75%, #34294f)",
