@@ -30,6 +30,7 @@ module.exports = {
   ocaml: true,
   python: true,
   reason: true,
+  rust: true,
   sass: true,
   scss: true,
   sql: true,
