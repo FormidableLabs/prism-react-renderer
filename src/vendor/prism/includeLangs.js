@@ -22,6 +22,7 @@ module.exports = {
   graphql: true,
   "markup-templating": true,
   handlebars: true,
+  html: true,
   json: true,
   less: true,
   makefile: true,
