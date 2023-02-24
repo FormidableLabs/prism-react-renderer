@@ -32,19 +32,20 @@ class Highlight extends Component<Props, *> {
   themeDict: ThemeDict | void;
 
   getThemeDict = (props: Props): ThemeDict | void => {
+    const language = props.language.toLowerCase();
     if (
       this.themeDict !== undefined &&
       props.theme === this.prevTheme &&
-      props.language === this.prevLanguage
+      language === this.prevLanguage
     ) {
       return this.themeDict;
     }
 
     this.prevTheme = props.theme;
-    this.prevLanguage = props.language;
+    this.prevLanguage = language;
 
     const themeDict = props.theme
-      ? themeToDict(props.theme, props.language)
+      ? themeToDict(props.theme, language)
       : undefined;
     return (this.themeDict = themeDict);
   };
@@ -144,7 +145,8 @@ class Highlight extends Component<Props, *> {
   };
 
   render(): Node {
-    const { Prism, language, code, children } = this.props;
+    const { Prism, code, children } = this.props;
+    const language = this.props.language.toLowerCase();
 
     const themeDict = this.getThemeDict(this.props);
 
