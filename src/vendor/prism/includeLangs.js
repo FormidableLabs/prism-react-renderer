@@ -11,6 +11,7 @@ module.exports = {
   cpp: true,
   css: true,
   "css-extras": true,
+  dart: true,
   javascript: true,
   jsx: true,
   "js-extras": true,
