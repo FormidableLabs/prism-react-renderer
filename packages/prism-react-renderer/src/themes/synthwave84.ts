@@ -8,7 +8,6 @@
 import type { PrismTheme } from "../types"
 const theme: PrismTheme = {
   plain: {
-    background: "#2a2139",
     backgroundColor: "linear-gradient(to bottom, #2a2139 75%, #34294f)",
     backgroundImage: "#34294f",
     color: "#f92aad",

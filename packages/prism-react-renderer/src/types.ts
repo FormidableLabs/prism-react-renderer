@@ -70,7 +70,11 @@ export type RenderProps = {
 }
 export type PrismThemeEntry = {
   color?: string
+  cursor?: string
+  background?: string
+  backgroundImage?: string
   backgroundColor?: string
+  textShadow?: string
   fontStyle?: "normal" | "italic"
   fontWeight?:
     | "normal"

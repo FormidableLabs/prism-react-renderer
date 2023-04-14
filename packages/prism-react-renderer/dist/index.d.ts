@@ -1,6 +1,6 @@
+import { Key, CSSProperties, Component } from 'react';
 import Prism, { Token as Token$1 } from 'prismjs';
 export { default as Prism } from 'prismjs';
-import { Key, CSSProperties, Component } from 'react';
 
 type Language = string;
 type PrismGrammar = Record<string, unknown>;
@@ -57,7 +57,11 @@ type RenderProps = {
 };
 type PrismThemeEntry = {
     color?: string;
+    cursor?: string;
+    background?: string;
+    backgroundImage?: string;
     backgroundColor?: string;
+    textShadow?: string;
     fontStyle?: "normal" | "italic";
     fontWeight?: "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900";
     textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through";
@@ -70,11 +74,6 @@ type PrismTheme = {
         style: PrismThemeEntry;
         languages?: Language[];
     }>;
-};
-
-declare const defaultProps: {
-    Prism: typeof Prism;
-    theme: PrismTheme;
 };
 
 type ThemeDict = {
@@ -102,4 +101,56 @@ declare class Highlight extends Component<Props, unknown> {
     render(): JSX.Element;
 }
 
-export { Highlight as default, defaultProps };
+declare const theme$d: PrismTheme;
+
+declare const theme$c: PrismTheme;
+
+declare const theme$b: PrismTheme;
+
+declare const theme$a: PrismTheme;
+
+declare const theme$9: PrismTheme;
+
+declare const theme$8: PrismTheme;
+
+declare const theme$7: PrismTheme;
+
+declare const theme$6: PrismTheme;
+
+declare const theme$5: PrismTheme;
+
+declare const theme$4: PrismTheme;
+
+declare const theme$3: PrismTheme;
+
+declare const theme$2: PrismTheme;
+
+declare const theme$1: PrismTheme;
+
+declare const theme: PrismTheme;
+
+declare namespace index {
+  export {
+    theme$d as dracula,
+    theme$c as duotoneDark,
+    theme$b as duotoneLight,
+    theme$a as github,
+    theme$9 as nightOwl,
+    theme$8 as nightOwlLight,
+    theme$7 as oceanicNext,
+    theme$6 as okaidia,
+    theme$5 as palenight,
+    theme$4 as shadesOfPurple,
+    theme$3 as synthwave84,
+    theme$2 as ultramin,
+    theme$1 as vsDark,
+    theme as vsLight,
+  };
+}
+
+declare const defaultProps: {
+    Prism: typeof Prism;
+    theme: PrismTheme;
+};
+
+export { Highlight as default, defaultProps, index as themes };

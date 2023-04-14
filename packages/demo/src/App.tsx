@@ -1,28 +1,20 @@
-import Highlight, { defaultProps } from "prism-react-renderer"
+import Highlight, { defaultProps, themes } from "prism-react-renderer"
 import styles from "./app.module.css"
 import clsx from "clsx"
 import { ProjectBadge } from "formidable-oss-badges"
-import { useMemo, useState } from "react"
+import { useState } from "react"
 import { sampleCode } from "./sample-code"
 
-/**
- * Example of including custom language definitions beyond
- * what is provided by default from Prism React Renderer
- */
-import "prismjs/components/prism-c"
-import "prismjs/components/prism-objectivec"
-import "prismjs/components/prism-rust"
-
 type SampleCodeType = keyof typeof sampleCode
+type ThemeType = keyof typeof themes
 
 function App() {
   const [activeSampleCodeType, setActiveSampleCodeType] =
     useState<SampleCodeType>("TypeScript with React")
+  const [activeThemeName, setActiveThemeName] = useState<ThemeType>("nightOwl")
 
-  const activeSampleCode = useMemo(
-    () => sampleCode[activeSampleCodeType],
-    [activeSampleCodeType]
-  )
+  const activeSampleCode = sampleCode[activeSampleCodeType]
+  const activeTheme = themes[activeThemeName]
 
   return (
     <div className={styles.wrapper}>
@@ -40,6 +32,7 @@ function App() {
         />
       </div>
       <select
+        value={activeSampleCodeType}
         className={styles.languageSelect}
         onChange={event =>
           setActiveSampleCodeType(event.target.value as SampleCodeType)
@@ -51,8 +44,21 @@ function App() {
           </option>
         ))}
       </select>
+      &nbsp;
+      <select
+        value={activeThemeName}
+        className={styles.languageSelect}
+        onChange={event => setActiveThemeName(event.target.value as ThemeType)}
+      >
+        {Object.keys(themes).map(theme => (
+          <option key={theme} value={theme}>
+            {theme}
+          </option>
+        ))}
+      </select>
       <Highlight
         {...defaultProps}
+        theme={activeTheme}
         code={activeSampleCode.code.trim()}
         language={activeSampleCode.language}
       >

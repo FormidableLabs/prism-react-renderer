@@ -4,18 +4,26 @@ const { languages } = require("prismjs/components")
 const prismPath = dirname(require.resolve("prismjs"))
 
 const baseLanguages = {
+  markup: true,
   bash: true,
+  c: true,
+  clike: true,
+  javascript: true,
   jsx: true,
   graphql: true,
   markdown: true,
   css: true,
   typescript: true,
   tsx: true,
+  swift: true,
+  objectivec: true,
+  rust: true,
 } as const
 
 let output = `
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck\n
+import Prism from "prismjs"\n
 `
 
 type LanguageEntry = {
@@ -86,7 +94,7 @@ Object.keys(baseLanguages).forEach(language => {
 })
 
 try {
-  writeFileSync("./src/vendor/prism/prism-langs.ts", output)
+  writeFileSync("./src/prism-langs.ts", output)
 } catch (err) {
   console.error(err)
 }
