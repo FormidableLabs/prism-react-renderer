@@ -1,10 +1,7 @@
 node_modules
-/dist
-/themes
-/prism/*.js
-
+dist
 .DS_Store
 .vscode
 sandbox/node_modules
 *.log
-/packages/prism-react-renderer/src/vendor/prism/prism-langs.ts
+prism-langs.ts
