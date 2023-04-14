@@ -7,3 +7,4 @@ node_modules
 .vscode
 sandbox/node_modules
 *.log
+/packages/prism-react-renderer/src/vendor/prism/prism-langs.ts

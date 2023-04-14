@@ -1,0 +1,7 @@
+{
+  "semi": false,
+  "arrowParens": "avoid",
+  "xmlWhitespaceSensitivity": "ignore",
+  "proseWrap": "always",
+  "singleQuote": false
+}
