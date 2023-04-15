@@ -1,4 +1,4 @@
-import type { Key, CSSProperties } from "react"
+import type { CSSProperties } from "react"
 import { Token as PrismToken } from "prismjs"
 
 export type Language = string
@@ -48,18 +48,23 @@ export type LineOutputProps = {
   [key: string]: unknown
 }
 export type TokenInputProps = {
-  key?: Key
   style?: StyleObj
   className?: string
   token: Token
   [key: string]: unknown
 }
 export type TokenOutputProps = {
-  key?: Key
   style?: StyleObj
   className: string
   children: string
   [key: string]: unknown
+}
+export type HighlightProps = {
+  prism?: PrismLib
+  theme?: PrismTheme
+  language: Language
+  code: string
+  children: (props: RenderProps) => JSX.Element
 }
 export type RenderProps = {
   tokens: Token[][]

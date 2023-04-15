@@ -1,4 +1,4 @@
-import Highlight, { defaultProps, themes } from "prism-react-renderer"
+import Highlight, { themes } from "prism-react-renderer"
 import styles from "./app.module.css"
 import clsx from "clsx"
 import { ProjectBadge } from "formidable-oss-badges"
@@ -57,7 +57,6 @@ function App() {
         ))}
       </select>
       <Highlight
-        {...defaultProps}
         theme={activeTheme}
         code={activeSampleCode.code.trim()}
         language={activeSampleCode.language}

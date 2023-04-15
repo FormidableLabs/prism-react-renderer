@@ -1,5 +1,5 @@
 import Prism from "prismjs"
-import Highlight from "./components/Highlight"
+import { Highlight } from "./components/highlight"
 import "./prism-langs"
 import * as themes from "./themes"
 

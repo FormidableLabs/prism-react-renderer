@@ -131,6 +131,7 @@ importers:
       '@types/node': ^18.15.11
       '@types/prismjs': ^1.26.0
       babel-plugin-codegen: ^4.1.5
+      clsx: ^1.2.1
       prismjs: '*'
       react: '*'
       react-dom: '*'
@@ -139,6 +140,8 @@ importers:
       tslib: ^2.5.0
       tsup: ^6.7.0
       typescript: '*'
+    dependencies:
+      clsx: 1.2.1
     devDependencies:
       '@babel/core': 7.21.4
       '@rollup/plugin-babel': 6.0.3_b6cdhqm2xsfe2bpl424qdsl4ei
