@@ -20,8 +20,7 @@
     "build:watch": "tsup --watch",
     "test": "jest",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-    "format": "prettier --write 'src/**/*.js'",
-    "prepublishOnly": "run-p flow build"
+    "format": "prettier --write 'src/**/*.js'"
   },
   "peerDependencies": {
     "react": ">=16.0.0"
