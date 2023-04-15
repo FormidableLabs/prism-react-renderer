@@ -30,13 +30,9 @@ const prismPath = dirname(require.resolve("prismjs"))
 
 const readLanguageFile = async (language: string): Promise<string> => {
   const pathToLanguage = join(prismPath, `components/prism-${language}.js`)
-  try {
-    await access(pathToLanguage, constants.R_OK)
-    const buffer = await readFile(pathToLanguage, { encoding: "utf-8" })
-    return buffer.toString()
-  } catch (e) {
-    return ""
-  }
+  await access(pathToLanguage, constants.R_OK)
+  const buffer = await readFile(pathToLanguage, { encoding: "utf-8" })
+  return buffer.toString()
 }
 
 const strArrayFromUnknown = (input: unknown) => (array: string[]) => {
