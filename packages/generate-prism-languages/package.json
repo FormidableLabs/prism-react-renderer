@@ -1,0 +1,23 @@
+{
+  "name": "generate-prism-languages",
+  "private": true,
+  "scripts": {
+    "generate": "ts-node ./index.ts"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash.flowright": "^3.5.7",
+    "@types/node": "^18.15.11",
+    "@types/prismjs": "^1.26.0",
+    "@types/uglify-js": "^3.17.1",
+    "picocolors": "^1.0.0",
+    "prismjs": "*",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0",
+    "typescript": "*",
+    "uglify-js": "^3.17.4",
+    "lodash.flowright": "^3.5.0"
+  }
+}

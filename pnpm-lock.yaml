@@ -91,6 +91,33 @@ importers:
       typescript: 4.9.5
       vite: 4.2.1
 
+  packages/generate-prism-languages:
+    specifiers:
+      '@types/lodash.flowright': ^3.5.7
+      '@types/node': ^18.15.11
+      '@types/prismjs': ^1.26.0
+      '@types/uglify-js': ^3.17.1
+      lodash.flowright: ^3.5.0
+      picocolors: ^1.0.0
+      prismjs: '*'
+      ts-node: ^10.9.1
+      tslib: ^2.5.0
+      typescript: '*'
+      uglify-js: ^3.17.4
+    dependencies:
+      lodash.flowright: 3.5.0
+    devDependencies:
+      '@types/lodash.flowright': 3.5.7
+      '@types/node': 18.15.11
+      '@types/prismjs': 1.26.0
+      '@types/uglify-js': 3.17.1
+      picocolors: 1.0.0
+      prismjs: 1.26.0
+      ts-node: 10.9.1_bhanhq442dy43ncydsavgi4jfi
+      tslib: 2.5.0
+      typescript: 5.0.4
+      uglify-js: 3.17.4
+
   packages/prism-react-renderer:
     specifiers:
       '@babel/core': '*'
@@ -2363,6 +2390,16 @@ packages:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
 
+  /@types/lodash.flowright/3.5.7:
+    resolution: {integrity: sha512-stlmNXfnJr1yI7+xwMkU1IQxWS59JMw83MejH13y0STHv0iVBzOrw6KcxSAZQjSkAtoRGk3T0aWAt67vrF7V0Q==}
+    dependencies:
+      '@types/lodash': 4.14.194
+    dev: true
+
+  /@types/lodash/4.14.194:
+    resolution: {integrity: sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==}
+    dev: true
+
   /@types/node/18.15.11:
     resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
     dev: true
@@ -2417,6 +2454,12 @@ packages:
 
   /@types/stack-utils/2.0.1:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
+    dev: true
+
+  /@types/uglify-js/3.17.1:
+    resolution: {integrity: sha512-GkewRA4i5oXacU/n4MA9+bLgt5/L3F1mKrYvFGm7r2ouLXhRKjuWwo9XHNnbx6WF3vlGW21S3fCvgqxvxXXc5g==}
+    dependencies:
+      source-map: 0.6.1
     dev: true
 
   /@types/yargs-parser/21.0.0:
@@ -5540,6 +5583,10 @@ packages:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: true
 
+  /lodash.flowright/3.5.0:
+    resolution: {integrity: sha512-YxTYuodkvyINbDInmFcGGvkQwoAuoGUYosqstRTr5eq63GQt7WQ2xFU0wG1UfdbKYPwevd3zWDd6ybEE2g6qvA==}
+    dev: false
+
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
@@ -7161,6 +7208,12 @@ packages:
   /typescript/5.0.4:
     resolution: {integrity: sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==}
     engines: {node: '>=12.20'}
+    hasBin: true
+    dev: true
+
+  /uglify-js/3.17.4:
+    resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}
+    engines: {node: '>=0.8.0'}
     hasBin: true
     dev: true
 

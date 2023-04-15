@@ -8,6 +8,7 @@
   "license": "MIT",
   "repository": "https://github.com/FormidableLabs/prism-react-renderer",
   "scripts": {
+    "postinstall": "pnpm run --filter generate-prism-languages generate",
     "build": "pnpm run --filter prism-react-renderer build",
     "build:watch": "pnpm run --filter prism-react-renderer build:watch"
   },
