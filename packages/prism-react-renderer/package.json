@@ -15,15 +15,13 @@
     "themes"
   ],
   "scripts": {
-    "postinstall": "pnpm run build:languages",
     "prebuild": "patch-package",
     "build": "tsup",
     "build:watch": "tsup --watch",
     "test": "jest",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "format": "prettier --write 'src/**/*.js'",
-    "prepublishOnly": "run-p flow build",
-    "build:languages": "ts-node ./scripts/generate-base-languages.ts"
+    "prepublishOnly": "run-p flow build"
   },
   "peerDependencies": {
     "react": ">=16.0.0"
