@@ -5,3 +5,4 @@ dist
 sandbox/node_modules
 *.log
 prism-langs.ts
+.idea
