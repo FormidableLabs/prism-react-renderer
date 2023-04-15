@@ -37,9 +37,7 @@ const readLanguageFile = async (language: string): Promise<string> => {
 
 const strArrayFromUnknown = (input: unknown) => (array: string[]) => {
   if (typeof input === "string") array.push(input)
-  else if (Array.isArray(input)) {
-    array = [...array, ...input.filter(i => typeof i === "string")]
-  }
+  else if (Array.isArray(input)) array = array.concat(input)
   return array
 }
 
@@ -52,11 +50,11 @@ const main = async () => {
     "../prism-react-renderer/src/prism-langs.ts"
   )
 
-  const addLanguageToOutput = async (language: string) => {
+  const addLanguageToOutput = async (language?: string) => {
     if (bundledLanguages.has(language)) {
       return
     }
-    if (prismLanguages[language] == null) {
+    if (language == null || prismLanguages[language] == null) {
       return
     }
     bundledLanguages.add(language)

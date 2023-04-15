@@ -2,7 +2,7 @@
   "name": "generate-prism-languages",
   "private": true,
   "scripts": {
-    "start": "ts-node ./index.ts"
+    "generate": "ts-node ./index.ts"
   },
   "peerDependencies": {
     "react": ">=16.0.0"
@@ -17,9 +17,7 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.5.0",
     "typescript": "*",
-    "uglify-js": "^3.17.4"
-  },
-  "dependencies": {
+    "uglify-js": "^3.17.4",
     "lodash.flowright": "^3.5.0"
   }
 }
