@@ -21,7 +21,7 @@
   "globals": {
     "page": true
   },
-  "ignorePatterns": [""],
+  "ignorePatterns": ["prism-langs.ts", "**/dist/**/*", "**/build/**/*", "**/node_modules/**/*", "**/public/**/*", "**/.docusaurus/**/*"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 12,
@@ -49,5 +49,5 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "@typescript-eslint/no-var-requires": 0
-  }
+  },
 }

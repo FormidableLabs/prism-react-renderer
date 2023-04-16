@@ -10,15 +10,13 @@
   "repository": "https://github.com/FormidableLabs/prism-react-renderer",
   "files": [
     "index.d.ts",
-    "dist",
-    "prism",
-    "themes"
+    "dist"
   ],
   "scripts": {
-    "prebuild": "patch-package",
-    "build": "tsup",
-    "build:watch": "tsup --watch",
+    "build": "patch-package && tsup",
+    "build:watch": "patch-package && tsup --watch",
     "test": "vitest",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "format": "prettier --write 'src/**/*.js'"
   },

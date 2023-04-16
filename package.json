@@ -1,19 +1,16 @@
 {
   "name": "prism-react-renderer-monorepo",
-  "description": "Renders highlighted Prism output using React",
   "sideEffects": false,
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
-  "types": "index.d.ts",
-  "license": "MIT",
+  "private": true,
   "repository": "https://github.com/FormidableLabs/prism-react-renderer",
   "scripts": {
-    "postinstall": "pnpm run --filter generate-prism-languages generate",
-    "build": "pnpm run --filter prism-react-renderer build",
-    "build:watch": "pnpm run --filter prism-react-renderer build:watch"
-  },
-  "peerDependencies": {
-    "react": ">=0.14.9"
+    "lint": "eslint packages",
+    "test": "pnpm run -r test",
+    "typecheck": "pnpm run -r typecheck",
+    "check:ci": "pnpm run typecheck && pnpm run lint && pnpm run test",
+    "start:demo": "pnpm --filter demo dev",
+    "build": "pnpm --sequential --filter generate-prism-languages --filter prism-react-renderer --filter demo build",
+    "build:watch": "pnpm --filter generate-prism-languages build && pnpm --filter prism-react-renderer build:watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
