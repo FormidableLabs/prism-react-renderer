@@ -1,5 +1,7 @@
 import { render, cleanup } from "@testing-library/react"
-import { Highlight } from "../highlight"
+import { Highlight } from "../../index"
+import { expect } from "vitest"
+
 const exampleCode = `
 (function someDemo() {
   var test = "Hello World!";
@@ -21,7 +23,6 @@ describe("<Highlight />", () => {
                   key={i}
                   {...getLineProps({
                     line,
-                    key: i,
                   })}
                 >
                   {line.map((token, key) => (
@@ -74,9 +75,9 @@ describe("<Highlight />", () => {
       )
       expect(container).toMatchSnapshot()
     })
-    it("renders without style props when no theme is passed", () => {
+    it("renders a default theme when no theme is passed", () => {
       const { container } = render(
-        <Highlight theme={undefined} code={exampleCode} language="jsx">
+        <Highlight code={exampleCode} language="jsx">
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={className} style={style}>
               {tokens.map((line, i) => (
@@ -100,7 +101,7 @@ describe("<Highlight />", () => {
           )}
         </Highlight>
       )
-      expect(container.innerHTML.includes("style")).toBeFalsy()
+      expect(container.innerHTML.includes("style")).toBeTruthy()
     })
   })
   describe("getLineProps", () => {
@@ -125,7 +126,6 @@ describe("<Highlight />", () => {
             expect(output).toEqual({
               style: {
                 cursor: "pointer",
-                backgroundColor: null,
                 color: expect.any(String),
               },
               className: "token-line line-class",
@@ -145,8 +145,8 @@ describe("<Highlight />", () => {
         },
         className: "token-class",
         token: {
-          types: ["punctuation"],
-          content: "!",
+          types: ["keyword"],
+          content: "function",
         },
         restPropsTest: true,
       }
@@ -155,14 +155,13 @@ describe("<Highlight />", () => {
           {({ getTokenProps }) => {
             const output = getTokenProps(input)
             expect(output).toEqual({
-              key: "token-1",
               style: {
                 cursor: "pointer",
                 color: expect.any(String),
               },
-              className: "token punctuation token-class",
+              className: "token keyword token-class",
               restPropsTest: true,
-              children: "!",
+              children: "function",
             })
             return <div></div>
           }}
@@ -178,7 +177,6 @@ describe("<Highlight />", () => {
             const token = line[2]
             const output = getTokenProps({
               token,
-              key: 2,
             })
             expect(typeof output.style).not.toBe("function")
             return <div></div>

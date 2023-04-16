@@ -32,7 +32,7 @@ describe("themeToDict", () => {
       },
       plain: {
         color: "red",
-        backgroundColor: null,
+        backgroundColor: undefined,
       },
       1: {
         color: "green",
@@ -44,7 +44,7 @@ describe("themeToDict", () => {
         color: "blue",
       },
     }
-    expect(themeToDict(input)).toEqual(expected)
+    expect(themeToDict(input, "js")).toEqual(expected)
     // Check order in which keys were added to implicitly test merge strategy
     expect(Object.keys(themeToDict(input, "js"))).toEqual(Object.keys(expected))
   })

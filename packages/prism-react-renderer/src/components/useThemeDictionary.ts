@@ -2,8 +2,10 @@ import { Language, PrismTheme } from "../types"
 import { useEffect, useRef, useState } from "react"
 import themeToDict, { ThemeDict } from "../utils/themeToDict"
 
-export const useThemeDictionary = (language: Language, theme?: PrismTheme) => {
-  const [themeDictionary, setThemeDictionary] = useState<ThemeDict>()
+export const useThemeDictionary = (language: Language, theme: PrismTheme) => {
+  const [themeDictionary, setThemeDictionary] = useState<ThemeDict>(
+    themeToDict(theme, language)
+  )
   const previousTheme = useRef<PrismTheme>()
   const previousLanguage = useRef<Language>()
 
@@ -14,9 +16,7 @@ export const useThemeDictionary = (language: Language, theme?: PrismTheme) => {
     ) {
       previousTheme.current = theme
       previousLanguage.current = language
-      setThemeDictionary(
-        theme != null ? themeToDict(theme, language) : undefined
-      )
+      setThemeDictionary(themeToDict(theme, language))
     }
   }, [language, theme])
 

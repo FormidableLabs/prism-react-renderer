@@ -1,12 +1,17 @@
-import Prism from "prismjs"
-import { Highlight } from "./components/highlight"
-import "./prism-langs"
+import { Prism } from "./prism-langs"
 import * as themes from "./themes"
+import { createElement } from "react"
+import { Highlight as InternalHighlight } from "./components/highlight"
+import { HighlightProps, PrismLib } from "./types"
 
-const defaultProps = {
-  Prism,
-  theme: themes.vsDark,
-}
-
-export { defaultProps, Prism, themes }
-export default Highlight
+/**
+ * Prism React Renderer requires this specific instance
+ * of Prism provided to ensure the languages are correctly loaded
+ */
+const Highlight = (props: HighlightProps) =>
+  createElement(InternalHighlight, {
+    prism: Prism as PrismLib,
+    theme: themes.vsDark,
+    ...props,
+  })
+export { Highlight, Prism, themes }

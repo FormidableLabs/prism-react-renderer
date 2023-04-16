@@ -59,6 +59,13 @@ export type TokenOutputProps = {
   children: string
   [key: string]: unknown
 }
+export type InternalHighlightProps = {
+  prism: PrismLib
+  theme: PrismTheme
+  language: Language
+  code: string
+  children: (props: RenderProps) => JSX.Element
+}
 export type HighlightProps = {
   prism?: PrismLib
   theme?: PrismTheme

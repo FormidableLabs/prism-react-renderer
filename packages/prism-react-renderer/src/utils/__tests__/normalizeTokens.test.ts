@@ -1,4 +1,5 @@
 import normalizeTokens from "../normalizeTokens"
+import { Token } from "prismjs"
 describe("normalizeTokens", () => {
   it("handles plain strings", () => {
     const input = ["hello", "world"]
@@ -26,7 +27,7 @@ describe("normalizeTokens", () => {
         type: "test2",
         content: "world",
       },
-    ]
+    ] as Token[]
     const output = normalizeTokens(input)
     expect(output).toEqual([
       [
@@ -60,7 +61,7 @@ describe("normalizeTokens", () => {
         type: "test2",
         content: "world",
       },
-    ]
+    ] as Token[]
     const output = normalizeTokens(input)
     expect(output).toEqual([
       [
@@ -96,7 +97,7 @@ describe("normalizeTokens", () => {
         content: "world",
       },
       "!",
-    ]
+    ] as Token[]
     const output = normalizeTokens(input)
     expect(output).toEqual([
       [
@@ -135,7 +136,7 @@ describe("normalizeTokens", () => {
           },
         ],
       },
-    ]
+    ] as Token[]
     const output = normalizeTokens(input)
     expect(output).toEqual([
       [
@@ -178,7 +179,7 @@ describe("normalizeTokens", () => {
         type: "test2",
         content: "wor\nld",
       },
-    ]
+    ] as Token[]
     const output = normalizeTokens(input)
     expect(output).toEqual([
       [
@@ -218,7 +219,7 @@ describe("normalizeTokens", () => {
         type: "test2",
         content: "wor\nld",
       },
-    ]
+    ] as Token[]
     const output = normalizeTokens(input)
     expect(output).toEqual([
       [
@@ -262,7 +263,7 @@ describe("normalizeTokens", () => {
         ],
       },
       "world\n!",
-    ]
+    ] as Token[]
     const output = normalizeTokens(input)
     expect(output).toEqual([
       [
@@ -315,7 +316,7 @@ describe("normalizeTokens", () => {
           },
         ],
       },
-    ]
+    ] as Token[]
     const output = normalizeTokens(input)
     expect(output).toEqual([
       [

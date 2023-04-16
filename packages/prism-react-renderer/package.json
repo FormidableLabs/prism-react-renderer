@@ -18,7 +18,7 @@
     "prebuild": "patch-package",
     "build": "tsup",
     "build:watch": "tsup --watch",
-    "test": "jest",
+    "test": "vitest",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "format": "prettier --write 'src/**/*.js'"
   },
@@ -34,9 +34,12 @@
     "@rollup/plugin-node-resolve": "^11.2.0",
     "@rollup/plugin-typescript": "^11.1.0",
     "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
     "@types/prismjs": "^1.26.0",
+    "@vitejs/plugin-react": "^3.1.0",
     "babel-plugin-codegen": "^4.1.5",
+    "happy-dom": "^9.7.1",
     "prismjs": "*",
     "react": "*",
     "react-dom": "*",
@@ -44,7 +47,9 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.5.0",
     "tsup": "^6.7.0",
-    "typescript": "*"
+    "typescript": "*",
+    "vite": "^4.2.0",
+    "vitest": "^0.30.1"
   },
   "dependencies": {
     "clsx": "^1.2.1"

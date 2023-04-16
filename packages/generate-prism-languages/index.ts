@@ -12,6 +12,8 @@ export const languagesToBundle = <const>[
   "swift",
   "kotlin",
   "objectivec",
+  "js-extras",
+  "reason",
   "rust",
   "graphql",
   "yaml",
@@ -25,7 +27,7 @@ export const languagesToBundle = <const>[
  * that starts off assuming Prism lives in global scope. We also need to provide Prism as that
  * gets passed into an iffe preventing us from needing to use global scope.
  */
-const header = `// eslint-disable-next-line @typescript-eslint/ban-ts-comment\n// @ts-nocheck\nimport Prism from "prismjs"\n`
+const header = `// eslint-disable-next-line @typescript-eslint/ban-ts-comment\n// @ts-nocheck\nimport Prism from "prismjs";\nexport { Prism };`
 const prismPath = dirname(require.resolve("prismjs"))
 
 const readLanguageFile = async (language: string): Promise<string> => {

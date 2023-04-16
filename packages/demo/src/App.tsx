@@ -1,4 +1,4 @@
-import Highlight, { themes } from "prism-react-renderer"
+import { Highlight, themes } from "prism-react-renderer"
 import styles from "./app.module.css"
 import clsx from "clsx"
 import { ProjectBadge } from "formidable-oss-badges"

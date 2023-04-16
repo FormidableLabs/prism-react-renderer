@@ -5,10 +5,10 @@ import clsx from "clsx"
 
 export const useGetLineProps = (themeDictionary?: ThemeDict) =>
   useCallback(
-    ({ className, style, ...rest }: LineInputProps) => {
+    ({ className, style, line, ...rest }: LineInputProps) => {
       const output: LineOutputProps = {
         ...rest,
-        className: clsx("tokenLine", className),
+        className: clsx("token-line", className),
       }
 
       if (themeDictionary != null) output.style = themeDictionary.plain
