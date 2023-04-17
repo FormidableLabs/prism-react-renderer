@@ -1,6 +1,5 @@
 import type { Token } from "../types"
-import type { Token as PrismToken } from "prismjs"
-import { TokenStream } from "prismjs"
+import type { Token as PrismToken, TokenStream } from "prismjs"
 
 const newlineRe = /\r\n|\r|\n/
 
