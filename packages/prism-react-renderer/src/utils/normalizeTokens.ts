@@ -1,5 +1,6 @@
 import type { Token } from "../types"
 import type { Token as PrismToken } from "prismjs"
+import { TokenStream } from "prismjs"
 
 const newlineRe = /\r\n|\r|\n/
 
@@ -33,7 +34,7 @@ const appendTypes = (types: string[], add: string[] | string): string[] => {
 // are always of type "plain".
 // This is not recursive to avoid exceeding the call-stack limit, since it's unclear
 // how nested Prism's tokens can become
-const normalizeTokens = (tokens: Array<PrismToken | string>): Token[][] => {
+const normalizeTokens = (tokens: (PrismToken | string)[]): Token[][] => {
   const typeArrStack: string[][] = [[]]
   const tokenArrStack = [tokens]
   const tokenArrIndexStack = [0]
@@ -47,7 +48,7 @@ const normalizeTokens = (tokens: Array<PrismToken | string>): Token[][] => {
     while (
       (i = tokenArrIndexStack[stackIndex]++) < tokenArrSizeStack[stackIndex]
     ) {
-      let content: any
+      let content: TokenStream
       let types = typeArrStack[stackIndex]
       const tokenArr = tokenArrStack[stackIndex]
       const token = tokenArr[i]
@@ -70,7 +71,7 @@ const normalizeTokens = (tokens: Array<PrismToken | string>): Token[][] => {
       if (typeof content !== "string") {
         stackIndex++
         typeArrStack.push(types)
-        tokenArrStack.push(content)
+        tokenArrStack.push(content as PrismToken[])
         tokenArrIndexStack.push(0)
         tokenArrSizeStack.push(content.length)
         continue
