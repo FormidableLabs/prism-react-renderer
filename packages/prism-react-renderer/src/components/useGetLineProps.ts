@@ -11,8 +11,8 @@ export const useGetLineProps = (themeDictionary?: ThemeDict) =>
         className: clsx("token-line", className),
       }
 
-      if (themeDictionary != null) output.style = themeDictionary.plain
-      if (style != null) output.style = { ...(output.style || {}), ...style }
+      if (themeDictionary) output.style = themeDictionary.plain
+      if (style) output.style = { ...(output.style || {}), ...style }
 
       return output
     },
