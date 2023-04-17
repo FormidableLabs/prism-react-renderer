@@ -1,6 +1,7 @@
 import { render, cleanup } from "@testing-library/react"
-import Highlight from "../Highlight"
-import defaultProps from "../../defaultProps"
+import { Highlight } from "../../index"
+import { expect } from "vitest"
+
 const exampleCode = `
 (function someDemo() {
   var test = "Hello World!";
@@ -14,7 +15,7 @@ describe("<Highlight />", () => {
   describe("snapshots", () => {
     it("renders correctly", () => {
       const { container } = render(
-        <Highlight {...defaultProps} code={exampleCode} language="jsx">
+        <Highlight code={exampleCode} language="jsx">
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={className} style={style}>
               {tokens.map((line, i) => (
@@ -22,7 +23,6 @@ describe("<Highlight />", () => {
                   key={i}
                   {...getLineProps({
                     line,
-                    key: i,
                   })}
                 >
                   {line.map((token, key) => (
@@ -44,7 +44,6 @@ describe("<Highlight />", () => {
     it("renders unsupported languages correctly", () => {
       const { container } = render(
         <Highlight
-          {...defaultProps}
           code={exampleCode}
           // This is an intentional error to test invalid languages
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -76,14 +75,9 @@ describe("<Highlight />", () => {
       )
       expect(container).toMatchSnapshot()
     })
-    it("renders without style props when no theme is passed", () => {
+    it("renders a default theme when no theme is passed", () => {
       const { container } = render(
-        <Highlight
-          {...defaultProps}
-          theme={undefined}
-          code={exampleCode}
-          language="jsx"
-        >
+        <Highlight code={exampleCode} language="jsx">
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={className} style={style}>
               {tokens.map((line, i) => (
@@ -107,7 +101,7 @@ describe("<Highlight />", () => {
           )}
         </Highlight>
       )
-      expect(container.innerHTML.includes("style")).toBeFalsy()
+      expect(container.innerHTML.includes("style")).toBeTruthy()
     })
   })
   describe("getLineProps", () => {
@@ -126,13 +120,12 @@ describe("<Highlight />", () => {
         restPropsTest: true,
       }
       render(
-        <Highlight {...defaultProps} code={exampleCode} language="jsx">
+        <Highlight code={exampleCode} language="jsx">
           {({ getLineProps }) => {
             const output = getLineProps(input)
             expect(output).toEqual({
               style: {
                 cursor: "pointer",
-                backgroundColor: null,
                 color: expect.any(String),
               },
               className: "token-line line-class",
@@ -152,24 +145,23 @@ describe("<Highlight />", () => {
         },
         className: "token-class",
         token: {
-          types: ["punctuation"],
-          content: "!",
+          types: ["keyword"],
+          content: "function",
         },
         restPropsTest: true,
       }
       render(
-        <Highlight {...defaultProps} code={exampleCode} language="jsx">
+        <Highlight code={exampleCode} language="jsx">
           {({ getTokenProps }) => {
             const output = getTokenProps(input)
             expect(output).toEqual({
-              key: "token-1",
               style: {
                 cursor: "pointer",
                 color: expect.any(String),
               },
-              className: "token punctuation token-class",
+              className: "token keyword token-class",
               restPropsTest: true,
-              children: "!",
+              children: "function",
             })
             return <div></div>
           }}
@@ -179,13 +171,12 @@ describe("<Highlight />", () => {
     it("transforms constructor token style correctly", () => {
       // From https://github.com/FormidableLabs/prism-react-renderer/issues/11
       render(
-        <Highlight {...defaultProps} code={"open Common;"} language="reason">
+        <Highlight code={"open Common;"} language="reason">
           {({ tokens, getTokenProps }) => {
             const line = tokens[0]
             const token = line[2]
             const output = getTokenProps({
               token,
-              key: 2,
             })
             expect(typeof output.style).not.toBe("function")
             return <div></div>

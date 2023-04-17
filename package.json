@@ -1,19 +1,16 @@
 {
   "name": "prism-react-renderer-monorepo",
-  "description": "Renders highlighted Prism output using React",
   "sideEffects": false,
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
-  "types": "index.d.ts",
-  "license": "MIT",
+  "private": true,
   "repository": "https://github.com/FormidableLabs/prism-react-renderer",
   "scripts": {
-    "postinstall": "pnpm run --filter generate-prism-languages generate",
-    "build": "pnpm run --filter prism-react-renderer build",
-    "build:watch": "pnpm run --filter prism-react-renderer build:watch"
-  },
-  "peerDependencies": {
-    "react": ">=0.14.9"
+    "lint": "eslint packages",
+    "test": "pnpm run -r test",
+    "typecheck": "pnpm run -r typecheck",
+    "check:ci": "pnpm run typecheck && pnpm run lint && pnpm run test",
+    "start:demo": "pnpm --filter demo dev",
+    "build": "pnpm --sequential --filter generate-prism-languages --filter prism-react-renderer --filter demo build",
+    "build:watch": "pnpm --filter generate-prism-languages build && pnpm --filter prism-react-renderer build:watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
@@ -25,7 +22,6 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.16.0",
     "@testing-library/react": "^11.2.5",
-    "@types/jest": "^29.5.0",
     "@types/react": "^18.0.35",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
@@ -40,7 +36,6 @@
     "codegen.macro": "^4.1.0",
     "globby": "^11.0.2",
     "prismjs": "1.26.0",
-    "jest": "^26.6.3",
     "patch-package": "^6.4.7",
     "prettier": "^2.8.7",
     "react": "^18.2.0",

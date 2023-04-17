@@ -2,7 +2,8 @@
   "name": "generate-prism-languages",
   "private": true,
   "scripts": {
-    "generate": "ts-node ./index.ts"
+    "build": "ts-node ./index.ts",
+    "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "react": ">=16.0.0"

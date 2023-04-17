@@ -21,7 +21,7 @@
   "globals": {
     "page": true
   },
-  "ignorePatterns": [""],
+  "ignorePatterns": ["prism-langs.ts", "**/dist/**/*", "**/build/**/*", "**/node_modules/**/*", "**/public/**/*", "**/.docusaurus/**/*"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 12,
@@ -44,10 +44,10 @@
     "react/prop-types": 0,
     "react/sort-prop-types": 0,
     "react/no-string-refs": 0,
+    "@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true }],
     "react/no-did-update-set-state": 0,
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
-    "@typescript-eslint/no-unused-vars": ["error"],
     "@typescript-eslint/no-var-requires": 0
-  }
+  },
 }
