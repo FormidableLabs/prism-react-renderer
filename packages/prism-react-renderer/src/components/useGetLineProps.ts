@@ -11,8 +11,11 @@ export const useGetLineProps = (themeDictionary?: ThemeDict) =>
         className: clsx("token-line", className),
       }
 
-      if (themeDictionary) output.style = themeDictionary.plain
-      if (style) output.style = { ...(output.style || {}), ...style }
+      if (typeof themeDictionary === "object" && "plain" in themeDictionary)
+        output.style = themeDictionary.plain
+
+      if (typeof style === "object")
+        output.style = { ...(output.style || {}), ...style }
 
       return output
     },
