@@ -10,6 +10,7 @@
     "check:ci": "pnpm run typecheck && pnpm run lint && pnpm run test",
     "start:demo": "pnpm --filter demo dev",
     "build": "pnpm --sequential --filter generate-prism-languages --filter prism-react-renderer --filter demo build",
+    "build:languages": "pnpm --filter generate-prism-languages build",
     "build:watch": "pnpm --filter generate-prism-languages build && pnpm --filter prism-react-renderer build:watch"
   },
   "devDependencies": {

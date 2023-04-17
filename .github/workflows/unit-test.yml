@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Generate language definitions
+        run: pnpm run build:languages
+
       - name: Unit Test
         run: pnpm run test
 
