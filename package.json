@@ -9,10 +9,15 @@
     "typecheck": "pnpm run -r typecheck",
     "check:ci": "pnpm run typecheck && pnpm run lint && pnpm run test",
     "start:demo": "pnpm --filter demo dev",
-    "build": "pnpm --sequential --filter generate-prism-languages --filter prism-react-renderer --filter demo build",
-    "build:watch": "pnpm --filter generate-prism-languages build && pnpm --filter prism-react-renderer build:watch"
+    "build": "pnpm --sequential --filter generate-prism-languages --filter prism-react-renderer build",
+    "build:languages": "pnpm --filter generate-prism-languages build",
+    "build:watch": "pnpm --filter generate-prism-languages build && pnpm --filter prism-react-renderer build:watch",
+    "changeset": "changeset",
+    "version": "pnpm changeset version && pnpm install"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.0",
+    "@svitejs/changesets-changelog-github-compact": "^1.1.0",
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.21.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
