@@ -68,141 +68,60 @@ should be installed as one of your project's `dependencies`:
 npm install --save prism-react-renderer
 # yarn
 yarn add prism-react-renderer
+# pnpm
+pnpm add prism-react-renderer
 ```
 
-> This package also depends on `react`. Please make sure you
-> have those installed as well.
+> Prism React Renderer has a peer dependency on `react`
 
-## Usage
+### How to use Prism React Renderer
+Prism React Renderer has a named export for the `<Highlight />` component along with `themes`. To see Prism React Render in action with base styling check out `packages/demo` or run `pnpm run start:demo` from the root of this repository.
 
-> [Try it out in the browser](https://codesandbox.io/s/prism-react-renderer-example-u6vhk)
+```tsx
+import React from "react"
+import ReactDOM from "react-dom/client"
+import { Highlight, themes } from "prism-react-renderer"
+import styles from 'styles.module.css'
 
-<img src="./.readme/basic.png" width="237" alt="Screenshot showing highlighted code block" />
+const codeBlock = `
+const GroceryItem: React.FC<GroceryItemProps> = ({ item }) => {
+  return (
+    <div>
+      <h2>{item.name}</h2>
+      <p>Price: {item.price}</p>
+      <p>Quantity: {item.quantity}</p>
+    </div>
+  );
+}
+`
 
-```jsx
-import React from "react";
-import { render } from "react-dom";
-// import { createRoot } from "react-dom/client";
-import Highlight, { defaultProps } from "prism-react-renderer";
-
-const exampleCode = `
-(function someDemo() {
-  var test = "Hello World!";
-  console.log(test);
-})();
-
-return () => <App />;
-`;
-
-const Content = (
-  <Highlight {...defaultProps} code={exampleCode} language="jsx">
+export const App = () => (
+  <Highlight
+    theme={themes.shadesOfPurple}
+    code={codeBlock}
+    language="tsx"
+  >
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
-      <pre className={className} style={style}>
+      <pre style={style}>
         {tokens.map((line, i) => (
-          <div {...getLineProps({ line, key: i })}>
+          <div key={i} {...getLineProps({ line })}>
+            <span>{i + 1}</span>
             {line.map((token, key) => (
-              <span {...getTokenProps({ token, key })} />
+              <span key={key} {...getTokenProps({ token })} />
             ))}
           </div>
         ))}
       </pre>
     )}
   </Highlight>
-);
-render(Content, document.getElementById('root'));
+)
 
-// If you are using React 18
-// const root = createRoot(document.getElementById('root'));
-// root.render(Content);
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
+        .render(<App />)
+
 ```
 
-`<Highlight />` is the only component exposed by this package, as inspired by
-[downshift](https://github.com/paypal/downshift).
 
-It also exports a `defaultProps` object which for basic usage can simply be spread
-onto the `<Highlight />` component. It also provides some default theming.
-
-It doesn't render anything itself, it just calls the render function and renders that.
-["Use a render prop!"](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce)!
-`<Highlight>{highlight => <pre>/* your JSX here! */</pre>}</Highlight>`
-
-### Line Numbers
-
-Add line numbers to your highlighted code blocks using the `index` parameter in your `line.map` function:
-
-<img src="./.readme/line-numbers.png" width="453" alt="Screenshot showing line numbers in highlighted code block" />
-
-For example, if you were using `styled-components`, it could look like the following demo.
-
-> [Demo with `styled-components`](https://codesandbox.io/s/prism-react-renderer-example-u6vhk?file=/src/WithLineNumbers.js)
-
-```js
-import React from "react";
-import styled from "styled-components";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/nightOwl";
-
-const exampleCode = `
-import React, { useState } from "react";
-
-function Example() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}
-`.trim();
-
-const Pre = styled.pre`
-  text-align: left;
-  margin: 1em 0;
-  padding: 0.5em;
-  overflow: scroll;
-`;
-
-const Line = styled.div`
-  display: table-row;
-`;
-
-const LineNo = styled.span`
-  display: table-cell;
-  text-align: right;
-  padding-right: 1em;
-  user-select: none;
-  opacity: 0.5;
-`;
-
-const LineContent = styled.span`
-  display: table-cell;
-`;
-
-const WithLineNumbers = () => (
-  <Highlight {...defaultProps} theme={theme} code={exampleCode} language="jsx">
-    {({ className, style, tokens, getLineProps, getTokenProps }) => (
-      <Pre className={className} style={style}>
-        {tokens.map((line, i) => (
-          <Line key={i} {...getLineProps({ line, key: i })}>
-            <LineNo>{i + 1}</LineNo>
-            <LineContent>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} />
-              ))}
-            </LineContent>
-          </Line>
-        ))}
-      </Pre>
-    )}
-  </Highlight>
-);
-
-export default WithLineNumbers;
-```
 
 ## Basic Props
 
@@ -235,19 +154,17 @@ This is the code that will be highlighted.
 
 ### theme
 
-> `PrismTheme` | _required; default is provided in `defaultProps` export_
+> `PrismTheme` | _optional; default is vsDark_
 
 If a theme is passed, it is used to generate style props which can be retrieved
 via the prop-getters which are described in "[Children Function](#children-function)".
 
-A default theme is provided by the `defaultProps` object.
-
 Read more about how to theme `prism-react-renderer` in
 the section "[Theming](#theming)".
 
-### Prism
+### prism
 
-> `PrismLib` | _required; default is provided in `defaultProps` export_
+> `prism` | _optional; default is the vendored version_
 
 This is the [Prismjs](https://github.com/PrismJS/prism) library itself.
 A vendored version of Prism is provided (and also exported) as part of this library.
@@ -263,7 +180,7 @@ But if you choose to use your own Prism setup, simply pass Prism as a prop:
 // Whichever way you're retrieving Prism here:
 import Prism from 'prismjs/components/prism-core';
 
-<Highlight Prism={Prism} {/* ... */} />
+<Highlight prism={prism} {/* ... */} />
 ```
 
 ## Children Function
@@ -349,15 +266,15 @@ your old Prism CSS-file themes.
 ## Theming
 
 The `defaultProps` you'd typically apply in a basic use-case, contain a default theme.
-This theme is [duotoneDark](./src/themes/duotoneDark.js).
+This theme is [vsDark](./packages/prism-react-renderer/src/themes/vsDark.ts).
 
 While all `className`s are provided with `<Highlight />`, so that you could use your good
 old Prism CSS-file themes, you can also choose to use `prism-react-renderer`'s themes like so:
 
 ```jsx
-import dracula from 'prism-react-renderer/themes/dracula';
+import { Highlight, themes } from 'prism-react-renderer';
 
-<Highlight theme={dracula} {/* ... */} />
+<Highlight theme={themes.dracula} {/* ... */} />
 ```
 
 These themes are JSON-based and are heavily inspired by VSCode's theme format.

@@ -13,8 +13,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "patch-package && tsup",
-    "build:watch": "patch-package && tsup --watch",
+    "build": "tsup",
+    "build:watch": "tsup --watch",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
