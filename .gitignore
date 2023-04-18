@@ -1,9 +1,8 @@
 node_modules
-/dist
-/themes
-/prism/*.js
-
+dist
 .DS_Store
 .vscode
 sandbox/node_modules
 *.log
+prism-langs.ts
+.idea
