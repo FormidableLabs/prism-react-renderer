@@ -1,5 +1,5 @@
 import { Prism } from "./prism-langs"
-import * as themes from "./themes"
+import * as themes from "./themes/index"
 import { createElement } from "react"
 import { Highlight as InternalHighlight } from "./components/highlight"
 import { HighlightProps, PrismLib } from "./types"
