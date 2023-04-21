@@ -54,7 +54,6 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
     - [`getLineProps`](#getlineprops)
     - [`getTokenProps`](#gettokenprops)
 - [Theming](#theming)
-- [FAQ](#faq)
 - [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
