@@ -128,7 +128,7 @@ By default `prism-react-renderer` only includes a [base set of languages](https:
 ```js
 import { Highlight, Prism } from "prism-react-renderer";
 
-typeof window !== "undefined" && (window.Prism = Prism)
+(typeof global !== "undefined" ? global : window).Prism = Prism
 await import("prismjs/components/prism-applescript")
 /** or **/
 require("prismjs/components/prism-applescript")

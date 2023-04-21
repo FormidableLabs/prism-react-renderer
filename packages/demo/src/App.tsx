@@ -6,7 +6,7 @@ import { useState } from "react"
 import { sampleCode } from "./sample-code"
 
 // Example of importing a custom language directly from Prism
-typeof window !== "undefined" && (window.Prism = Prism)
+;(typeof global !== "undefined" ? global : window).Prism = Prism
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 await import("prismjs/components/prism-applescript")
