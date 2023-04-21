@@ -40,6 +40,7 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Custom Language Support](#custom-language-support)
 - [Basic Props](#basic-props)
   - [children](#children)
   - [language](#language)
@@ -74,7 +75,7 @@ pnpm add prism-react-renderer
 
 > Prism React Renderer has a peer dependency on `react`
 
-### How to use Prism React Renderer
+### Usage
 Prism React Renderer has a named export for the `<Highlight />` component along with `themes`. To see Prism React Render in action with base styling check out `packages/demo` or run `pnpm run start:demo` from the root of this repository.
 
 ```tsx
@@ -121,6 +122,18 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 
 ```
 
+### Custom Language Support
+
+By default `prism-react-renderer` only includes a [base set of languages](https://github.com/FormidableLabs/prism-react-renderer/blob/c914fdea48625ba59c8022174bb3df1ed802ce4d/packages/generate-prism-languages/index.ts#L9-L23) that Prism supports. **Depending on your app's build system you may need to `await` the `import` or use `require` to ensure `window.Prism` exists before importing the custom languages.** You can add support for more by including their definitions from the main `prismjs` package:
+
+```js
+import { Highlight, Prism } from "prism-react-renderer";
+
+typeof window !== "undefined" && (window.Prism = Prism)
+await import("prismjs/components/prism-applescript")
+/** or **/
+require("prismjs/components/prism-applescript")
+```
 
 
 ## Basic Props
@@ -305,77 +318,6 @@ property limits styles to highlighted languages.
 
 When converting a Prism CSS theme it's mostly just necessary to use classes as
 `types` and convert the declarations to object-style-syntax and put them on `style`.
-
-## FAQ
-
-<details>
-
-<summary>How do I add more language highlighting support?</summary>
-
-By default `prism-react-renderer` only includes an [arbitrary subset of the languages](https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/vendor/prism/includeLangs.js) that Prism supports. You can add support for more by including their definitions from the main `prismjs` package:
-
-```js
-import Prism from "prism-react-renderer/prism";
-
-(typeof global !== "undefined" ? global : window).Prism = Prism;
-
-require("prismjs/components/prism-kotlin");
-require("prismjs/components/prism-csharp");
-```
-</details>
-
-<details>
-
-<summary>How do I use my old Prism css themes?</summary>
-
-`prism-react-renderer` still returns you all proper `className`s via the prop getters,
-when you use it. By default however it uses its new theming system, which output a
-couple of `style` props as well.
-
-If you don't pass `theme` to the `<Highlight />` component it will default to not
-outputting any `style` props, while still returning you the `className` props, like
-so:
-
-```js
-<Highlight
-  {...defaultProps}
-  code={exampleCode}
-  language="jsx"
-  theme={undefined}
->
-  {highlight => null /* ... */}
-</Highlight>
-```
-
-</details>
-
-<details>
-
-<summary>How do I prevent a theme and the vendored Prism to be bundled?</summary>
-
-Since the default theme and the vendored Prism library in `prism-react-renderer`
-come from `defaultProps`, if you wish to pass your own Prism library in, and not
-use the built-in theming, you simply need to leave it out to allow your bundler
-to tree-shake those:
-
-```js
-import Highlight from "prism-react-renderer";
-import Prism from "prismjs"; // Different source
-
-<Highlight Prism={Prism} code={exampleCode} language="jsx">
-  {highlight => null /* ... */}
-</Highlight>;
-```
-
-You can also import the vendored Prism library on its own:
-
-```js
-import { Prism } from "prism-react-renderer";
-// or
-import Prism from "prism-react-renderer/prism";
-```
-
-</details>
 
 ## LICENSE
 

@@ -6,11 +6,12 @@ import { useTokenize } from "./useTokenize"
 
 export const Highlight = ({
   children,
-  language,
+  language: _language,
   code,
   theme,
   prism,
 }: InternalHighlightProps) => {
+  const language = _language.toLowerCase()
   const themeDictionary = useThemeDictionary(language, theme)
   const getLineProps = useGetLineProps(themeDictionary)
   const getTokenProps = useGetTokenProps(themeDictionary)

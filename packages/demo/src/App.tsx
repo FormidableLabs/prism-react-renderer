@@ -1,9 +1,13 @@
-import { Highlight, themes } from "prism-react-renderer"
+import { Highlight, /* Prism, */ themes } from "prism-react-renderer"
 import styles from "./app.module.css"
 import clsx from "clsx"
 import { ProjectBadge } from "formidable-oss-badges"
 import { useState } from "react"
 import { sampleCode } from "./sample-code"
+
+// Example of importing a custom language directly from Prism
+// typeof window !== "undefined" && (window.Prism = Prism)
+// await import("prismjs/components/prism-applescript")
 
 type SampleCodeType = keyof typeof sampleCode
 type ThemeType = keyof typeof themes
