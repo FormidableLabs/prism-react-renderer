@@ -20,6 +20,7 @@ export const languagesToBundle = <const>[
   "go",
   "cpp",
   "markdown",
+  "html",
 ]
 
 /**

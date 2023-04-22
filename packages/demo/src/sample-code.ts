@@ -80,6 +80,34 @@ const GroceryItem = new Proxy({}, {
     `,
   },
 
+  ["HTML"]: {
+    language: "html",
+    code: `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formidable</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+    `,
+  },
+
+  ["AppleScript"]: {
+    language: "applescript",
+    code: `
+display alert "Do you wish to buy groceries?" buttons {"No", "Yes"}
+set theAnswer to button returned of the result
+if theAnswer is "Yes" then
+  beep 5
+end if
+    `,
+  },
+
   ["Rust"]: {
     language: "rust",
     code: `
