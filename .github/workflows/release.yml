@@ -1,4 +1,4 @@
-name: groqd Release Workflow
+name: Prism React Renderer Release Workflow
 
 on:
   push:
