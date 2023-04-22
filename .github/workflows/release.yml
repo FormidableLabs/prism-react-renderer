@@ -3,7 +3,7 @@ name: groqd Release Workflow
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   release:
