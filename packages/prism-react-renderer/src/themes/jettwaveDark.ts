@@ -1,4 +1,4 @@
-// light version of code viewer styles built for https://jettwave.com
+// dark version of code viewer styles built for https://jettwave.com
 // only uses colors found in default tailwindCSS => https://tailwindcss.com/docs/customizing-colors
 // designed by: https://github.com/ryanmogk
 import type { PrismTheme } from "../types"
