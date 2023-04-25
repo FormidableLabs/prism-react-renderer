@@ -51,5 +51,8 @@
   "dependencies": {
     "@types/prismjs": "^1.26.0",
     "clsx": "^1.2.1"
+  },
+  "publishConfig": {
+    "provenance": true
   }
 }
