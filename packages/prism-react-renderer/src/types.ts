@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react"
-import { Token as PrismToken } from "prismjs"
+import type { Token as PrismToken } from "prismjs"
 
 export type Language = string
 export type PrismGrammar = Record<string, unknown>

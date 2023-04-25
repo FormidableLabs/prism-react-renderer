@@ -34,7 +34,6 @@
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
-    "@types/prismjs": "^1.26.0",
     "@vitejs/plugin-react": "^3.1.0",
     "babel-plugin-codegen": "^4.1.5",
     "happy-dom": "^9.7.1",
@@ -50,6 +49,7 @@
     "vitest": "^0.30.1"
   },
   "dependencies": {
+    "@types/prismjs": "^1.26.0",
     "clsx": "^1.2.1"
   }
 }
