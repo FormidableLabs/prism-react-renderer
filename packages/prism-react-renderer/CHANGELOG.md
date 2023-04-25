@@ -1,5 +1,12 @@
 # prism-react-renderer
 
+## 2.0.1
+
+### Patch Changes
+
+- Fix inclusion of @types dependency for prismjs
+  ([#196](https://github.com/FormidableLabs/prism-react-renderer/pull/196))
+
 ## 2.0.0
 
 ### Major Changes
