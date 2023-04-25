@@ -1,5 +1,12 @@
 # prism-react-renderer
 
+## 2.0.2
+
+### Patch Changes
+
+- Add publish provenance
+  ([#198](https://github.com/FormidableLabs/prism-react-renderer/pull/198))
+
 ## 2.0.1
 
 ### Patch Changes
