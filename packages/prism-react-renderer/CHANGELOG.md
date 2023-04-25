@@ -1,5 +1,12 @@
 # prism-react-renderer
 
+## 2.0.3
+
+### Patch Changes
+
+- Add package README
+  ([#200](https://github.com/FormidableLabs/prism-react-renderer/pull/200))
+
 ## 2.0.2
 
 ### Patch Changes
