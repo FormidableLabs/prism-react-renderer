@@ -42,7 +42,7 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
 - [Installation](#installation)
 - [Usage](#usage)
 - [Custom Language Support](#custom-language-support)
-  - [Next.js](#next.js)
+  - [Next.js](#nextjs)
 - [Basic Props](#basic-props)
   - [children](#children)
   - [language](#language)
