@@ -1,25 +1,10 @@
 import type { CSSProperties } from "react"
-import type { Token as PrismToken } from "prismjs"
+import type { Token as PrismToken, Grammar } from "prismjs"
+import Prism from "prismjs"
 
 export type Language = string
-export type PrismGrammar = Record<string, unknown>
-type LanguagesDict = Record<Language, PrismGrammar>
-
-export type PrismLib = {
-  languages: LanguagesDict
-  tokenize: (code: string, grammar: PrismGrammar) => Array<PrismToken | string>
-  highlight: (code: string, grammar: PrismGrammar, language: Language) => string
-  hooks: {
-    run: (
-      name: string,
-      env: {
-        code: string
-        grammar: PrismGrammar
-        language: Language
-      }
-    ) => void
-  }
-}
+export type PrismGrammar = Grammar
+export type PrismLib = typeof Prism
 
 export type Token = {
   types: string[]
