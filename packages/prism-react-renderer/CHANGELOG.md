@@ -1,5 +1,12 @@
 # prism-react-renderer
 
+## 2.0.4
+
+### Patch Changes
+
+- Fix types for Prism library.
+  ([#204](https://github.com/FormidableLabs/prism-react-renderer/pull/204))
+
 ## 2.0.3
 
 ### Patch Changes
