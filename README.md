@@ -23,7 +23,7 @@ This library tokenises code using Prism and provides a small render-props-driven
 component to quickly render it out into React. This is why it even works with
 React Native! It's bundled with a modified version of Prism that won't pollute
 the global namespace and comes with
-[a couple of common language syntaxes](./src/vendor/prism/includeLangs.js).
+[a couple of common language syntaxes](./packages/generate-prism-languages/index.ts#L9-L23.
 
 _(There's also an [escape-hatch](https://github.com/FormidableLabs/prism-react-renderer#prism) to use your own Prism setup, just in case)_
 
@@ -38,16 +38,17 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Installation](#installation)
-- [Usage](#usage)
-- [Custom Language Support](#custom-language-support)
+  - [Usage](#usage)
+  - [Custom Language Support](#custom-language-support)
 - [Basic Props](#basic-props)
   - [children](#children)
   - [language](#language)
   - [code](#code)
 - [Advanced Props](#advanced-props)
   - [theme](#theme)
-  - [Prism](#prism)
+  - [prism](#prism)
 - [Children Function](#children-function)
   - [state](#state)
   - [prop getters](#prop-getters)
@@ -55,6 +56,7 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
     - [`getTokenProps`](#gettokenprops)
 - [Theming](#theming)
 - [LICENSE](#license)
+- [Maintenance Status](#maintenance-status)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -154,7 +156,7 @@ the section "[Children Function](#children-function)".
 > `string` | _required_
 
 This is the language that your code will be highlighted as. You can see a list
-of all languages that are supported out of the box [here](./src/vendor/prism/includeLangs.js). Not all languages are included and the list of languages that are currently is a little arbitrary. You can use the [escape-hatch](https://github.com/FormidableLabs/prism-react-renderer#prism) to use your own Prism setup, just in case, or [add more languages to the bundled Prism.](https://github.com/FormidableLabs/prism-react-renderer#faq)
+of all languages that are supported out of the box [here](./packages/generate-prism-languages/index.ts#L9-L23). Not all languages are included and the list of languages that are currently is a little arbitrary. You can use the [escape-hatch](https://github.com/FormidableLabs/prism-react-renderer#prism) to use your own Prism setup, just in case, or [add more languages to the bundled Prism.](https://github.com/FormidableLabs/prism-react-renderer#faq)
 
 ### code
 
