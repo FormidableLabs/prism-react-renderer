@@ -1,5 +1,12 @@
 # prism-react-renderer
 
+## 2.0.5
+
+### Patch Changes
+
+- Fixed bug where an undefined theme would cause a runtime error.
+  ([#213](https://github.com/FormidableLabs/prism-react-renderer/pull/213))
+
 ## 2.0.4
 
 ### Patch Changes
