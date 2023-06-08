@@ -10,8 +10,10 @@ import { HighlightProps, PrismLib } from "./types"
  */
 const Highlight = (props: HighlightProps) =>
   createElement(InternalHighlight, {
-    prism: Prism as PrismLib,
-    theme: themes.vsDark,
     ...props,
+    prism: props.prism || (Prism as PrismLib),
+    theme: props.theme || themes.vsDark,
+    code: props.code,
+    language: props.language,
   })
 export { Highlight, Prism, themes }
