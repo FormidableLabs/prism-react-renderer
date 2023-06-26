@@ -3,6 +3,7 @@ import * as themes from "./themes"
 import { createElement } from "react"
 import { Highlight as InternalHighlight } from "./components/highlight"
 import { HighlightProps, PrismLib } from "./types"
+export * from "./types"
 
 /**
  * Prism React Renderer requires this specific instance
