@@ -1,5 +1,12 @@
 # prism-react-renderer
 
+## 2.0.6
+
+### Patch Changes
+
+- Export all types from package
+  ([#216](https://github.com/FormidableLabs/prism-react-renderer/pull/216))
+
 ## 2.0.5
 
 ### Patch Changes
