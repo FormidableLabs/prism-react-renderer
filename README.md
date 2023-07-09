@@ -194,7 +194,7 @@ But if you choose to use your own Prism setup, simply pass Prism as a prop:
 // Whichever way you're retrieving Prism here:
 import Prism from 'prismjs/components/prism-core';
 
-<Highlight prism={prism} {/* ... */} />
+<Highlight prism={Prism} {/* ... */} />
 ```
 
 ## Children Function
