@@ -1,5 +1,12 @@
 # prism-react-renderer
 
+## 2.1.0
+
+### Minor Changes
+
+- Added oneDark and oneLight themes
+  ([#224](https://github.com/FormidableLabs/prism-react-renderer/pull/224))
+
 ## 2.0.6
 
 ### Patch Changes
