@@ -13,70 +13,64 @@ const theme: PrismTheme = {
   },
   styles: [
     {
-      types: [
-        "comment",
-        "prolog",
-        "doctype",
-        "cdata",
-        "punctuation",
-      ],
+      types: ["comment", "prolog", "cdata"],
       style: {
         color: "hsl(220, 10%, 40%)",
       },
     },
     {
-      types: ["namespace"],
-      style: {
-        opacity: 0.7,
-      },
-    },
-    {
-      types: ["tag", "operator", "number"],
+      types: ["doctype", "punctuation", "entity"],
       style: {
         color: "hsl(220, 14%, 71%)",
       },
     },
     {
-      types: ["property", "function"],
-      style: {
-        color: "hsl(29, 54%, 61%)",
-      },
+      types: [
+        "attr-name",
+        "class-name",
+        "maybe-class-name",
+        "boolean",
+        "constant",
+        "number",
+        "atrule",
+      ],
+      style: { color: "hsl(29, 54%, 61%)" },
     },
     {
-      types: ["tag-id", "selector", "atrule-id"],
+      types: ["keyword"],
+      style: { color: "hsl(286, 60%, 67%)" },
+    },
+    {
+      types: ["property", "tag", "symbol", "deleted", "important"],
+      style: {
+        color: "hsl(355, 65%, 65%)",
+      },
+    },
+
+    {
+      types: [
+        "selector",
+        "string",
+        "char",
+        "builtin",
+        "inserted",
+        "regex",
+        "attr-value",
+      ],
       style: {
         color: "hsl(95, 38%, 62%)",
       },
     },
     {
-      types: ["attr-name"],
-      style: {
-        color: "hsl(187, 47%, 55%)",
-      },
-    },
-    {
-      types: [
-        "boolean",
-        "string",
-        "entity",
-        "url",
-        "attr-value",
-        "keyword",
-        "control",
-        "directive",
-        "unit",
-        "statement",
-        "regex",
-        "atrule",
-      ],
-      style: {
-        color: "hsl(220, 14%, 71%)",
-      },
-    },
-    {
-      types: ["placeholder", "variable"],
+      types: ["variable", "operator", "function"],
       style: {
         color: "hsl(207, 82%, 66%)",
+      },
+    },
+    {
+      types: ["url"],
+      style: {
+        color: "hsl(187, 47%, 55%)",
       },
     },
     {
@@ -110,6 +104,6 @@ const theme: PrismTheme = {
       },
     },
   ],
-};
+}
 
-export default theme;
+export default theme

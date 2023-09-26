@@ -17,7 +17,7 @@ type ThemeType = keyof typeof themes
 function App() {
   const [activeSampleCodeType, setActiveSampleCodeType] =
     useState<SampleCodeType>("TypeScript with React")
-  const [activeThemeName, setActiveThemeName] = useState<ThemeType>("nightOwl")
+  const [activeThemeName, setActiveThemeName] = useState<ThemeType>("oneDark")
 
   const activeSampleCode = sampleCode[activeSampleCodeType]
   const activeTheme = themes[activeThemeName]
