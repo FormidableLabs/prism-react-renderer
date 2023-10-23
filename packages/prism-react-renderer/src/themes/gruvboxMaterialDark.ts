@@ -25,25 +25,25 @@ const theme: PrismTheme = {
     {
       types: ["property-access"],
       style: {
-        color: "#7daea3", // blue
+        color: "#7daea3",
       },
     },
     {
       types: ["tag"],
       style: {
-        color: "#e78a4e", // orange
+        color: "#e78a4e",
       },
     },
     {
       types: ["attr-name", "char", "url", "regex"],
       style: {
-        color: "#a9b665", // green
+        color: "#a9b665",
       },
     },
     {
       types: ["attr-value", "string"],
       style: {
-        color: "#89b482", // aqua
+        color: "#89b482",
       },
     },
     {
@@ -65,13 +65,13 @@ const theme: PrismTheme = {
         "deleted",
       ],
       style: {
-        color: "#ea6962", // red
+        color: "#ea6962",
       },
     },
     {
       types: ["entity", "number", "symbol"],
       style: {
-        color: "#d3869b", // purple
+        color: "#d3869b",
       },
     },
   ],
