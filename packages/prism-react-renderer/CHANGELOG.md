@@ -1,5 +1,17 @@
 # prism-react-renderer
 
+## 2.2.0
+
+### Minor Changes
+
+- Add Python support.
+  ([#226](https://github.com/FormidableLabs/prism-react-renderer/pull/226))
+
+### Patch Changes
+
+- Fix html language preset by using markup instead.
+  ([#230](https://github.com/FormidableLabs/prism-react-renderer/pull/230))
+
 ## 2.1.0
 
 ### Minor Changes
