@@ -7,6 +7,7 @@ import { languages as prismLanguages } from "prismjs/components"
 import uglify from "uglify-js"
 
 export const languagesToBundle = <const>[
+  "markup",
   "jsx",
   "tsx",
   "swift",
@@ -20,7 +21,6 @@ export const languagesToBundle = <const>[
   "go",
   "cpp",
   "markdown",
-  "html",
   "python",
 ]
 

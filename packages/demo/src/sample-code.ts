@@ -56,16 +56,16 @@ const GroceryItem = new Proxy({}, {
 @property (nonatomic, assign) float price;
 @property (nonatomic, assign) NSInteger quantity;
 
-- (instancetype) initWithName: (NSString *)name 
-                        price: (float)price 
+- (instancetype) initWithName: (NSString *)name
+                        price: (float)price
                      quantity: (NSInteger)quantity;
 
 @end
 
 @implementation GroceryItem
 
-- (instancetype) initWithName: (NSString *)name 
-                        price: (float)price 
+- (instancetype) initWithName: (NSString *)name
+                        price: (float)price
                      quantity: (NSInteger)quantity {
     self = [super init];
     if (self) {
@@ -88,6 +88,10 @@ const GroceryItem = new Proxy({}, {
   <head>
     <meta charset="UTF-8" />
     <title>Formidable</title>
+    <script>
+      const name = "Formidable";
+      console.log(name);
+    </script>
   </head>
   <body>
     <div id="root"></div>
