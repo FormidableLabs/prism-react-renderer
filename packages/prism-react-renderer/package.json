@@ -1,6 +1,6 @@
 {
   "name": "prism-react-renderer",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Renders highlighted Prism output using React",
   "sideEffects": true,
   "main": "dist/index.js",
