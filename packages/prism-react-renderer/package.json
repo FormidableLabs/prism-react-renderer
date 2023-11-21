@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@types/prismjs": "^1.26.0",
-    "clsx": "^1.2.1"
+    "clsx": "^2.0.0"
   },
   "publishConfig": {
     "provenance": true
