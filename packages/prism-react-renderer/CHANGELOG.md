@@ -1,5 +1,12 @@
 # prism-react-renderer
 
+## 2.3.0
+
+### Minor Changes
+
+- Upgrade clsx to v2.0.0.
+  ([#232](https://github.com/FormidableLabs/prism-react-renderer/pull/232))
+
 ## 2.2.0
 
 ### Minor Changes
