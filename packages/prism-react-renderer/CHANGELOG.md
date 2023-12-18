@@ -1,5 +1,12 @@
 # prism-react-renderer
 
+## 2.3.1
+
+### Patch Changes
+
+- Export `normalizeTokens` and `useTokenize` utility functions.
+  ([#237](https://github.com/FormidableLabs/prism-react-renderer/pull/237))
+
 ## 2.3.0
 
 ### Minor Changes
