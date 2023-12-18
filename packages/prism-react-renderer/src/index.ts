@@ -3,6 +3,8 @@ import * as themes from "./themes"
 import { createElement } from "react"
 import { Highlight as InternalHighlight } from "./components/highlight"
 import { HighlightProps, PrismLib } from "./types"
+import normalizeTokens from "./utils/normalizeTokens"
+import { useTokenize } from "./components/useTokenize"
 export * from "./types"
 
 /**
@@ -17,4 +19,5 @@ const Highlight = (props: HighlightProps) =>
     code: props.code,
     language: props.language,
   })
-export { Highlight, Prism, themes }
+
+export { Highlight, Prism, themes, normalizeTokens, useTokenize }

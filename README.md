@@ -54,6 +54,9 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
   - [prop getters](#prop-getters)
     - [`getLineProps`](#getlineprops)
     - [`getTokenProps`](#gettokenprops)
+- [Utility Functions](#utility-functions)
+  - [`normalizeTokens`](#normalizetokens)
+  - [`useTokenize`](#usetokenize)
 - [Theming](#theming)
 - [LICENSE](#license)
 - [Maintenance Status](#maintenance-status)
@@ -276,6 +279,43 @@ to the input.
 
 The `className` will always contain `.token`. This also provides full compatibility with
 your old Prism CSS-file themes.
+
+## Utility Functions
+
+### `useTokenize`
+
+> `(options: TokenizeOptions) => Token[][]`
+
+```ts
+type TokenizeOptions = {
+  prism: PrismLib
+  code: string
+  grammar?: PrismGrammar
+  language: Language
+}
+
+```
+
+This is a React hook that tokenizes code using Prism. It returns an array of tokens that can be rendered using the built-in `<Highlight />` component or your own custom component. It uses `normalizeTokens` internally to convert the tokens into a shape that can be rendered.
+
+- `prism: PrismLib`: the Prism library to use for tokenization. This can be the vendored version of Prism that is included with `prism-react-renderer` or a custom version of Prism that you have configured.
+
+- `code: string`: a string containing the code to tokenize.
+- `grammar?: PrismGrammar`: a Prism grammar object to use for tokenization. If this is omitted, the tokens will just be normalized. A grammar can be obtained from `Prism.languages` or by importing a language from `prismjs/components/`.
+- `language: Language`: the language to use for tokenization. This should be a language that Prism supports.
+
+### `normalizeTokens`
+
+> `(tokens: (PrismToken | string)[]) => Token[][]`
+
+Takes an array of Prism’s tokens and groups them by line, converting strings into tokens. Tokens can become recursive in some cases which means that their types are concatenated. Plain-string tokens however are always of type `plain`.
+
+- `PrismToken` is an internal alias for `Token` exported by `prismjs` and is defined [here](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/prismjs/index.d.ts#L347).
+
+- `Token` is an internal object that represents a slice of tokenized content for Prism with three properties:
+  - `types: string[]`: an array of types that indicate the purpose and styling of a piece of text
+  - `content: string`: the content of the token
+  - `empty: boolean`: a flag indicating whether the token is empty or not.
 
 ## Theming
 
