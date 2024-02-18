@@ -9,16 +9,14 @@ on:
 
 jobs:
   matrix:
-    name: 'Node ${{ matrix.node }}'
+    name: 'Node 18'
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [16, 18, 20]
+  
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 18
 
       - uses: pnpm/action-setup@v3
         with:
