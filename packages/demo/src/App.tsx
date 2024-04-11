@@ -26,9 +26,9 @@ function App() {
     <div className={styles.wrapper}>
       <div className={styles.headerBar}>
         <img
-          className={styles.formidableLogo}
-          src="formidable-wordmark.svg"
-          alt="Formidable"
+          className={styles.brandLogo}
+          src="nearform-logo-white.svg"
+          alt="Nearform"
         />
         <ProjectBadge
           className={styles.ossBadge}

@@ -1,23 +1,26 @@
-<a href="https://formidable.com/open-source/" target="_blank">
-  <img alt="Prism React Renderer — Formidable, We build the modern web" src="https://raw.githubusercontent.com/FormidableLabs/prism-react-renderer/master/prism-react-renderer-Hero.png" />
+<a href="https://commerce.nearform.com/open-source/" target="_blank">
+  <img alt="Prism React Renderer" src="https://oss.nearform.com/api/banner.svg?text=prism+react+renderer" />
 </a>
 
 <p align="center" style="font-size: 1.2rem;">
-  A lean <a href="https://github.com/PrismJS/prism">Prism</a> highlighter component for React<br>
-  Comes with everything to render Prismjs highlighted code directly to React (Native) elements, global-pollution-free!
+  A lean <a href="https://github.com/PrismJS/prism">Prism</a> highlighter component for React
 </p>
 
-[![Maintenance Status][maintenance-image]](#maintenance-status)
-## Why?
+<p align="center">
+  <a href="https://npmjs.com/package/prism-react-renderer"><img src="https://img.shields.io/npm/dm/prism-react-renderer.svg"></a>
+  <a href="https://npmjs.com/package/prism-react-renderer"><img src="https://img.shields.io/npm/v/prism-react-renderer.svg"></a>
+  <a href="https://github.com/FormidableLabs/prism-react-renderer#maintenance-status">
+    <img alt="Maintenance Status" src="https://img.shields.io/badge/maintenance-active-green.svg" />
+  </a>
+</p>
 
-Maybe you need to render some extra UI with your Prismjs-highlighted code,
-or maybe you'd like to manipulate what Prism renders completely,
-or maybe you're just using Prism with React and are searching for an easier,
-global-pollution-free way?
+<p align="center">
+  Comes with everything to render Prismjs syntax highlighted code directly in React & React Native!
+</p>
 
-Then you're right where you want to be!
+## Introduction
 
-## How?
+Prism React Renderer powers syntax highlighting in the amazing [Docusaurus](https://docusaurus.io/) framework and many others.
 
 This library tokenises code using Prism and provides a small render-props-driven
 component to quickly render it out into React. This is why it even works with
@@ -58,6 +61,7 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
   - [`normalizeTokens`](#normalizetokens)
   - [`useTokenize`](#usetokenize)
 - [Theming](#theming)
+- [Upgrading from v1 to v2](#upgrade)
 - [LICENSE](#license)
 - [Maintenance Status](#maintenance-status)
 
@@ -121,14 +125,18 @@ export const App = () => (
   </Highlight>
 )
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
-        .render(<App />)
-
+ReactDOM
+  .createRoot(document.getElementById("root") as HTMLElement)
+  .render(<App />)
 ```
 
 ### Custom Language Support
 
-By default `prism-react-renderer` only includes a [base set of languages](https://github.com/FormidableLabs/prism-react-renderer/blob/c914fdea48625ba59c8022174bb3df1ed802ce4d/packages/generate-prism-languages/index.ts#L9-L23) that Prism supports. **Depending on your app's build system you may need to `await` the `import` or use `require` to ensure `window.Prism` exists before importing the custom languages.** You can add support for more by including their definitions from the main `prismjs` package:
+By default `prism-react-renderer` only includes a [base set of languages](https://github.com/FormidableLabs/prism-react-renderer/blob/c914fdea48625ba59c8022174bb3df1ed802ce4d/packages/generate-prism-languages/index.ts#L9-L23) that Prism supports. 
+
+> _Note_: Some languages (such as Javascript) are part of the bundle of other languages
+
+**Depending on your app's build system you may need to `await` the `import` or use `require` to ensure `window.Prism` exists before importing the custom languages.** You can add support for more by including their definitions from the main `prismjs` package:
 
 ```js
 import { Highlight, Prism } from "prism-react-renderer";
@@ -360,13 +368,64 @@ property limits styles to highlighted languages.
 When converting a Prism CSS theme it's mostly just necessary to use classes as
 `types` and convert the declarations to object-style-syntax and put them on `style`.
 
+## Upgrade
+
+If you are migrating from v1.x to v2.x, follow these steps
+
+### Change module imports
+
+```diff
+- import Highlight, { defaultProps } from "prism-react-renderer";
++ import { Highlight } from "prism-react-renderer"
+
+const Content = (
+-  <Highlight {...defaultProps} code={exampleCode} language="jsx">
++  <Highlight code={exampleCode} language="jsx">
+```
+
+### Change theme imports
+
+```diff
+- const theme = require('prism-react-renderer/themes/github')
++ const theme = require('prism-react-renderer').themes.github
+```
+
+### Check language support
+
+> By default prism-react-renderer only includes a base set of languages that Prism supports. Depending on your app's build system you may need to await the import or use require to ensure window.Prism exists before importing the custom languages.
+
+See: https://github.com/FormidableLabs/prism-react-renderer#custom-language-support
+
+Install prismjs (if not available yet):
+
+```
+# npm
+npm install --save prismjs
+# yarn
+yarn add prismjs
+# pnpm
+pnpm add prismjs
+```
+
+### Add language component
+
+If the language is not already bundled in the above, you can add additional languages with the following code:
+
+```
+import { Highlight, Prism } from "prism-react-renderer";
+
+(typeof global !== "undefined" ? global : window).Prism = Prism
+await import("prismjs/components/prism-applescript")
+/** or **/
+require("prismjs/components/prism-applescript")
+```
+
 ## LICENSE
 
 MIT
 
 ## Maintenance Status
 
-**Active:** Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome.
+**Active:** Nearform is actively working on this project, and we expect to continue work for the foreseeable future. Bug reports, feature requests and pull requests are welcome.
 
 [maintenance-image]: https://img.shields.io/badge/maintenance-active-green.svg
-

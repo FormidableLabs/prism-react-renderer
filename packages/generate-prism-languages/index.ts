@@ -90,7 +90,7 @@ const main = async () => {
   }
 
   console.info(
-    pc.bold(pc.bgYellow(pc.black("Formidable Prism React Renderer"))),
+    pc.bold(pc.bgYellow(pc.black("Prism React Renderer"))),
     "\n"
   )
   console.info(
