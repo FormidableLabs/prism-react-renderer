@@ -5,7 +5,8 @@ on:
     branches:
       - master
   pull_request:
-  workflow_dispatch:
+    branches:
+      - master
 
 jobs:
   static-analysis:
@@ -14,29 +15,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 8.2.0
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: ${{ runner.os }}-pnpm-store-
-      - name: Install dependencies
-        run: pnpm install
+      - uses: ./.github/actions/setup
 
       - name: Build library
         run: pnpm run build
+
       - name: Type Check
         run: pnpm run typecheck
+
       - name: Lint
         run: pnpm run lint
+
+      - name: Generate language definitions
+        run: pnpm run build:languages
+
+      - name: Unit Test
+        run: pnpm run test

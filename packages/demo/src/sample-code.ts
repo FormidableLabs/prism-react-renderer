@@ -87,9 +87,9 @@ const GroceryItem = new Proxy({}, {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Formidable</title>
+    <title>Nearform</title>
     <script>
-      const name = "Formidable";
+      const name = "Nearform";
       console.log(name);
     </script>
   </head>

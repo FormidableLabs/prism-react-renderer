@@ -89,10 +89,7 @@ const main = async () => {
     await addLanguageToOutput(language)
   }
 
-  console.info(
-    pc.bold(pc.bgYellow(pc.black("Formidable Prism React Renderer"))),
-    "\n"
-  )
+  console.info(pc.bold(pc.bgYellow(pc.black("Prism React Renderer"))), "\n")
   console.info(
     pc.bgBlue(`Generated TypeScript output at:`),
     pc.cyan(outputPath)
