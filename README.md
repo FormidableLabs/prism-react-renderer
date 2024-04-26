@@ -264,7 +264,7 @@ advisable.
 #### `getLineProps`
 
 You need to add a `line` property (type: `Token[]`) to the object you're passing to
-`getLineProps`; It's also advisable to add a `key`.
+`getLineProps`.
 
 This getter will return you props to spread onto your line elements (typically `<div>s`).
 
@@ -277,7 +277,7 @@ The `className` will always contain `.token-line`.
 #### `getTokenProps`
 
 You need to add a `token` property (type: `Token`) to the object you're passing to
-`getTokenProps`; It's also advisable to add a `key`.
+`getTokenProps`.
 
 This getter will return you props to spread onto your token elements (typically `<span>s`).
 
