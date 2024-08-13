@@ -206,4 +206,31 @@ impl GroceryItem {
 }
     `,
   },
+  ["JSON"]: {
+    language: "json",
+    code: `
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "address": {
+        "street": "123 Main St",
+        "city": "San Diego",
+        "state": "CA",
+        "zip": "12345"
+      },
+      "phoneNumbers": [
+        {
+          "type": "home",
+          "number": "555-123-4567"
+        },
+        {
+          "type": "work",
+          "number": "555-901-2345"
+        }
+      ],
+      "interests": ["reading", "hiking", "coding"]
+    }
+    `,
+  },
 }

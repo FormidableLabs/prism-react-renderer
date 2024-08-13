@@ -22,6 +22,7 @@ export const languagesToBundle = <const>[
   "cpp",
   "markdown",
   "python",
+  "json"
 ]
 
 /**
