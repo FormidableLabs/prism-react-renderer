@@ -1,5 +1,12 @@
 # prism-react-renderer
 
+## 2.4.0
+
+### Minor Changes
+
+- 'Add JSON as default supported language'
+  ([#247](https://github.com/FormidableLabs/prism-react-renderer/pull/247))
+
 ## 2.3.1
 
 ### Patch Changes
