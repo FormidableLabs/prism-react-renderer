@@ -5,6 +5,9 @@ import { Highlight as InternalHighlight } from "./components/highlight"
 import { HighlightProps, PrismLib } from "./types"
 import normalizeTokens from "./utils/normalizeTokens"
 import { useTokenize } from "./components/useTokenize"
+import { useGetLineProps } from "./components/useGetLineProps"
+import { useGetTokenProps } from "./components/useGetTokenProps"
+import { useThemeDictionary } from "./components/useThemeDictionary"
 export * from "./types"
 
 /**
@@ -20,4 +23,13 @@ const Highlight = (props: HighlightProps) =>
     language: props.language,
   })
 
-export { Highlight, Prism, themes, normalizeTokens, useTokenize }
+export {
+  Highlight,
+  Prism,
+  themes,
+  normalizeTokens,
+  useTokenize,
+  useGetLineProps,
+  useGetTokenProps,
+  useThemeDictionary,
+}

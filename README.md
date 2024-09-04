@@ -60,6 +60,9 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
 - [Utility Functions](#utility-functions)
   - [`normalizeTokens`](#normalizetokens)
   - [`useTokenize`](#usetokenize)
+  - [`useGetLineProps`](#useGetLineProps)
+  - [`useGetTokenProps`](#useGetTokenProps)
+  - [`useThemeDictionary`](#useThemeDictionary)
 - [Theming](#theming)
 - [Upgrading from v1 to v2](#upgrade)
 - [LICENSE](#license)
@@ -324,6 +327,60 @@ Takes an array of Prism’s tokens and groups them by line, converting strings i
   - `types: string[]`: an array of types that indicate the purpose and styling of a piece of text
   - `content: string`: the content of the token
   - `empty: boolean`: a flag indicating whether the token is empty or not.
+
+### `useGetLineProps`
+
+> `themeDictionary?: ThemeDict`
+
+```ts
+type ThemeDict = {
+   [type: string]: React.CSSProperties;
+    root: StyleObj;
+    plain: StyleObj;
+}
+
+```
+Takes in an optional `ThemeDict` object which can have any number of string key value pairs where the type of value is `React.CSSProperties`.  It also has `root` and `plain` with type `StyleObj` which is an object with `CSSProperties`.
+
+`useGetLineProps` is a memoized hook that provides a way to compute the props for a line of code by considering the theme dictionary and any additional styles provided.
+
+### `useGetTokenProps`
+
+> `themeDictionary?: ThemeDict`
+
+```ts
+type ThemeDict = {
+   [type: string]: React.CSSProperties;
+    root: StyleObj;
+    plain: StyleObj;
+}
+
+```
+Takes in an optional `ThemeDict` object which can have any number of string key value pairs where the type of value is `React.CSSProperties`.  It also has `root` and `plain` with type `StyleObj` which is an object with `CSSProperties`.
+
+`useGetTokenProps` is a memoized hook that provides a way to compute the props for a token by using account the theme dictionary and any additional styles provided.
+
+### `useThemeDictionary`
+
+> `(language: Language, theme: PrismTheme)`
+
+```ts
+type Language = string
+type PrismTheme = {
+  plain: StyleObj
+  styles: Array<{
+    types: string[]
+    style: StyleObj
+    languages?: Language[]
+  }>
+}
+
+```
+Takes in two parameters 
+`language: Language`: the language to use for tokenization. This should be a language that Prism supports. `theme : PrismTheme` : themes are JSON-based and are heavily inspired by VSCode's theme format. More details are explained here "[Theming](#theming)"
+
+
+`useThemeDictionary` hook computes and caches a theme dictionary based on the language and theme props, and returns the theme dictionary as a state value.
 
 ## Theming
 
