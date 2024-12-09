@@ -1,5 +1,12 @@
 # prism-react-renderer
 
+## 2.4.1
+
+### Patch Changes
+
+- Remove client side hooks
+  ([#252](https://github.com/FormidableLabs/prism-react-renderer/pull/252))
+
 ## 2.4.0
 
 ### Minor Changes
