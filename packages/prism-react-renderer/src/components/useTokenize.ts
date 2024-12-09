@@ -1,6 +1,6 @@
 import { EnvConfig, Language, PrismGrammar, PrismLib } from "../types"
 import normalizeTokens from "../utils/normalizeTokens"
-import { useMemo, useRef } from "react"
+import { useMemo } from "react"
 
 type Options = {
   prism: PrismLib
@@ -10,7 +10,6 @@ type Options = {
 }
 
 export const useTokenize = ({ prism, code, grammar, language }: Options) => {
-  const prismRef = useRef(prism)
   return useMemo(() => {
     if (grammar == null) return normalizeTokens([code])
 
@@ -21,9 +20,15 @@ export const useTokenize = ({ prism, code, grammar, language }: Options) => {
       tokens: [],
     }
 
-    prismRef.current.hooks.run("before-tokenize", prismConfig)
-    prismConfig.tokens = prismRef.current.tokenize(code, grammar)
-    prismRef.current.hooks.run("after-tokenize", prismConfig)
+    prism.hooks.run("before-tokenize", prismConfig)
+    prismConfig.tokens = prism.tokenize(code, grammar)
+    prism.hooks.run("after-tokenize", prismConfig)
     return normalizeTokens(prismConfig.tokens)
-  }, [code, grammar, language])
+  }, [
+    code,
+    grammar,
+    language,
+    // prism is a stable import
+    prism,
+  ])
 }
