@@ -1,8 +1,8 @@
 import { InternalHighlightProps } from "../types"
-import { useThemeDictionary } from "./useThemeDictionary"
 import { useGetLineProps } from "./useGetLineProps"
 import { useGetTokenProps } from "./useGetTokenProps"
 import { useTokenize } from "./useTokenize"
+import themeToDict from "../utils/themeToDict"
 
 export const Highlight = ({
   children,
@@ -12,7 +12,7 @@ export const Highlight = ({
   prism,
 }: InternalHighlightProps) => {
   const language = _language.toLowerCase()
-  const themeDictionary = useThemeDictionary(language, theme)
+  const themeDictionary = themeToDict(theme, language)
   const getLineProps = useGetLineProps(themeDictionary)
   const getTokenProps = useGetTokenProps(themeDictionary)
   const grammar = prism.languages[language]
