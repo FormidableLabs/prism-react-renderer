@@ -39,8 +39,6 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
 ## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [Installation](#installation)
   - [Usage](#usage)
@@ -58,10 +56,18 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
     - [`getLineProps`](#getlineprops)
     - [`getTokenProps`](#gettokenprops)
 - [Utility Functions](#utility-functions)
-  - [`normalizeTokens`](#normalizetokens)
   - [`useTokenize`](#usetokenize)
+  - [`normalizeTokens`](#normalizetokens)
 - [Theming](#theming)
-- [Upgrading from v1 to v2](#upgrade)
+  - [Using a built-in theme](#using-a-built-in-theme)
+  - [Providing a CSS based theme](#providing-a-css-based-theme)
+- [Upgrade](#upgrade)
+  - [Change module imports](#change-module-imports)
+  - [Change theme imports](#change-theme-imports)
+  - [Check language support](#check-language-support)
+  - [Add language component](#add-language-component)
+- [Development](#development)
+  - [Local Demo](#local-demo)
 - [LICENSE](#license)
 - [Maintenance Status](#maintenance-status)
 
@@ -84,7 +90,8 @@ pnpm add prism-react-renderer
 > Prism React Renderer has a peer dependency on `react`
 
 ### Usage
-Prism React Renderer has a named export for the `<Highlight />` component along with `themes`. To see Prism React Render in action with base styling check out `packages/demo` or run `pnpm run start:demo` from the root of this repository.
+
+Prism React Renderer has a named export for the `<Highlight />` component along with `themes`. To see Prism React Render in action with base styling, clone the repo and follow the [steps for local development](#development).
 
 ```tsx
 import React from "react"
@@ -132,7 +139,7 @@ ReactDOM
 
 ### Custom Language Support
 
-By default `prism-react-renderer` only includes a [base set of languages](https://github.com/FormidableLabs/prism-react-renderer/blob/c914fdea48625ba59c8022174bb3df1ed802ce4d/packages/generate-prism-languages/index.ts#L9-L23) that Prism supports. 
+By default `prism-react-renderer` only includes a [base set of languages](https://github.com/FormidableLabs/prism-react-renderer/blob/master/packages/generate-prism-languages/index.ts#L9-L23) that Prism supports. 
 
 > _Note_: Some languages (such as Javascript) are part of the bundle of other languages
 
@@ -327,11 +334,10 @@ Takes an array of Prism’s tokens and groups them by line, converting strings i
 
 ## Theming
 
+### Using a built-in theme
+
 The `defaultProps` you'd typically apply in a basic use-case, contain a default theme.
 This theme is [vsDark](./packages/prism-react-renderer/src/themes/vsDark.ts).
-
-While all `className`s are provided with `<Highlight />`, so that you could use your good
-old Prism CSS-file themes, you can also choose to use `prism-react-renderer`'s themes like so:
 
 ```jsx
 import { Highlight, themes } from 'prism-react-renderer';
@@ -341,15 +347,13 @@ import { Highlight, themes } from 'prism-react-renderer';
 
 These themes are JSON-based and are heavily inspired by VSCode's theme format.
 
-Their syntax, expressed in Flow looks like the following:
-
-```js
-{
-  plain: StyleObj,
+```ts
+export type PrismTheme = {
+  plain: PrismThemeEntry
   styles: Array<{
-    types: string[],
-    languages?: string[],
-    style: StyleObj
+    types: string[]
+    style: PrismThemeEntry
+    languages?: Language[]
   }>
 }
 ```
@@ -367,6 +371,16 @@ property limits styles to highlighted languages.
 
 When converting a Prism CSS theme it's mostly just necessary to use classes as
 `types` and convert the declarations to object-style-syntax and put them on `style`.
+
+### Providing a CSS based theme
+
+In order to use a CSS based theme like the ones from [PrismJS](https://github.com/PrismJS/prism-themes), you need to disable the built in theme.
+
+```ts
+const emptyTheme = { plain: {}, styles: [] };
+
+<Highlight theme={emptyTheme} {/* ... */} />
+```
 
 ## Upgrade
 
@@ -418,6 +432,37 @@ import { Highlight, Prism } from "prism-react-renderer";
 await import("prismjs/components/prism-applescript")
 /** or **/
 require("prismjs/components/prism-applescript")
+```
+
+## Development
+
+Local development setup can be run with the following commands running Node 18.x. This project uses corepack to specify its package manager version and you should have it enabled locally using `corepack enable`.
+
+```
+$ pnpm install
+$ pnpm build
+$ pnpm test
+```
+
+### Local Demo
+
+To run the local demo, ensure you have first run `pnpm build`, then run `pnpm start:demo` and open the provided URL to the demo site in your terminal.
+
+```
+$ pnpm build
+$ pnpm start:demo
+```
+
+The workspace projects are linked, so changes can be hot reloaded during development by running multiple terminals
+
+```
+// terminal 1
+$ pnpm build:watch
+```
+
+```
+// terminal 2
+$ pnpm start:demo
 ```
 
 ## LICENSE

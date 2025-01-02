@@ -50,5 +50,6 @@
     "patchedDependencies": {
       "prismjs@1.29.0": "patches/prismjs@1.29.0.patch"
     }
-  }
+  },
+  "packageManager": "pnpm@8.2.0+sha512.7f6fda6e5e86c9cc4b815650b56036cc124a31772fd8bf3a1c6470278aa74b4da05732e0b457a00b6e6a58a16d52e9c263be06530c6ad80ef2180244c8eb8262"
 }
