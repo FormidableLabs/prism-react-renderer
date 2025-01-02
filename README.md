@@ -41,8 +41,9 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 
 - [Installation](#installation)
-  - [Usage](#usage)
-  - [Custom Language Support](#custom-language-support)
+- [Usage](#usage)
+- [Custom Language Support](#custom-language-support)
+  - [Next.js](#nextjs)
 - [Basic Props](#basic-props)
   - [children](#children)
   - [language](#language)
@@ -152,6 +153,64 @@ import { Highlight, Prism } from "prism-react-renderer";
 await import("prismjs/components/prism-applescript")
 /** or **/
 require("prismjs/components/prism-applescript")
+```
+#### Next.js
+
+To enable custom languages that can be loaded with client components use the following pattern
+
+```tsx
+'use client'
+
+import React, { use } from 'react'
+import { Highlight, themes } from 'prism-react-renderer'
+
+const ExtraLanguages = Promise.all([
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  import('prismjs/components/prism-python'),
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  import('prismjs/components/prism-julia'),
+])
+
+const CodeBlock({code, language}) {
+  use(ExtraLanguages)
+  
+  return <Highlight
+    code={code}
+    language={langauge}
+  >
+    {({
+          className,
+          style,
+          tokens,
+          getLineProps,
+          getTokenProps,
+        }): ReactElement => ()
+  // Your Codeblock code
+}
+```
+
+Wrap in a `Suspense` layer for best results
+
+```tsx
+import { Prism } from 'prism-react-renderer'
+import CodeBlock, { CodeBlockProps } from './codeblock'
+import { PropsWithChildren, Suspense } from 'react'
+
+;(typeof global !== 'undefined' ? global : window).Prism = Prism
+
+export default async function LoadWrapper(
+  props: PropsWithChildren<CodeBlockProps>
+) {
+  return (
+    <>
+       <Suspense fallback={<div>Loading languages</div>}>
+          <CodeBlock {...props} />
+       </Suspense>
+    </>
+  )
+}
 ```
 
 
