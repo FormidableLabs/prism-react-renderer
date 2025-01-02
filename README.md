@@ -429,6 +429,27 @@ $ pnpm build
 $ pnpm test
 ```
 
+### Local Demo
+
+To run the local demo, ensure you have first run `pnpm build`, then run `pnpm start:demo` and open the provided URL to the demo site in your terminal.
+
+```
+$ pnpm build
+$ pnpm start:demo
+```
+
+The workspace projects are linked, so changes can be hot reloaded during development by running multiple terminals
+
+```
+// terminal 1
+$ pnpm build:watch
+```
+
+```
+// terminal 2
+$ pnpm start:demo
+```
+
 ## LICENSE
 
 MIT
