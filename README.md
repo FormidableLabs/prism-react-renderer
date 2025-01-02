@@ -62,6 +62,7 @@ _(If you just want to use your Prism CSS-file themes, that's also no problem)_
   - [`useTokenize`](#usetokenize)
 - [Theming](#theming)
 - [Upgrading from v1 to v2](#upgrade)
+- [Local Development](#development)
 - [LICENSE](#license)
 - [Maintenance Status](#maintenance-status)
 
@@ -341,15 +342,13 @@ import { Highlight, themes } from 'prism-react-renderer';
 
 These themes are JSON-based and are heavily inspired by VSCode's theme format.
 
-Their syntax, expressed in Flow looks like the following:
-
-```js
-{
-  plain: StyleObj,
+```ts
+export type PrismTheme = {
+  plain: PrismThemeEntry
   styles: Array<{
-    types: string[],
-    languages?: string[],
-    style: StyleObj
+    types: string[]
+    style: PrismThemeEntry
+    languages?: Language[]
   }>
 }
 ```
@@ -418,6 +417,16 @@ import { Highlight, Prism } from "prism-react-renderer";
 await import("prismjs/components/prism-applescript")
 /** or **/
 require("prismjs/components/prism-applescript")
+```
+
+## Development
+
+Local development setup can be run with the following commands running Node 18.x. This project uses corepack to specify its package manager version and you should have it enabled locally using `corepack enable`.
+
+```
+$ pnpm install
+$ pnpm build
+$ pnpm test
 ```
 
 ## LICENSE
